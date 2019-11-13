@@ -155,6 +155,7 @@
         <rdfs:range rdf:resource="https://schema.org/Continent"/>
         <rdfs:comment xml:lang="fr">Lien entre un endroit et le continent ou il est localisé</rdfs:comment>
         <rdfs:label xml:lang="fr">Continent</rdfs:label>
+        <rdfs:seeAlso rdf:resource="s:containedInPlace"/>
     </owl:ObjectProperty>
     
 
@@ -175,6 +176,7 @@
         <rdfs:range rdf:resource="https://schema.org/Date"/>
         <rdfs:comment xml:lang="fr">Propriété d&apos;un film indiquant la date de l&apos;histoire et des événements du film</rdfs:comment>
         <rdfs:label xml:lang="fr">Date des événements du Film</rdfs:label>
+        <rdfs:seeAlso rdf:resource="s:contentReferenceTime"/>
     </owl:ObjectProperty>
     
 
@@ -206,6 +208,7 @@
         <rdfs:range rdf:resource="https://schema.org/Place"/>
         <rdfs:comment xml:lang="fr">Propriété d&apos;un film indiquant le lieu de l&apos;histoire et des événements du film</rdfs:comment>
         <rdfs:label xml:lang="fr">Lieu des événements du film</rdfs:label>
+        <rdfs:seeAlso rdf:resource="s:contentLocation"/>
     </owl:ObjectProperty>
     
 
@@ -229,6 +232,7 @@
         <rdfs:range rdf:resource="https://schema.org/State"/>
         <rdfs:comment xml:lang="fr">Lien entre un endroit et le pays ou il est localisé</rdfs:comment>
         <rdfs:label xml:lang="fr">Pays</rdfs:label>
+        <rdfs:seeAlso rdf:resource="s:containedInPlace"/>
     </owl:ObjectProperty>
     
 
@@ -273,6 +277,7 @@
         <rdfs:range rdf:resource="https://schema.org/City"/>
         <rdfs:comment xml:lang="fr">Lien entre un endroit et la ville ou il est localisé</rdfs:comment>
         <rdfs:label xml:lang="fr">Ville</rdfs:label>
+        <rdfs:seeAlso rdf:resource="s:containedInPlace"/>
     </owl:ObjectProperty>
     
 
