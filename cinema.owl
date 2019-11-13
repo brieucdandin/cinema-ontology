@@ -1,0 +1,748 @@
+@prefix : <http://exemple.org/entites#> .
+@prefix s: <https://schema.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prop: <http://exemple.org/proprietes#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://example.org/cinema.owl> .
+
+<http://example.org/cinema.owl> rdf:type owl:Ontology ;
+                                 rdfs:comment "Une ontologie encyclopédique décrivant le cinéma en français."@fr .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  https://schema.org/contentLocation
+s:contentLocation rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/contentReferenceTime
+s:contentReferenceTime rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/dateCreated
+s:dateCreated rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/datePublished
+s:datePublished rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/duration
+s:duration rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/familyName
+s:familyName rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/gender
+s:gender rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/givenName
+s:givenName rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/headline
+s:headline rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/location
+s:location rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/locationCreated
+s:locationCreated rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/name
+s:name rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/productionCompany
+s:productionCompany rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+###  http://www.w3.org/2001/XMLSchema#duration
+xsd:duration rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://exemple.org/proprietes#acteurDans
+prop:acteurDans rdf:type owl:ObjectProperty ;
+                rdfs:domain s:Person ;
+                rdfs:range s:Movie ;
+                rdfs:comment "Lien entre une personne et un film dans lequel il joue en tant qu'acteur"@fr ;
+                rdfs:label "Est Acteur Dans"@fr .
+
+
+###  http://exemple.org/proprietes#continent
+prop:continent rdf:type owl:ObjectProperty ;
+               rdfs:domain s:Place ;
+               rdfs:range s:Continent ;
+               rdfs:comment "Lien entre un endroit et le continent ou il est localisé"@fr ;
+               rdfs:label "Continent"@fr .
+
+
+###  http://exemple.org/proprietes#dateDebutTournage
+prop:dateDebutTournage rdf:type owl:ObjectProperty ;
+                       rdfs:domain s:Movie ;
+                       rdfs:range s:Date .
+
+
+###  http://exemple.org/proprietes#dateFilm
+prop:dateFilm rdf:type owl:ObjectProperty ;
+              rdfs:domain s:Movie ;
+              rdfs:range s:Date ;
+              rdfs:comment "Propriété d'un film indiquant la date de l'histoire et des événements du film"@fr ;
+              rdfs:label "Date des événements du Film"@fr .
+
+
+###  http://exemple.org/proprietes#dateFinTournage
+prop:dateFinTournage rdf:type owl:ObjectProperty ;
+                     rdfs:domain s:Movie ;
+                     rdfs:range s:Date .
+
+
+###  http://exemple.org/proprietes#genre
+prop:genre rdf:type owl:ObjectProperty ;
+           rdfs:domain s:Movie ;
+           rdfs:range :GenreFilm ;
+           rdfs:comment "Propriété entre un film et un de ses genres"@fr ;
+           rdfs:label "Genre du film"@fr .
+
+
+###  http://exemple.org/proprietes#lieuFilm
+prop:lieuFilm rdf:type owl:ObjectProperty ;
+              rdfs:domain s:Movie ;
+              rdfs:range s:Place ;
+              rdfs:comment "Propriété d'un film indiquant le lieu de l'histoire et des événements du film"@fr ;
+              rdfs:label "Lieu des événements du film"@fr .
+
+
+###  http://exemple.org/proprietes#lieuTournage
+prop:lieuTournage rdf:type owl:ObjectProperty ;
+                  rdfs:domain s:Movie ;
+                  rdfs:range s:Place ;
+                  rdfs:comment "Propriété entre un film et un de ses lieux de tournage"@fr ;
+                  rdfs:label "Lieu de Tournage"@fr .
+
+
+###  http://exemple.org/proprietes#pays
+prop:pays rdf:type owl:ObjectProperty ;
+          rdfs:domain s:Place ;
+          rdfs:range s:State ;
+          rdfs:comment "Lien entre un endroit et le pays ou il est localisé"@fr ;
+          rdfs:label "Pays"@fr .
+
+
+###  http://exemple.org/proprietes#producteurDans
+prop:producteurDans rdf:type owl:ObjectProperty ;
+                    rdfs:domain s:Person ;
+                    rdfs:range s:Movie ;
+                    rdfs:comment "Lien entre une personne et un film sur lequel il travaille en tant que producteur"@fr ;
+                    rdfs:label "Est producteur de"@fr .
+
+
+###  http://exemple.org/proprietes#realisateurDans
+prop:realisateurDans rdf:type owl:ObjectProperty ;
+                     rdfs:domain s:Person ;
+                     rdfs:range s:Movie ;
+                     rdfs:comment "Lien entre une personne et un film sur lequel il travaille en tant que réalisateur"@fr ;
+                     rdfs:label "Est réalisateur de"@fr .
+
+
+###  http://exemple.org/proprietes#scenaristeDans
+prop:scenaristeDans rdf:type owl:ObjectProperty ;
+                    rdfs:domain s:Person ;
+                    rdfs:range s:Movie ;
+                    rdfs:comment "Lien entre une personne et un film sur lequel il travaille en tant que scénariste"@fr ;
+                    rdfs:label "Est scénariste de"@fr .
+
+
+###  http://exemple.org/proprietes#ville
+prop:ville rdf:type owl:ObjectProperty ;
+           rdfs:domain s:Place ;
+           rdfs:range s:City ;
+           rdfs:comment "Lien entre un endroit et la ville ou il est localisé"@fr ;
+           rdfs:label "Ville"@fr .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://exemple.org/entites#Court_metrage
+:Court_metrage rdf:type owl:Class ;
+               rdfs:subClassOf s:Movie ;
+               rdfs:comment " Un court métrage est un film d’une durée inférieure à 30 minutes (PT30M), c’est une sous classe de Movie (de schema)"@fr ;
+               rdfs:label "Court Métrage"@fr .
+
+
+###  http://exemple.org/entites#GenreFilm
+:GenreFilm rdf:type owl:Class ;
+           rdfs:comment "Classe des genre d’un film dans laquelle on trouve: drame, romance..."@fr ;
+           rdfs:label "Genre d’un Film"@fr .
+
+
+###  http://exemple.org/entites#Long_metrage
+:Long_metrage rdf:type owl:Class ;
+              rdfs:subClassOf s:Movie ;
+              rdfs:comment "Un long métrage est un film d’une durée supérieure à 60 minutes (PT60M)"@fr ;
+              rdfs:label "Long métrage"@fr .
+
+
+###  http://exemple.org/entites#Studio
+:Studio rdf:type owl:Class ;
+        rdfs:subClassOf s:Organization ;
+        rdfs:comment "Société de production cinématographique, enfant de la classe Organization de schema"@fr ;
+        rdfs:label "Société de production"@fr .
+
+
+###  https://schema.org/City
+s:City rdf:type owl:Class ;
+       rdfs:subClassOf s:Place .
+
+
+###  https://schema.org/Continent
+s:Continent rdf:type owl:Class ;
+            rdfs:subClassOf s:Place .
+
+
+###  https://schema.org/Date
+s:Date rdf:type owl:Class .
+
+
+###  https://schema.org/Movie
+s:Movie rdf:type owl:Class .
+
+
+###  https://schema.org/Organization
+s:Organization rdf:type owl:Class .
+
+
+###  https://schema.org/Person
+s:Person rdf:type owl:Class .
+
+
+###  https://schema.org/Place
+s:Place rdf:type owl:Class .
+
+
+###  https://schema.org/State
+s:State rdf:type owl:Class ;
+        rdfs:subClassOf s:Place .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://exemple.org/entites#Action
+:Action rdf:type owl:NamedIndividual ,
+                 :GenreFilm ;
+        s:name "Action" .
+
+
+###  http://exemple.org/entites#Amerique_du_Nord
+:Amerique_du_Nord rdf:type owl:NamedIndividual ,
+                           s:Continent ;
+                  s:name "Amerique du Nord" .
+
+
+###  http://exemple.org/entites#Anime
+:Anime rdf:type owl:NamedIndividual ,
+                :GenreFilm ;
+       s:name "Anime" .
+
+
+###  http://exemple.org/entites#Asie
+:Asie rdf:type owl:NamedIndividual ,
+               s:Continent ;
+      s:name "Asie" .
+
+
+###  http://exemple.org/entites#Avatar_2009
+:Avatar_2009 rdf:type owl:NamedIndividual ,
+                      :Long_metrage ;
+             prop:genre :Science_fiction ;
+             prop:dateDebutTournage "2009-07-03"^^xsd:date ;
+             prop:dateFinTournage "2010"^^xsd:date ;
+             s:contentLocation :Pandora ;
+             s:contentReferenceTime "2154" ;
+             s:dateCreated "2007-04" ;
+             s:datePublished "2009"^^xsd:date ;
+             s:duration "PT162M" ;
+             s:headline "Avatar" ;
+             s:locationCreated :Los_Angeles ,
+                               :Wellington ;
+             s:productionCompany <http://exemple.org/entites#20th_century_Fox> .
+
+
+###  http://exemple.org/entites#Beetlejuice
+:Beetlejuice rdf:type owl:NamedIndividual ,
+                      :Long_metrage ;
+             prop:genre :Comedie ,
+                        :Fantastique ;
+             s:datePublished "1988"^^xsd:date ;
+             s:duration "PT92M" ;
+             s:headline "Beetlejuice" ;
+             s:productionCompany :The_Geffen_Company .
+
+
+###  http://exemple.org/entites#Braveheart
+:Braveheart rdf:type owl:NamedIndividual ,
+                     :Long_metrage ;
+            prop:genre :Historique ;
+            s:contentLocation :Ecosse ;
+            s:contentReferenceTime "12" ;
+            s:datePublished "1995"^^xsd:date ;
+            s:duration "PT178M" ;
+            s:headline "Braveheart" ;
+            s:productionCompany :Icon_productions .
+
+
+###  http://exemple.org/entites#Burbank
+:Burbank rdf:type owl:NamedIndividual ,
+                  s:City ;
+         prop:pays :Etats_Unis ;
+         s:name "Burbank" .
+
+
+###  http://exemple.org/entites#Canada
+:Canada rdf:type owl:NamedIndividual ,
+                 s:State ;
+        prop:continent :Amerique_du_Nord ;
+        s:name "Canada" .
+
+
+###  http://exemple.org/entites#Chance_gare
+:Chance_gare rdf:type owl:NamedIndividual ,
+                      s:Place ;
+             prop:pays :Royaume_Uni .
+
+
+###  http://exemple.org/entites#Charlie_et_la_chocolaterie
+:Charlie_et_la_chocolaterie rdf:type owl:NamedIndividual ,
+                                     :Long_metrage ;
+                            prop:genre :Comedie ,
+                                       :Fantastique ;
+                            s:datePublished "2005"^^xsd:date ;
+                            s:duration "PT115M" ;
+                            s:headline "Charlie et la Chocolaterie" ;
+                            s:productionCompany :Warner_bros .
+
+
+###  http://exemple.org/entites#CoMix_Wave_films
+:CoMix_Wave_films rdf:type owl:NamedIndividual ,
+                           :Studio ;
+                  s:location :Japon ;
+                  s:name "CoMix Wave films" .
+
+
+###  http://exemple.org/entites#Comedie
+:Comedie rdf:type owl:NamedIndividual ,
+                  :GenreFilm ;
+         s:name "Comedie" .
+
+
+###  http://exemple.org/entites#Damien_Chazelle
+:Damien_Chazelle rdf:type owl:NamedIndividual ,
+                          s:Person ;
+                 prop:realisateurDans :Whiplash_2013 ;
+                 prop:scenaristeDans :Whiplash_2013 ;
+                 s:familyName "Chazelle" ;
+                 s:gender s:Male ;
+                 s:givenName "Damien" .
+
+
+###  http://exemple.org/entites#Drame
+:Drame rdf:type owl:NamedIndividual ,
+                :GenreFilm ;
+       s:name "Drame" .
+
+
+###  http://exemple.org/entites#Ecosse
+:Ecosse rdf:type owl:NamedIndividual ,
+                 s:State ;
+        prop:continent :Europe ;
+        s:name "Ecosse" .
+
+
+###  http://exemple.org/entites#Edward_aux_mains_dargent
+:Edward_aux_mains_dargent rdf:type owl:NamedIndividual ,
+                                   :Long_metrage ;
+                          prop:genre :Comedie ,
+                                     :Drame ,
+                                     :Fantastique ;
+                          s:datePublished "1990"^^xsd:date ;
+                          s:duration "PT105M" ;
+                          s:headline "Edward aux mains d'argent" ;
+                          s:productionCompany <http://exemple.org/entites#20th_century_Fox> .
+
+
+###  http://exemple.org/entites#Espace
+:Espace rdf:type owl:NamedIndividual ,
+                 s:Place .
+
+
+###  http://exemple.org/entites#Etats_Unis
+:Etats_Unis rdf:type owl:NamedIndividual ,
+                     s:State ;
+            prop:continent :Amerique_du_Nord ;
+            s:name "Etats Unis" .
+
+
+###  http://exemple.org/entites#Europe
+:Europe rdf:type owl:NamedIndividual ,
+                 s:Continent ;
+        s:name "Europe" .
+
+
+###  http://exemple.org/entites#Fantastique
+:Fantastique rdf:type owl:NamedIndividual .
+
+
+###  http://exemple.org/entites#Fluffy
+:Fluffy rdf:type owl:NamedIndividual ,
+                 :Court_metrage ;
+        prop:genre :Comedie ,
+                   :Drame ;
+        s:datePublished "2016"^^xsd:date ;
+        s:duration "PT24M" ;
+        s:headline "Fluffy" .
+
+
+###  http://exemple.org/entites#Historique
+:Historique rdf:type owl:NamedIndividual ,
+                     :GenreFilm ;
+            s:name "Historique" .
+
+
+###  http://exemple.org/entites#Hollywood
+:Hollywood rdf:type owl:NamedIndividual ,
+                    s:Place ;
+           prop:ville :Los_Angeles ;
+           s:name "Hollywood" .
+
+
+###  http://exemple.org/entites#Icon_productions
+:Icon_productions rdf:type owl:NamedIndividual ,
+                           :Studio ;
+                  s:location :Ecosse ;
+                  s:name "Icon Productions" .
+
+
+###  http://exemple.org/entites#Jaco_Van_Dormael
+:Jaco_Van_Dormael rdf:type owl:NamedIndividual ,
+                           s:Person ;
+                  prop:realisateurDans :Mr_Nobody ;
+                  s:familyName "Van Dormael" ;
+                  s:gender s:Male ;
+                  s:givenName "Jaco" .
+
+
+###  http://exemple.org/entites#James_Cameron
+:James_Cameron rdf:type owl:NamedIndividual ,
+                        s:Person ;
+               prop:producteurDans :Titanic_1997 ;
+               prop:realisateurDans :Avatar_2009 ,
+                                    :Titanic_1997 ;
+               prop:scenaristeDans :Titanic_1997 ;
+               s:familyName "Cameron" ;
+               s:gender s:Male ;
+               s:givenName "James" .
+
+
+###  http://exemple.org/entites#Japon
+:Japon rdf:type owl:NamedIndividual ,
+                s:State ;
+       prop:continent :Asie ;
+       s:name "Japon" .
+
+
+###  http://exemple.org/entites#Jared_Leto
+:Jared_Leto rdf:type owl:NamedIndividual ,
+                     s:Person ;
+            prop:acteurDans :Mr_Nobody ;
+            s:familyName "Leto" ;
+            s:gender s:Male ;
+            s:givenName "Jared" .
+
+
+###  http://exemple.org/entites#Johnny_Depp
+:Johnny_Depp rdf:type owl:NamedIndividual ,
+                      s:Person ;
+             prop:acteurDans :Charlie_et_la_chocolaterie ,
+                             :Edward_aux_mains_dargent ,
+                             :Sleepy_Hollow ;
+             s:familyName "Depp" ;
+             s:gender s:Male ;
+             s:givenName "Johnny" .
+
+
+###  http://exemple.org/entites#Jonathan_Kimble_Simmons
+:Jonathan_Kimble_Simmons rdf:type owl:NamedIndividual ,
+                                  s:Person ;
+                         prop:acteurDans :Whiplash_2013 ;
+                         s:familyName "Simmons" ;
+                         s:gender s:Male ;
+                         s:givenName "Jonathan" .
+
+
+###  http://exemple.org/entites#Kate_Winslet
+:Kate_Winslet rdf:type owl:NamedIndividual ,
+                       s:Person ;
+              prop:acteurDans :Titanic_1997 ;
+              s:familyName "Winslet" ;
+              s:gender s:Female ;
+              s:givenName "Kate" .
+
+
+###  http://exemple.org/entites#Kimi_no_Na_wa_2016
+:Kimi_no_Na_wa_2016 rdf:type owl:NamedIndividual ,
+                             :Long_metrage ;
+                    prop:genre :Anime ,
+                               :Romance ;
+                    s:contentLocation :Tokyo ;
+                    s:datePublished "2016-07-03"^^xsd:date ;
+                    s:duration "PT106M"^^xsd:duration ;
+                    s:headline "Kimi no Na wa." ;
+                    s:productionCompany :CoMix_Wave_films .
+
+
+###  http://exemple.org/entites#Lee_Filipovski
+:Lee_Filipovski rdf:type owl:NamedIndividual ,
+                         s:Person ;
+                prop:realisateurDans :Fluffy ;
+                s:familyName "Filipovski" ;
+                s:gender s:Male ;
+                s:givenName "Lee" .
+
+
+###  http://exemple.org/entites#Leonardo_DiCaprio
+:Leonardo_DiCaprio rdf:type owl:NamedIndividual ,
+                            s:Person ;
+                   prop:acteurDans :Titanic_1997 ;
+                   s:familyName "DiCaprio" ;
+                   s:gender s:Male ;
+                   s:givenName "Leonardo" .
+
+
+###  http://exemple.org/entites#Los_Angeles
+:Los_Angeles rdf:type owl:NamedIndividual ,
+                      s:City ;
+             prop:pays :Etats_Unis ;
+             s:name "Los Angeles" .
+
+
+###  http://exemple.org/entites#Mel_Gibson
+:Mel_Gibson rdf:type owl:NamedIndividual ,
+                     s:Person ;
+            prop:realisateurDans :Braveheart ;
+            s:familyName "Gibson" ;
+            s:gender s:Male ;
+            s:givenName "Mel" .
+
+
+###  http://exemple.org/entites#Mr_Nobody
+:Mr_Nobody rdf:type owl:NamedIndividual ,
+                    :Long_metrage ;
+           prop:genre :Drame ,
+                      :Romance ;
+           prop:dateDebutTournage "2008"^^xsd:date ;
+           prop:dateFinTournage "2010"^^xsd:date ;
+           s:contentLocation :Chance_gare ,
+                             :Toronto ;
+           s:datePublished "2009"^^xsd:date ;
+           s:duration "PT141M" ;
+           s:headline "Mr. Nobody" ;
+           s:productionCompany :Pan-Europeenne .
+
+
+###  http://exemple.org/entites#Musique
+:Musique rdf:type owl:NamedIndividual ,
+                  :GenreFilm ;
+         s:name "Musique" .
+
+
+###  http://exemple.org/entites#New_York
+:New_York rdf:type owl:NamedIndividual ,
+                   s:City ;
+          prop:pays :Etats_Unis ;
+          s:name "New York" .
+
+
+###  http://exemple.org/entites#Pan-Europeenne
+:Pan-Europeenne rdf:type owl:NamedIndividual ,
+                         :Studio ;
+                s:name "Pan-Européenne" .
+
+
+###  http://exemple.org/entites#Pandora
+:Pandora rdf:type owl:NamedIndividual ,
+                  s:Place .
+
+
+###  http://exemple.org/entites#Romance
+:Romance rdf:type owl:NamedIndividual ,
+                  :GenreFilm ;
+         s:name "Romance" .
+
+
+###  http://exemple.org/entites#Royaume_Uni
+:Royaume_Uni rdf:type owl:NamedIndividual ,
+                      s:State ;
+             prop:continent :Europe ;
+             s:name "Royaume uni" .
+
+
+###  http://exemple.org/entites#Science_fiction
+:Science_fiction rdf:type owl:NamedIndividual ,
+                          :GenreFilm ;
+                 s:name "Science fiction" .
+
+
+###  http://exemple.org/entites#Sleepy_Hollow
+:Sleepy_Hollow rdf:type owl:NamedIndividual ,
+                        :Long_metrage ;
+               prop:genre :Fantastique ;
+               s:contentLocation :New_York ;
+               s:contentReferenceTime "1799"^^xsd:date ;
+               s:datePublished "1999"^^xsd:date ;
+               s:duration "PT105M" ;
+               s:headline "Sleepy Hollow : La légende du cavalier sans tête" .
+
+
+###  http://exemple.org/entites#The_Geffen_Company
+:The_Geffen_Company rdf:type owl:NamedIndividual ,
+                             :Studio ;
+                    s:name "The Geffen Company" .
+
+
+###  http://exemple.org/entites#The_hitchhiker_s_guide_to_the_galaxy_2005
+:The_hitchhiker_s_guide_to_the_galaxy_2005 rdf:type owl:NamedIndividual ,
+                                                    :Long_metrage ;
+                                           prop:genre :Comedie ,
+                                                      :Science_fiction ;
+                                           s:contentLocation :Espace ,
+                                                             :Royaume_Uni ;
+                                           s:datePublished "2005"^^xsd:date ;
+                                           s:duration "PT1H49M" ;
+                                           s:headline "The Hitchhiker's Guide to the Galaxy" ;
+                                           s:locationCreated :Royaume_Uni ;
+                                           s:productionCompany <http://exemple.org/entites#20th_century_Fox> .
+
+
+###  http://exemple.org/entites#Tim_Burton
+:Tim_Burton rdf:type owl:NamedIndividual ,
+                     s:Person ;
+            prop:producteurDans :Edward_aux_mains_dargent ;
+            prop:realisateurDans :Beetlejuice ,
+                                 :Charlie_et_la_chocolaterie ,
+                                 :Edward_aux_mains_dargent ,
+                                 :Sleepy_Hollow ;
+            prop:scenaristeDans :Edward_aux_mains_dargent ;
+            s:familyName "Burton" ;
+            s:gender s:Male ;
+            s:givenName "Tim" .
+
+
+###  http://exemple.org/entites#Titanic
+:Titanic rdf:type owl:NamedIndividual ,
+                  s:Place .
+
+
+###  http://exemple.org/entites#Titanic_1997
+:Titanic_1997 rdf:type owl:NamedIndividual ,
+                       :Long_metrage ;
+              prop:genre :Drame ,
+                         :Romance ;
+              s:contentLocation :Titanic ;
+              s:contentReferenceTime "1912" ;
+              s:datePublished "1997"^^xsd:date ;
+              s:duration "PT194M" ;
+              s:headline "Titanic" ;
+              s:locationCreated :Hollywood ;
+              s:productionCompany <http://exemple.org/entites#20th_century_Fox> .
+
+
+###  http://exemple.org/entites#Tokyo
+:Tokyo rdf:type owl:NamedIndividual ,
+                s:City ;
+       prop:pays :Japon ;
+       s:name "Tokyo" .
+
+
+###  http://exemple.org/entites#Toronto
+:Toronto rdf:type owl:NamedIndividual ,
+                  s:City ;
+         prop:pays :Canada ;
+         s:name "Toronto" .
+
+
+###  http://exemple.org/entites#Walt_disney_studio
+:Walt_disney_studio rdf:type owl:NamedIndividual ,
+                             :Studio ;
+                    s:location :Burbank ;
+                    s:name "Walt Disney Studio" .
+
+
+###  http://exemple.org/entites#Warner_bros
+:Warner_bros rdf:type owl:NamedIndividual ,
+                      :Studio ;
+             s:location :Burbank ;
+             s:name "Warner Bros" .
+
+
+###  http://exemple.org/entites#Wellington
+:Wellington rdf:type owl:NamedIndividual ,
+                     s:City ;
+            s:name "Wellington" .
+
+
+###  http://exemple.org/entites#Whiplash_2013
+:Whiplash_2013 rdf:type owl:NamedIndividual ,
+                        :Court_metrage ;
+               prop:genre :Drame ,
+                          :Musique ;
+               s:datePublished "2013"^^xsd:date ;
+               s:duration "PT18M" ;
+               s:headline "Whiplash" .
+
+
+###  http://exemple.org/entites#20th_century_Fox
+<http://exemple.org/entites#20th_century_Fox> rdf:type owl:NamedIndividual ,
+                                                       :Studio ;
+                                              s:location :Los_Angeles ;
+                                              s:name "20th Century Fox" .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+prop:dateDebutTournage rdfs:comment "Propriété entre un film et sa date de début de tournage"@fr ;
+                       rdfs:label "Date du début du tournage"@fr .
+
+
+prop:dateFinTournage rdfs:comment "Propriété d'un film indiquant le lieu de l'histoire et des événements du film"@fr ;
+                     rdfs:label "Date de fin du tournage"@fr .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

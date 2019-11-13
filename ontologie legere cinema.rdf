@@ -1,0 +1,430 @@
+@prefix : <http://exemple.org/entites#> .
+@prefix prop: <http://exemple.org/proprietes#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+# Structure
+
+  # Classes
+
+:Studio rdfs:subClassOf s:Organization .
+  :Studio rdfs:label "Société de production"@fr .
+  :Studio rdfs:comment "Société de production cinématographique, enfant de la classe Organization de schema"@fr .
+
+:Long_metrage rdfs:subClassOf s:Movie .
+  :Long_metrage rdfs:label "Long métrage"@fr .
+  :Long_metrage rdfs:comment "Un long métrage est un film d’une durée supérieure à 60 minutes (PT60M)"@fr .
+
+:Court_metrage rdfs:subClassOf s:Movie .
+  :Court_metrage rdfs:label "Court Métrage"@fr .
+  :Court_metrage rdfs:comment " Un court métrage est un film d’une durée inférieure à 30 minutes (PT30M), c’est une sous classe de Movie (de schema)"@fr .
+
+:GenreFilm rdf:type rdfs:Class .
+  :GenreFilm rdfs:label "Genre d’un Film"@fr .
+  :GenreFilm rdfs:comment "Classe des genre d’un film dans laquelle on trouve: drame, romance..."@fr .
+
+
+  # Proprietes
+
+prop:genre rdf:type rdf:Property .
+  prop:genre rdfs:label "Genre du film"@fr .
+  prop:genre rdfs:comment "Propriété entre un film et un de ses genres"@fr .
+  prop:genre rdfs:domain s:Movie .
+  prop:genre rdfs:range :GenreFilm .
+
+# Si l'on pouvait utiliser un langage ontologique (comme OWL), on montrerait l'equivalence /  avec des propriétés de #schéma.org.
+prop:lieuTournage rdf:type rdf:Property .       # <=> s:locationCreated
+  prop:lieuTournage rdfs:label "Lieu de Tournage"@fr .
+  prop:lieuTournage rdfs:comment "Propriété entre un film et un de ses lieux de tournage"@fr .
+  prop:lieuTournage rdfs:domain s:Movie .
+  prop:lieuTournage rdfs:range s:Place .
+
+prop:dateDebutTournage rdf:type rdf:Property .  # owl:"more_precise" s:dateCreated
+  prop:dateDebutTournage rdfs:label "Date du début du tournage"@fr .
+  prop:dateDebutTournage rdfs:comment "Propriété entre un film et sa date de début de tournage"@fr .
+  prop:dateDebutTournage rdfs:domain s:Movie .
+  prop:dateDebutTournage rdfs:range s:Date .
+
+prop:dateFinTournage rdf:type rdf:Property .    # owl:"more_precise" s:dateModified
+  prop:dateFinTournage rdfs:label "Date de fin du tournage"@fr .
+  prop:dateFinTournage rdfs:comment "Propriété d'un film indiquant le lieu de l'histoire et des événements du film"@fr .
+  prop:dateFinTournage rdfs:domain s:Movie .
+  prop:dateFinTournage rdfs:range s:Date .
+
+prop:lieuFilm rdf:type rdf:Property .           # owl:"more_precise" s:contentLocation
+  prop:lieuFilm rdfs:label "Lieu des événements du film"@fr .
+  prop:lieuFilm rdfs:comment "Propriété d'un film indiquant le lieu de l'histoire et des événements du film"@fr .
+  prop:lieuFilm rdfs:domain s:Movie .
+  prop:lieuFilm rdfs:range s:Place .
+
+prop:dateFilm rdf:type rdf:Property .           # owl:"more_precise" s:contentReferenceTime
+  prop:dateFilm rdfs:label "Date des événements du Film"@fr .
+  prop:dateFilm rdfs:comment "Propriété d'un film indiquant la date de l'histoire et des événements du film"@fr .
+  prop:dateFilm rdfs:domain s:Movie .
+  prop:dateFilm rdfs:range s:Date .
+
+prop:ville rdf:type rdf:Property .      # s:containedInPlace
+  prop:ville rdfs:label "Ville"@fr .
+  prop:ville rdfs:comment "Lien entre un endroit et la ville ou il est localisé"@fr .
+  prop:ville rdfs:domain s:Place .
+  prop:ville rdfs:range s:City .
+
+prop:pays rdf:type rdf:Property .       # owl:equivalentProperty s:containedInPlace
+  prop:pays rdfs:label "Pays"@fr .
+  prop:pays rdfs:comment "Lien entre un endroit et le pays ou il est localisé"@fr .
+  prop:pays rdfs:domain s:Place .
+  prop:pays rdfs:range s:State .
+
+prop:continent rdf:type rdf:Property .  # owl:equivalentProperty s:containedInPlace
+  prop:continent rdfs:label "Continent"@fr .
+  prop:continent rdfs:comment "Lien entre un endroit et le continent ou il est localisé"@fr .
+  prop:continent rdfs:domain s:Place .
+  prop:continent rdfs:range s:Continent .
+
+prop:acteurDans rdf:type rdf:Property .
+  prop:acteurDans rdfs:label "Est Acteur Dans"@fr .
+  prop:acteurDans rdfs:comment "Lien entre une personne et un film dans lequel il joue en tant qu'acteur"@fr .
+  prop:acteurDans rdfs:domain s:Person .
+  prop:acteurDans rdfs:range s:Movie .
+
+prop:producteurDans rdf:type rdf:Property .
+prop:producteurDans rdfs:label "Est producteur de"@fr .
+prop:producteurDans rdfs:comment "Lien entre une personne et un film sur lequel il travaille en tant que producteur"@fr .
+prop:producteurDans rdfs:domain s:Person .
+prop:producteurDans rdfs:range s:Movie .
+
+prop:realisateurDans rdf:type rdf:Property .
+prop:realisateurDans rdfs:label "Est réalisateur de"@fr .
+prop:realisateurDans rdfs:comment "Lien entre une personne et un film sur lequel il travaille en tant que réalisateur"@fr .
+prop:realisateurDans rdfs:domain s:Person .
+prop:realisateurDans rdfs:range s:Movie .
+
+prop:scenaristeDans rdf:type rdf:Property .
+prop:scenaristeDans rdfs:label "Est scénariste de"@fr .
+prop:scenaristeDans rdfs:comment "Lien entre une personne et un film sur lequel il travaille en tant que scénariste"@fr .
+prop:scenaristeDans rdfs:domain s:Person .
+prop:scenaristeDans rdfs:range s:Movie .
+
+
+
+# Entites
+
+  # Studios
+
+:20th_century_Fox rdf:type :Studio ;
+  s:name "20th Century Fox" ;
+  s:location :Los_Angeles  .
+
+:CoMix_Wave_films rdf:type :Studio ;
+  s:name "CoMix Wave films" ;
+  s:location :Japon .
+
+:Pan-Europeenne rdf:type :Studio ;
+  s:name "Pan-Européenne" .
+
+:Walt_disney_studio rdf:type :Studio ;
+  s:name "Walt Disney Studio" ;
+  s:location :Burbank  .
+
+:Warner_bros rdf:type :Studio ;
+  s:name "Warner Bros" ;
+  s:location :Burbank  .
+
+:The_Geffen_Company rdf:type :Studio ;
+  s:name "The Geffen Company" .
+
+:Icon_productions rdf:type :Studio;
+  s:name "Icon Productions";
+  s:location :Ecosse .
+
+
+  # Genres de films
+
+:Action rdf:type :GenreFilm ;
+  s:name "Action" .
+:Anime rdf:type :GenreFilm ;
+  s:name "Anime" .
+:Comedie rdf:type :GenreFilm ;
+  s:name "Comedie" .
+:Drame rdf:type :GenreFilm ;
+  s:name "Drame" .
+:Musique rdf:type :GenreFilm ;
+  s:name "Musique" .
+:Romance rdf:type :GenreFilm ;
+  s:name "Romance" .
+:Science_fiction rdf:type :GenreFilm ;
+  s:name "Science fiction" .
+:Historique rdf:type :GenreFilm ;
+  s:name "Historique".
+
+  # Films
+
+:Avatar_2009 rdf:type :Long_metrage ;
+  s:duration "PT162M" ; # 162 minutes
+  s:headline "Avatar" ;
+  prop:genre :Science_fiction ;
+  s:productionCompany :20th_century_Fox ;
+  s:datePublished "2009"^^xsd:date ;
+  s:dateCreated "2007-04" ;
+  s:locationCreated :Los_Angeles ;
+  s:locationCreated :Wellington ;
+  s:contentLocation :Pandora ;
+  s:contentReferenceTime "2154" ;
+  prop:dateFinTournage "2010"^^xsd:date;
+  prop:dateDebutTournage "2009-07-03"^^xsd:date.
+
+:Beetlejuice rdf:type :Long_metrage;
+  s:duration "PT92M" ;
+  s:headline "Beetlejuice" ;
+  prop:genre :Fantastique ;
+  prop:genre :Comedie;
+  s:productionCompany :The_Geffen_Company ;
+  s:datePublished "1988"^^xsd:date .
+
+:Braveheart rdf:type :Long_metrage ;
+  s:duration "PT178M" ;
+  s:headline "Braveheart" ;
+  prop:genre :Historique ;
+  s:productionCompany :Icon_productions ;
+  s:datePublished "1995"^^xsd:date ;
+  s:contentLocation :Ecosse ;
+  s:contentReferenceTime "12" .
+
+:Charlie_et_la_chocolaterie rdf:type :Long_metrage;
+  s:duration "PT115M" ;
+  s:headline "Charlie et la Chocolaterie" ;
+  prop:genre :Fantastique ;
+  prop:genre :Comedie ;
+  s:datePublished "2005"^^xsd:date ;
+  s:productionCompany :Warner_bros .
+
+:Edward_aux_mains_dargent rdf:type :Long_metrage;
+  s:duration "PT105M" ;
+  s:headline "Edward aux mains d'argent" ;
+  prop:genre :Fantastique ;
+  prop:genre :Drame ;
+  prop:genre :Comedie;
+  s:productionCompany :20th_century_Fox ;
+  s:datePublished "1990"^^xsd:date .
+
+:Fluffy rdf:type :Court_metrage ;
+  s:duration "PT24M" ; # 24 minutes
+  s:headline "Fluffy" ;
+  prop:genre :Drame ;
+  prop:genre :Comedie ;
+  s:datePublished "2016"^^xsd:date .
+
+:Kimi_no_Na_wa_2016 rdf:type :Long_metrage ;
+  s:duration "PT106M"^^xsd:duration ; # 106 minutes
+  s:headline "Kimi no Na wa." ;
+  prop:genre :Anime ;
+  prop:genre :Romance ;
+  s:productionCompany :CoMix_Wave_films ;
+  s:datePublished "2016-07-03"^^xsd:date ;
+  s:contentLocation :Tokyo .
+
+:Mr_Nobody rdf:type :Long_metrage ;
+  s:duration "PT141M" ; # 141 minutes
+  s:headline "Mr. Nobody" ;
+  prop:genre :Drame ;
+  prop:genre :Romance ;
+  s:productionCompany :Pan-Europeenne ;
+  s:datePublished "2009"^^xsd:date ;
+  prop:dateDebutTournage "2008"^^xsd:date ;
+  prop:dateFinTournage "2010"^^xsd:date ;
+  s:contentLocation :Chance_gare ;
+  s:contentLocation :Toronto .
+
+:The_hitchhiker_s_guide_to_the_galaxy_2005 rdf:type :Long_metrage ;
+  s:duration "PT1H49M" ; # 1 heure 49 minutes
+  s:headline "The Hitchhiker's Guide to the Galaxy" ;
+  prop:genre :Science_fiction ;
+  prop:genre :Comedie ;
+  s:productionCompany :20th_century_Fox ;
+  s:datePublished "2005"^^xsd:date ;
+  s:locationCreated :Royaume_Uni ;
+  s:contentLocation :Royaume_Uni ;
+  s:contentLocation :Espace .
+
+:Titanic_1997 rdf:type :Long_metrage ;
+  s:duration "PT194M" ; # 194 minutes
+  s:headline "Titanic" ;
+  prop:genre :Romance ;
+  prop:genre :Drame ;
+  s:productionCompany :20th_century_Fox ;
+  s:datePublished "1997"^^xsd:date ;
+  s:locationCreated :Hollywood ;
+  s:contentLocation :Titanic ;
+  s:contentReferenceTime "1912" .
+
+:Sleepy_Hollow rdf:type :Long_metrage;
+  s:duration "PT105M" ;
+  s:headline "Sleepy Hollow : La légende du cavalier sans tête" ;
+  prop:genre :Fantastique ;
+  s:datePublished "1999"^^xsd:date ;
+  s:contentLocation :New_York ;
+  s:contentReferenceTime "1799"^^xsd:date .
+
+:Whiplash_2013 rdf:type :Court_metrage ;
+  s:duration "PT18M" ; # 18 minutes
+  s:headline "Whiplash" ;
+  prop:genre :Drame ;
+  prop:genre :Musique ;
+  s:datePublished "2013"^^xsd:date .
+
+  # Personnes
+
+:Damien_Chazelle rdf:type s:Person ;
+  s:gender s:Male ;
+  s:givenName  "Damien" ;
+  s:familyName "Chazelle" ;
+  prop:realisateurDans :Whiplash_2013 ;
+  prop:scenaristeDans :Whiplash_2013 .
+
+:Jaco_Van_Dormael rdf:type s:Person ;
+  s:gender s:Male ;
+  s:givenName  "Jaco" ;
+  s:familyName "Van Dormael" ;
+  prop:realisateurDans :Mr_Nobody .
+
+:James_Cameron rdf:type s:Person ;
+  s:gender s:Male ;
+  s:givenName  "James" ;
+  s:familyName "Cameron" ;
+  prop:realisateurDans :Avatar_2009;
+  prop:realisateurDans :Titanic_1997 ;
+  prop:producteurDans :Titanic_1997 ;
+  prop:scenaristeDans :Titanic_1997 .
+
+:Jared_Leto rdf:type s:Person ;
+  s:gender s:Male ;
+  s:givenName  "Jared" ;
+  s:familyName "Leto" ;
+  prop:acteurDans :Mr_Nobody .
+
+:Jonathan_Kimble_Simmons rdf:type s:Person ;
+  s:gender s:Male ;
+  s:givenName  "Jonathan" ;
+  s:familyName "Simmons" ;
+  prop:acteurDans :Whiplash_2013 .
+
+:Johnny_Depp rdf:type s:Person;
+  s:gender s:Male;
+  s:givenName  "Johnny" ;
+  s:familyName "Depp" ;
+  prop:acteurDans :Edward_aux_mains_dargent;
+  prop:acteurDans :Charlie_et_la_chocolaterie;
+  prop:acteurDans :Sleepy_Hollow.
+
+:Kate_Winslet rdf:type s:Person ;
+  s:gender s:Female ;
+  s:givenName  "Kate" ;
+  s:familyName "Winslet" ;
+  prop:acteurDans :Titanic_1997 .
+
+:Lee_Filipovski rdf:type s:Person ;
+  s:gender s:Male ;
+  s:givenName  "Lee" ;
+  s:familyName "Filipovski" ;
+  prop:realisateurDans :Fluffy.
+
+:Leonardo_DiCaprio rdf:type s:Person ;
+  s:gender s:Male ;
+  s:givenName  "Leonardo" ;
+  s:familyName "DiCaprio" ;
+  prop:acteurDans :Titanic_1997 .
+
+:Mel_Gibson rdf:type s:Person ;
+  s:gender s:Male ;
+  s:givenName  "Mel" ;
+  s:familyName "Gibson" ;
+  prop:realisateurDans :Braveheart.
+
+:Tim_Burton rdf:type s:Person;
+  s:gender s:Male ;
+  s:givenName  "Tim" ;
+  s:familyName "Burton" ;
+  prop:realisateurDans :Edward_aux_mains_dargent ;
+  prop:realisateurDans :Beetlejuice ;
+  prop:realisateurDans :Sleepy_Hollow ;
+  prop:realisateurDans :Charlie_et_la_chocolaterie ;
+  prop:producteurDans :Edward_aux_mains_dargent;
+  prop:scenaristeDans :Edward_aux_mains_dargent.
+
+  # Endroits
+
+    # Continents
+
+:Amerique_du_Nord rdf:type s:Continent ;
+  s:name "Amerique du Nord" .
+
+:Asie rdf:type s:Continent ;
+  s:name "Asie" .
+
+:Europe rdf:type s:Continent ;
+  s:name "Europe" .
+
+    # Pays
+
+:Canada rdf:type s:State ;
+  s:name "Canada" ;
+  prop:continent :Amerique_du_Nord .
+
+:Ecosse rdf:type s:State ;
+  s:name "Ecosse" ;
+  prop:continent :Europe .
+
+:Etats_Unis rdf:type s:State ;
+  s:name "Etats Unis" ;
+  prop:continent :Amerique_du_Nord .
+
+:Japon rdf:type s:State ;
+  s:name "Japon" ;
+  prop:continent :Asie .
+
+:Royaume_Uni rdf:type s:State ;
+  s:name "Royaume uni" ;
+  prop:continent :Europe .
+
+
+    # Villes
+
+:Burbank rdf:type s:City ;
+  s:name "Burbank" ;
+  prop:pays :Etats_Unis .
+
+:Los_Angeles rdf:type s:City ;
+  s:name "Los Angeles" ;
+  prop:pays :Etats_Unis .
+
+:New_York rdf:type s:City ;
+  s:name "New York" ;
+  prop:pays :Etats_Unis .
+
+:Tokyo rdf:type s:City ;
+  s:name "Tokyo" ;
+  prop:pays :Japon .
+
+:Toronto rdf:type s:City ;
+  s:name "Toronto" ;
+  prop:pays :Canada .
+
+:Wellington rdf:type s:City ;
+  s:name "Wellington" .
+
+    # Autres
+
+:Chance_gare rdf:type s:Place ;
+  prop:pays :Royaume_Uni.
+
+:Espace rdf:type s:Place .
+
+:Hollywood rdf:type s:Place ;
+  s:name "Hollywood" ;
+  prop:ville :Los_Angeles .
+
+:Pandora rdf:type s:Place .
+
+:Titanic rdf:type s:Place .
