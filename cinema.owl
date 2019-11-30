@@ -142,7 +142,6 @@
     <owl:ObjectProperty rdf:about="http://example.org/cinema#ecritPar">
         <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#implique"/>
         <owl:inverseOf rdf:resource="http://exemple.org/cinema#scenaristeDans"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdfs:domain rdf:resource="https://schema.org/Movie"/>
         <rdfs:range rdf:resource="http://example.org/cinema#Scénariste"/>
         <rdfs:label xml:lang="fr">Écrit par</rdfs:label>
@@ -154,9 +153,7 @@
 
     <owl:ObjectProperty rdf:about="http://example.org/cinema#estDans">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdfs:domain rdf:resource="http://exemple.org/cinema#Studio"/>
-        <rdfs:domain rdf:resource="https://schema.org/Person"/>
+        <rdfs:domain rdf:resource="http://example.org/cinema#Profession"/>
         <rdfs:range rdf:resource="https://schema.org/Movie"/>
         <rdfs:label xml:lang="fr">Est impliqué dans</rdfs:label>
     </owl:ObjectProperty>
@@ -166,10 +163,8 @@
     <!-- http://example.org/cinema#implique -->
 
     <owl:ObjectProperty rdf:about="http://example.org/cinema#implique">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdfs:domain rdf:resource="https://schema.org/Movie"/>
-        <rdfs:range rdf:resource="http://exemple.org/cinema#Studio"/>
-        <rdfs:range rdf:resource="https://schema.org/Person"/>
+        <rdfs:range rdf:resource="http://example.org/cinema#Profession"/>
         <rdfs:label xml:lang="fr">Implique</rdfs:label>
     </owl:ObjectProperty>
     
@@ -180,7 +175,6 @@
     <owl:ObjectProperty rdf:about="http://example.org/cinema#jouePar">
         <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#implique"/>
         <owl:inverseOf rdf:resource="http://exemple.org/cinema#acteurDans"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdfs:domain rdf:resource="https://schema.org/Movie"/>
         <rdfs:range rdf:resource="http://example.org/cinema#Acteur"/>
         <rdfs:label xml:lang="fr">Joué par</rdfs:label>
@@ -193,10 +187,8 @@
     <owl:ObjectProperty rdf:about="http://example.org/cinema#produitPar">
         <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#implique"/>
         <owl:inverseOf rdf:resource="http://exemple.org/cinema#producteurDans"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdfs:domain rdf:resource="https://schema.org/Movie"/>
         <rdfs:range rdf:resource="http://example.org/cinema#Producteur"/>
-        <rdfs:range rdf:resource="http://exemple.org/cinema#Studio"/>
         <rdfs:label xml:lang="fr">Produit par</rdfs:label>
     </owl:ObjectProperty>
     
@@ -207,7 +199,6 @@
     <owl:ObjectProperty rdf:about="http://example.org/cinema#realisePar">
         <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#implique"/>
         <owl:inverseOf rdf:resource="http://exemple.org/cinema#realisateurDans"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdfs:domain rdf:resource="https://schema.org/Movie"/>
         <rdfs:range rdf:resource="http://example.org/cinema#Réalisateur"/>
         <rdfs:label xml:lang="fr">Réalisé par</rdfs:label>
@@ -219,7 +210,6 @@
 
     <owl:ObjectProperty rdf:about="http://exemple.org/cinema#acteurDans">
         <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#estDans"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
         <rdfs:domain rdf:resource="http://example.org/cinema#Acteur"/>
         <rdfs:range rdf:resource="https://schema.org/Movie"/>
         <rdfs:comment xml:lang="fr">Lien entre une personne et un film dans lequel il joue en tant qu&apos;acteur</rdfs:comment>
@@ -270,8 +260,10 @@
     <!-- http://exemple.org/cinema#dateDebutTournage -->
 
     <owl:ObjectProperty rdf:about="http://exemple.org/cinema#dateDebutTournage">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://schema.org/Movie"/>
         <rdfs:range rdf:resource="https://schema.org/Date"/>
+        <owl:propertyDisjointWith rdf:resource="http://exemple.org/cinema#dateFinTournage"/>
     </owl:ObjectProperty>
     
 
@@ -282,7 +274,7 @@
         <rdfs:domain rdf:resource="https://schema.org/Movie"/>
         <rdfs:range rdf:resource="https://schema.org/Date"/>
         <rdfs:comment xml:lang="fr">Propriété d&apos;un film indiquant la date de l&apos;histoire et des événements du film</rdfs:comment>
-        <rdfs:label xml:lang="fr">Date des événements du Film</rdfs:label>
+        <rdfs:label xml:lang="fr">Date des événements du film</rdfs:label>
         <rdfs:seeAlso rdf:resource="s:contentReferenceTime"/>
     </owl:ObjectProperty>
     
@@ -291,6 +283,7 @@
     <!-- http://exemple.org/cinema#dateFinTournage -->
 
     <owl:ObjectProperty rdf:about="http://exemple.org/cinema#dateFinTournage">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://schema.org/Movie"/>
         <rdfs:range rdf:resource="https://schema.org/Date"/>
     </owl:ObjectProperty>
@@ -336,9 +329,7 @@
 
     <owl:ObjectProperty rdf:about="http://exemple.org/cinema#producteurDans">
         <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#estDans"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
         <rdfs:domain rdf:resource="http://example.org/cinema#Producteur"/>
-        <rdfs:domain rdf:resource="http://exemple.org/cinema#Studio"/>
         <rdfs:range rdf:resource="https://schema.org/Movie"/>
         <rdfs:comment xml:lang="fr">Lien entre une personne et un film sur lequel il travaille en tant que producteur</rdfs:comment>
         <rdfs:label xml:lang="fr">Est producteur de</rdfs:label>
@@ -350,7 +341,6 @@
 
     <owl:ObjectProperty rdf:about="http://exemple.org/cinema#realisateurDans">
         <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#estDans"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdfs:domain rdf:resource="http://example.org/cinema#Réalisateur"/>
         <rdfs:range rdf:resource="https://schema.org/Movie"/>
         <rdfs:comment xml:lang="fr">Lien entre une personne et un film sur lequel il travaille en tant que réalisateur</rdfs:comment>
@@ -363,7 +353,6 @@
 
     <owl:ObjectProperty rdf:about="http://exemple.org/cinema#scenaristeDans">
         <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#estDans"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdfs:domain rdf:resource="http://example.org/cinema#Scénariste"/>
         <rdfs:range rdf:resource="https://schema.org/Movie"/>
         <rdfs:comment xml:lang="fr">Lien entre une personne et un film sur lequel il travaille en tant que scénariste</rdfs:comment>
@@ -377,6 +366,7 @@
     <owl:ObjectProperty rdf:about="http://schema.org/containedInPlace">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
         <rdfs:label xml:lang="en">Contained in place</rdfs:label>
         <rdfs:label xml:lang="fr">Contenu dans</rdfs:label>
     </owl:ObjectProperty>
@@ -506,7 +496,12 @@
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://schema.org/Person"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://exemple.org/cinema#Studio"/>
+                            <rdf:Description rdf:about="https://schema.org/Person"/>
+                        </owl:unionOf>
+                    </owl:Class>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://example.org/cinema#estDans"/>
                         <owl:someValuesFrom rdf:resource="https://schema.org/Movie"/>
@@ -570,6 +565,7 @@
 
     <owl:Class rdf:about="http://exemple.org/cinema#Court_metrage">
         <rdfs:subClassOf rdf:resource="https://schema.org/Movie"/>
+        <owl:disjointWith rdf:resource="http://exemple.org/cinema#Long_metrage"/>
         <rdfs:comment xml:lang="fr"> Un court métrage est un film d’une durée inférieure à 30 minutes (PT30M), c’est une sous classe de Movie (de schema)</rdfs:comment>
         <rdfs:label xml:lang="fr">Court Métrage</rdfs:label>
     </owl:Class>
