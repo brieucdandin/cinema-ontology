@@ -149,6 +149,17 @@
     
 
 
+    <!-- http://example.org/cinema#appreciation -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/cinema#appreciation">
+        <rdfs:domain rdf:resource="https://schema.org/Movie"/>
+        <rdfs:range rdf:resource="http://example.org/cinema#Appreciation"/>
+        <rdfs:label xml:lang="fr">Appréciation</rdfs:label>
+        <rdfs:label xml:lang="en">Rating</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://example.org/cinema#ecrit_par -->
 
     <owl:ObjectProperty rdf:about="http://example.org/cinema#ecrit_par">
@@ -241,6 +252,8 @@
 
     <owl:ObjectProperty rdf:about="http://exemple.org/cinema#dans_continent">
         <rdfs:subPropertyOf rdf:resource="http://schema.org/contained_in_place"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
         <rdfs:domain rdf:resource="https://schema.org/Place"/>
         <rdfs:range rdf:resource="https://schema.org/Continent"/>
         <rdfs:comment xml:lang="fr">Lien entre un endroit et le continent ou il est localisé</rdfs:comment>
@@ -255,6 +268,8 @@
 
     <owl:ObjectProperty rdf:about="http://exemple.org/cinema#dans_pays">
         <rdfs:subPropertyOf rdf:resource="http://schema.org/contained_in_place"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
         <rdfs:domain rdf:resource="https://schema.org/Place"/>
         <rdfs:range rdf:resource="https://schema.org/State"/>
         <rdfs:comment xml:lang="fr">Lien entre un endroit et le pays ou il est localisé</rdfs:comment>
@@ -269,6 +284,8 @@
 
     <owl:ObjectProperty rdf:about="http://exemple.org/cinema#dans_ville">
         <rdfs:subPropertyOf rdf:resource="http://schema.org/contained_in_place"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
         <rdfs:domain rdf:resource="https://schema.org/Place"/>
         <rdfs:range rdf:resource="https://schema.org/City"/>
         <rdfs:comment xml:lang="fr">Lien entre un endroit et la ville ou il est localisé</rdfs:comment>
@@ -299,9 +316,9 @@
     <owl:ObjectProperty rdf:about="http://exemple.org/cinema#date_film">
         <rdfs:domain rdf:resource="https://schema.org/Movie"/>
         <rdfs:range rdf:resource="https://schema.org/Date"/>
-        <rdfs:comment xml:lang="fr">Propriété d&apos;un film indiquant la date de l&apos;histoire et des événements du film</rdfs:comment>
-        <rdfs:label xml:lang="fr">Date des événements du film</rdfs:label>
-        <rdfs:label xml:lang="en">Date of events in the film</rdfs:label>
+        <rdfs:comment xml:lang="fr">Propriété d&apos;un film indiquant la date d&apos;au moins un des événements du film</rdfs:comment>
+        <rdfs:label xml:lang="fr">Date d&apos;un événement du film</rdfs:label>
+        <rdfs:label xml:lang="en">Date of an event in the film</rdfs:label>
         <rdfs:seeAlso rdf:resource="s:contentReferenceTime"/>
     </owl:ObjectProperty>
     
@@ -338,7 +355,7 @@
     <owl:ObjectProperty rdf:about="http://exemple.org/cinema#lieu_film">
         <rdfs:domain rdf:resource="https://schema.org/Movie"/>
         <rdfs:range rdf:resource="https://schema.org/Place"/>
-        <rdfs:comment xml:lang="fr">Propriété d&apos;un film indiquant le lieu de l&apos;histoire et des événements du film</rdfs:comment>
+        <rdfs:comment xml:lang="fr">Propriété d&apos;un film indiquant le lieu d&apos;au moins un des événements du film</rdfs:comment>
         <rdfs:label xml:lang="fr">Lieu des événements du film</rdfs:label>
         <rdfs:label xml:lang="en">Place in the movie</rdfs:label>
         <rdfs:seeAlso rdf:resource="s:contentLocation"/>
@@ -451,9 +468,9 @@
     
 
 
-    <!-- http://example.org/cinema#Appréciation -->
+    <!-- http://example.org/cinema#Appreciation -->
 
-    <owl:Class rdf:about="http://example.org/cinema#Appréciation">
+    <owl:Class rdf:about="http://example.org/cinema#Appreciation">
         <owl:equivalentClass>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -466,6 +483,7 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://example.org/cinema#ValuePartition"/>
+        <rdfs:label xml:lang="fr">Appréciation</rdfs:label>
         <rdfs:label xml:lang="en">Rating</rdfs:label>
     </owl:Class>
     
@@ -474,7 +492,7 @@
     <!-- http://example.org/cinema#Bon -->
 
     <owl:Class rdf:about="http://example.org/cinema#Bon">
-        <rdfs:subClassOf rdf:resource="http://example.org/cinema#Appréciation"/>
+        <rdfs:subClassOf rdf:resource="http://example.org/cinema#Appreciation"/>
         <rdfs:label xml:lang="fr">Bon</rdfs:label>
         <rdfs:label xml:lang="en">Good</rdfs:label>
     </owl:Class>
@@ -484,7 +502,7 @@
     <!-- http://example.org/cinema#Excellent -->
 
     <owl:Class rdf:about="http://example.org/cinema#Excellent">
-        <rdfs:subClassOf rdf:resource="http://example.org/cinema#Appréciation"/>
+        <rdfs:subClassOf rdf:resource="http://example.org/cinema#Appreciation"/>
         <rdfs:label xml:lang="en">Excellent</rdfs:label>
         <rdfs:label xml:lang="fr">Excellent</rdfs:label>
     </owl:Class>
@@ -494,7 +512,7 @@
     <!-- http://example.org/cinema#Mauvais -->
 
     <owl:Class rdf:about="http://example.org/cinema#Mauvais">
-        <rdfs:subClassOf rdf:resource="http://example.org/cinema#Appréciation"/>
+        <rdfs:subClassOf rdf:resource="http://example.org/cinema#Appreciation"/>
         <rdfs:label xml:lang="en">Bad</rdfs:label>
         <rdfs:label xml:lang="fr">Mauvais</rdfs:label>
     </owl:Class>
@@ -504,7 +522,7 @@
     <!-- http://example.org/cinema#Moyen -->
 
     <owl:Class rdf:about="http://example.org/cinema#Moyen">
-        <rdfs:subClassOf rdf:resource="http://example.org/cinema#Appréciation"/>
+        <rdfs:subClassOf rdf:resource="http://example.org/cinema#Appreciation"/>
         <rdfs:label xml:lang="en">Average</rdfs:label>
         <rdfs:label xml:lang="fr">Moyen</rdfs:label>
     </owl:Class>
@@ -514,7 +532,7 @@
     <!-- http://example.org/cinema#Nul -->
 
     <owl:Class rdf:about="http://example.org/cinema#Nul">
-        <rdfs:subClassOf rdf:resource="http://example.org/cinema#Appréciation"/>
+        <rdfs:subClassOf rdf:resource="http://example.org/cinema#Appreciation"/>
         <rdfs:label xml:lang="fr">Nul</rdfs:label>
         <rdfs:label xml:lang="en">Terrible</rdfs:label>
     </owl:Class>
