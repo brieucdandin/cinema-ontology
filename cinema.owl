@@ -25,6 +25,18 @@
     
 
 
+    <!-- http://exemple.org/cinema#dateDebutTournage -->
+
+    <owl:AnnotationProperty rdf:about="http://exemple.org/cinema#dateDebutTournage"/>
+    
+
+
+    <!-- http://exemple.org/cinema#dateFinTournage -->
+
+    <owl:AnnotationProperty rdf:about="http://exemple.org/cinema#dateFinTournage"/>
+    
+
+
     <!-- https://schema.org/contentLocation -->
 
     <owl:AnnotationProperty rdf:about="https://schema.org/contentLocation"/>
@@ -137,21 +149,21 @@
     
 
 
-    <!-- http://example.org/cinema#ecritPar -->
+    <!-- http://example.org/cinema#ecrit_par -->
 
-    <owl:ObjectProperty rdf:about="http://example.org/cinema#ecritPar">
+    <owl:ObjectProperty rdf:about="http://example.org/cinema#ecrit_par">
         <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#implique"/>
-        <owl:inverseOf rdf:resource="http://exemple.org/cinema#scenaristeDans"/>
+        <owl:inverseOf rdf:resource="http://exemple.org/cinema#scenariste_dans"/>
         <rdfs:domain rdf:resource="https://schema.org/Movie"/>
-        <rdfs:range rdf:resource="http://example.org/cinema#Scénariste"/>
+        <rdfs:range rdf:resource="http://example.org/cinema#Scenariste"/>
         <rdfs:label xml:lang="fr">Écrit par</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://example.org/cinema#estDans -->
+    <!-- http://example.org/cinema#est_dans -->
 
-    <owl:ObjectProperty rdf:about="http://example.org/cinema#estDans">
+    <owl:ObjectProperty rdf:about="http://example.org/cinema#est_dans">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://example.org/cinema#Profession"/>
         <rdfs:range rdf:resource="https://schema.org/Movie"/>
@@ -170,11 +182,11 @@
     
 
 
-    <!-- http://example.org/cinema#jouePar -->
+    <!-- http://example.org/cinema#joue_par -->
 
-    <owl:ObjectProperty rdf:about="http://example.org/cinema#jouePar">
+    <owl:ObjectProperty rdf:about="http://example.org/cinema#joue_par">
         <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#implique"/>
-        <owl:inverseOf rdf:resource="http://exemple.org/cinema#acteurDans"/>
+        <owl:inverseOf rdf:resource="http://exemple.org/cinema#acteur_dans"/>
         <rdfs:domain rdf:resource="https://schema.org/Movie"/>
         <rdfs:range rdf:resource="http://example.org/cinema#Acteur"/>
         <rdfs:label xml:lang="fr">Joué par</rdfs:label>
@@ -182,11 +194,11 @@
     
 
 
-    <!-- http://example.org/cinema#produitPar -->
+    <!-- http://example.org/cinema#produit_par -->
 
-    <owl:ObjectProperty rdf:about="http://example.org/cinema#produitPar">
+    <owl:ObjectProperty rdf:about="http://example.org/cinema#produit_par">
         <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#implique"/>
-        <owl:inverseOf rdf:resource="http://exemple.org/cinema#producteurDans"/>
+        <owl:inverseOf rdf:resource="http://exemple.org/cinema#producteur_dans"/>
         <rdfs:domain rdf:resource="https://schema.org/Movie"/>
         <rdfs:range rdf:resource="http://example.org/cinema#Producteur"/>
         <rdfs:label xml:lang="fr">Produit par</rdfs:label>
@@ -194,22 +206,22 @@
     
 
 
-    <!-- http://example.org/cinema#realisePar -->
+    <!-- http://example.org/cinema#realise_par -->
 
-    <owl:ObjectProperty rdf:about="http://example.org/cinema#realisePar">
+    <owl:ObjectProperty rdf:about="http://example.org/cinema#realise_par">
         <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#implique"/>
-        <owl:inverseOf rdf:resource="http://exemple.org/cinema#realisateurDans"/>
+        <owl:inverseOf rdf:resource="http://exemple.org/cinema#realisateur_dans"/>
         <rdfs:domain rdf:resource="https://schema.org/Movie"/>
-        <rdfs:range rdf:resource="http://example.org/cinema#Réalisateur"/>
+        <rdfs:range rdf:resource="http://example.org/cinema#Realisateur"/>
         <rdfs:label xml:lang="fr">Réalisé par</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://exemple.org/cinema#acteurDans -->
+    <!-- http://exemple.org/cinema#acteur_dans -->
 
-    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#acteurDans">
-        <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#estDans"/>
+    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#acteur_dans">
+        <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#est_dans"/>
         <rdfs:domain rdf:resource="http://example.org/cinema#Acteur"/>
         <rdfs:range rdf:resource="https://schema.org/Movie"/>
         <rdfs:comment xml:lang="fr">Lien entre une personne et un film dans lequel il joue en tant qu&apos;acteur</rdfs:comment>
@@ -218,10 +230,10 @@
     
 
 
-    <!-- http://exemple.org/cinema#dansContinent -->
+    <!-- http://exemple.org/cinema#dans_continent -->
 
-    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#dansContinent">
-        <rdfs:subPropertyOf rdf:resource="http://schema.org/containedInPlace"/>
+    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#dans_continent">
+        <rdfs:subPropertyOf rdf:resource="http://schema.org/contained_in_place"/>
         <rdfs:domain rdf:resource="https://schema.org/Place"/>
         <rdfs:range rdf:resource="https://schema.org/Continent"/>
         <rdfs:comment xml:lang="fr">Lien entre un endroit et le continent ou il est localisé</rdfs:comment>
@@ -231,10 +243,10 @@
     
 
 
-    <!-- http://exemple.org/cinema#dansPays -->
+    <!-- http://exemple.org/cinema#dans_pays -->
 
-    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#dansPays">
-        <rdfs:subPropertyOf rdf:resource="http://schema.org/containedInPlace"/>
+    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#dans_pays">
+        <rdfs:subPropertyOf rdf:resource="http://schema.org/contained_in_place"/>
         <rdfs:domain rdf:resource="https://schema.org/Place"/>
         <rdfs:range rdf:resource="https://schema.org/State"/>
         <rdfs:comment xml:lang="fr">Lien entre un endroit et le pays ou il est localisé</rdfs:comment>
@@ -244,10 +256,10 @@
     
 
 
-    <!-- http://exemple.org/cinema#dansVille -->
+    <!-- http://exemple.org/cinema#dans_ville -->
 
-    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#dansVille">
-        <rdfs:subPropertyOf rdf:resource="http://schema.org/containedInPlace"/>
+    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#dans_ville">
+        <rdfs:subPropertyOf rdf:resource="http://schema.org/contained_in_place"/>
         <rdfs:domain rdf:resource="https://schema.org/Place"/>
         <rdfs:range rdf:resource="https://schema.org/City"/>
         <rdfs:comment xml:lang="fr">Lien entre un endroit et la ville ou il est localisé</rdfs:comment>
@@ -257,20 +269,23 @@
     
 
 
-    <!-- http://exemple.org/cinema#dateDebutTournage -->
+    <!-- http://exemple.org/cinema#date_debut_tournage -->
 
-    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#dateDebutTournage">
+    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#date_debut_tournage">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://schema.org/Movie"/>
         <rdfs:range rdf:resource="https://schema.org/Date"/>
-        <owl:propertyDisjointWith rdf:resource="http://exemple.org/cinema#dateFinTournage"/>
+        <owl:propertyDisjointWith rdf:resource="http://exemple.org/cinema#date_fin_tournage"/>
+        <rdfs:comment xml:lang="fr">Propriété entre un film et sa date de début de tournage</rdfs:comment>
+        <rdfs:label xml:lang="fr">Date du début du tournage</rdfs:label>
+        <rdfs:seeAlso rdf:resource="s:dateCreated"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://exemple.org/cinema#dateFilm -->
+    <!-- http://exemple.org/cinema#date_film -->
 
-    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#dateFilm">
+    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#date_film">
         <rdfs:domain rdf:resource="https://schema.org/Movie"/>
         <rdfs:range rdf:resource="https://schema.org/Date"/>
         <rdfs:comment xml:lang="fr">Propriété d&apos;un film indiquant la date de l&apos;histoire et des événements du film</rdfs:comment>
@@ -280,12 +295,15 @@
     
 
 
-    <!-- http://exemple.org/cinema#dateFinTournage -->
+    <!-- http://exemple.org/cinema#date_fin_tournage -->
 
-    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#dateFinTournage">
+    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#date_fin_tournage">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://schema.org/Movie"/>
         <rdfs:range rdf:resource="https://schema.org/Date"/>
+        <rdfs:comment xml:lang="fr">Propriété d&apos;un film indiquant le lieu de l&apos;histoire et des événements du film</rdfs:comment>
+        <rdfs:label xml:lang="fr">Date de fin du tournage</rdfs:label>
+        <rdfs:seeAlso rdf:resource="s:dateModified"/>
     </owl:ObjectProperty>
     
 
@@ -294,16 +312,16 @@
 
     <owl:ObjectProperty rdf:about="http://exemple.org/cinema#genre">
         <rdfs:domain rdf:resource="https://schema.org/Movie"/>
-        <rdfs:range rdf:resource="http://exemple.org/cinema#GenreFilm"/>
+        <rdfs:range rdf:resource="http://exemple.org/cinema#Genre_film"/>
         <rdfs:comment xml:lang="fr">Propriété entre un film et un de ses genres</rdfs:comment>
         <rdfs:label xml:lang="fr">Genre du film</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://exemple.org/cinema#lieuFilm -->
+    <!-- http://exemple.org/cinema#lieu_film -->
 
-    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#lieuFilm">
+    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#lieu_film">
         <rdfs:domain rdf:resource="https://schema.org/Movie"/>
         <rdfs:range rdf:resource="https://schema.org/Place"/>
         <rdfs:comment xml:lang="fr">Propriété d&apos;un film indiquant le lieu de l&apos;histoire et des événements du film</rdfs:comment>
@@ -313,9 +331,9 @@
     
 
 
-    <!-- http://exemple.org/cinema#lieuTournage -->
+    <!-- http://exemple.org/cinema#lieu_tournage -->
 
-    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#lieuTournage">
+    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#lieu_tournage">
         <rdfs:domain rdf:resource="https://schema.org/Movie"/>
         <rdfs:range rdf:resource="https://schema.org/Place"/>
         <rdfs:comment xml:lang="fr">Propriété entre un film et un de ses lieux de tournage</rdfs:comment>
@@ -325,10 +343,10 @@
     
 
 
-    <!-- http://exemple.org/cinema#producteurDans -->
+    <!-- http://exemple.org/cinema#producteur_dans -->
 
-    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#producteurDans">
-        <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#estDans"/>
+    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#producteur_dans">
+        <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#est_dans"/>
         <rdfs:domain rdf:resource="http://example.org/cinema#Producteur"/>
         <rdfs:range rdf:resource="https://schema.org/Movie"/>
         <rdfs:comment xml:lang="fr">Lien entre une personne et un film sur lequel il travaille en tant que producteur</rdfs:comment>
@@ -337,11 +355,11 @@
     
 
 
-    <!-- http://exemple.org/cinema#realisateurDans -->
+    <!-- http://exemple.org/cinema#realisateur_dans -->
 
-    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#realisateurDans">
-        <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#estDans"/>
-        <rdfs:domain rdf:resource="http://example.org/cinema#Réalisateur"/>
+    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#realisateur_dans">
+        <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#est_dans"/>
+        <rdfs:domain rdf:resource="http://example.org/cinema#Realisateur"/>
         <rdfs:range rdf:resource="https://schema.org/Movie"/>
         <rdfs:comment xml:lang="fr">Lien entre une personne et un film sur lequel il travaille en tant que réalisateur</rdfs:comment>
         <rdfs:label xml:lang="fr">Est réalisateur de</rdfs:label>
@@ -349,11 +367,11 @@
     
 
 
-    <!-- http://exemple.org/cinema#scenaristeDans -->
+    <!-- http://exemple.org/cinema#scenariste_dans -->
 
-    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#scenaristeDans">
-        <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#estDans"/>
-        <rdfs:domain rdf:resource="http://example.org/cinema#Scénariste"/>
+    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#scenariste_dans">
+        <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#est_dans"/>
+        <rdfs:domain rdf:resource="http://example.org/cinema#Scenariste"/>
         <rdfs:range rdf:resource="https://schema.org/Movie"/>
         <rdfs:comment xml:lang="fr">Lien entre une personne et un film sur lequel il travaille en tant que scénariste</rdfs:comment>
         <rdfs:label xml:lang="fr">Est scénariste de</rdfs:label>
@@ -361,9 +379,9 @@
     
 
 
-    <!-- http://schema.org/containedInPlace -->
+    <!-- http://schema.org/contained_in_place -->
 
-    <owl:ObjectProperty rdf:about="http://schema.org/containedInPlace">
+    <owl:ObjectProperty rdf:about="http://schema.org/contained_in_place">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
@@ -401,13 +419,15 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://schema.org/Person"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://exemple.org/cinema#acteurDans"/>
+                        <owl:onProperty rdf:resource="http://exemple.org/cinema#acteur_dans"/>
                         <owl:someValuesFrom rdf:resource="https://schema.org/Movie"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://example.org/cinema#Profession"/>
+        <rdfs:label xml:lang="fr">Acteur</rdfs:label>
+        <rdfs:label xml:lang="en">Actor</rdfs:label>
     </owl:Class>
     
 
@@ -427,6 +447,7 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://example.org/cinema#ValuePartition"/>
+        <rdfs:label xml:lang="en">Rating</rdfs:label>
     </owl:Class>
     
 
@@ -435,6 +456,8 @@
 
     <owl:Class rdf:about="http://example.org/cinema#Bon">
         <rdfs:subClassOf rdf:resource="http://example.org/cinema#Appréciation"/>
+        <rdfs:label xml:lang="fr">Bon</rdfs:label>
+        <rdfs:label xml:lang="en">Good</rdfs:label>
     </owl:Class>
     
 
@@ -443,6 +466,8 @@
 
     <owl:Class rdf:about="http://example.org/cinema#Excellent">
         <rdfs:subClassOf rdf:resource="http://example.org/cinema#Appréciation"/>
+        <rdfs:label xml:lang="en">Excellent</rdfs:label>
+        <rdfs:label xml:lang="fr">Excellent</rdfs:label>
     </owl:Class>
     
 
@@ -451,6 +476,8 @@
 
     <owl:Class rdf:about="http://example.org/cinema#Mauvais">
         <rdfs:subClassOf rdf:resource="http://example.org/cinema#Appréciation"/>
+        <rdfs:label xml:lang="en">Bad</rdfs:label>
+        <rdfs:label xml:lang="fr">Mauvais</rdfs:label>
     </owl:Class>
     
 
@@ -459,6 +486,8 @@
 
     <owl:Class rdf:about="http://example.org/cinema#Moyen">
         <rdfs:subClassOf rdf:resource="http://example.org/cinema#Appréciation"/>
+        <rdfs:label xml:lang="en">Average</rdfs:label>
+        <rdfs:label xml:lang="fr">Moyen</rdfs:label>
     </owl:Class>
     
 
@@ -467,6 +496,8 @@
 
     <owl:Class rdf:about="http://example.org/cinema#Nul">
         <rdfs:subClassOf rdf:resource="http://example.org/cinema#Appréciation"/>
+        <rdfs:label xml:lang="fr">Nul</rdfs:label>
+        <rdfs:label xml:lang="en">Terrible</rdfs:label>
     </owl:Class>
     
 
@@ -479,13 +510,15 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://schema.org/Person"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://exemple.org/cinema#producteurDans"/>
+                        <owl:onProperty rdf:resource="http://exemple.org/cinema#producteur_dans"/>
                         <owl:someValuesFrom rdf:resource="https://schema.org/Movie"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://example.org/cinema#Profession"/>
+        <rdfs:label xml:lang="en">Producer</rdfs:label>
+        <rdfs:label xml:lang="fr">Producteur</rdfs:label>
     </owl:Class>
     
 
@@ -503,51 +536,57 @@
                         </owl:unionOf>
                     </owl:Class>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://example.org/cinema#estDans"/>
+                        <owl:onProperty rdf:resource="http://example.org/cinema#est_dans"/>
                         <owl:someValuesFrom rdf:resource="https://schema.org/Movie"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://example.org/cinema#ValuePartition"/>
+        <rdfs:label xml:lang="en">Profession</rdfs:label>
+        <rdfs:label xml:lang="fr">Profession</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://example.org/cinema#Réalisateur -->
+    <!-- http://example.org/cinema#Realisateur -->
 
-    <owl:Class rdf:about="http://example.org/cinema#Réalisateur">
+    <owl:Class rdf:about="http://example.org/cinema#Realisateur">
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://schema.org/Person"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://exemple.org/cinema#realisateurDans"/>
+                        <owl:onProperty rdf:resource="http://exemple.org/cinema#realisateur_dans"/>
                         <owl:someValuesFrom rdf:resource="https://schema.org/Movie"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://example.org/cinema#Profession"/>
+        <rdfs:label xml:lang="en">Director</rdfs:label>
+        <rdfs:label xml:lang="fr">Réalisateur</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://example.org/cinema#Scénariste -->
+    <!-- http://example.org/cinema#Scenariste -->
 
-    <owl:Class rdf:about="http://example.org/cinema#Scénariste">
+    <owl:Class rdf:about="http://example.org/cinema#Scenariste">
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="https://schema.org/Person"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://exemple.org/cinema#scenaristeDans"/>
+                        <owl:onProperty rdf:resource="http://exemple.org/cinema#scenariste_dans"/>
                         <owl:someValuesFrom rdf:resource="https://schema.org/Movie"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://example.org/cinema#Profession"/>
+        <rdfs:label xml:lang="en">Screenwriter</rdfs:label>
+        <rdfs:label xml:lang="fr">Scénariste</rdfs:label>
     </owl:Class>
     
 
@@ -557,6 +596,7 @@
     <owl:Class rdf:about="http://example.org/cinema#ValuePartition">
         <rdfs:comment xml:lang="en">A ValuePartition is a pattern that describes a restricted set of classes from which a property can be associated. The parent class is used in restrictions, and the covering axiom means that only members of the subclasses may be used as values. The possible subclasses cannot be extended without updating the ValuePartition class.</rdfs:comment>
         <rdfs:label xml:lang="fr">Partition de valeurs</rdfs:label>
+        <rdfs:label xml:lang="en">Value partition</rdfs:label>
     </owl:Class>
     
 
@@ -568,15 +608,17 @@
         <owl:disjointWith rdf:resource="http://exemple.org/cinema#Long_metrage"/>
         <rdfs:comment xml:lang="fr"> Un court métrage est un film d’une durée inférieure à 30 minutes (PT30M), c’est une sous classe de Movie (de schema)</rdfs:comment>
         <rdfs:label xml:lang="fr">Court Métrage</rdfs:label>
+        <rdfs:label xml:lang="en">Short film</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://exemple.org/cinema#GenreFilm -->
+    <!-- http://exemple.org/cinema#Genre_film -->
 
-    <owl:Class rdf:about="http://exemple.org/cinema#GenreFilm">
+    <owl:Class rdf:about="http://exemple.org/cinema#Genre_film">
         <rdfs:comment xml:lang="fr">Classe des genre d’un film dans laquelle on trouve: drame, romance...</rdfs:comment>
         <rdfs:label xml:lang="fr">Genre d’un Film</rdfs:label>
+        <rdfs:label xml:lang="en">Movie genre</rdfs:label>
     </owl:Class>
     
 
@@ -586,6 +628,7 @@
     <owl:Class rdf:about="http://exemple.org/cinema#Long_metrage">
         <rdfs:subClassOf rdf:resource="https://schema.org/Movie"/>
         <rdfs:comment xml:lang="fr">Un long métrage est un film d’une durée supérieure à 60 minutes (PT60M)</rdfs:comment>
+        <rdfs:label xml:lang="en">Long film</rdfs:label>
         <rdfs:label xml:lang="fr">Long métrage</rdfs:label>
     </owl:Class>
     
@@ -597,6 +640,7 @@
         <rdfs:subClassOf rdf:resource="https://schema.org/Organization"/>
         <rdfs:comment xml:lang="fr">Société de production cinématographique, enfant de la classe Organization de schema</rdfs:comment>
         <rdfs:label xml:lang="fr">Société de production</rdfs:label>
+        <rdfs:label xml:lang="en">Studio</rdfs:label>
     </owl:Class>
     
 
@@ -605,6 +649,7 @@
 
     <owl:Class rdf:about="https://schema.org/City">
         <rdfs:subClassOf rdf:resource="https://schema.org/Place"/>
+        <rdfs:label xml:lang="en">City</rdfs:label>
         <rdfs:label xml:lang="fr">Ville</rdfs:label>
     </owl:Class>
     
@@ -614,6 +659,7 @@
 
     <owl:Class rdf:about="https://schema.org/Continent">
         <rdfs:subClassOf rdf:resource="https://schema.org/Place"/>
+        <rdfs:label xml:lang="en">Continent</rdfs:label>
         <rdfs:label xml:lang="fr">Continent</rdfs:label>
     </owl:Class>
     
@@ -640,6 +686,7 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:label xml:lang="fr">Film</rdfs:label>
+        <rdfs:label xml:lang="en">Movie</rdfs:label>
     </owl:Class>
     
 
@@ -648,6 +695,7 @@
 
     <owl:Class rdf:about="https://schema.org/Organization">
         <rdfs:label xml:lang="fr">Organisation</rdfs:label>
+        <rdfs:label xml:lang="en">Organization</rdfs:label>
     </owl:Class>
     
 
@@ -655,6 +703,7 @@
     <!-- https://schema.org/Person -->
 
     <owl:Class rdf:about="https://schema.org/Person">
+        <rdfs:label xml:lang="en">Person</rdfs:label>
         <rdfs:label xml:lang="fr">Personne</rdfs:label>
     </owl:Class>
     
@@ -664,6 +713,7 @@
 
     <owl:Class rdf:about="https://schema.org/Place">
         <rdfs:label xml:lang="fr">Lieu</rdfs:label>
+        <rdfs:label xml:lang="en">Place</rdfs:label>
     </owl:Class>
     
 
@@ -673,6 +723,7 @@
     <owl:Class rdf:about="https://schema.org/State">
         <rdfs:subClassOf rdf:resource="https://schema.org/Place"/>
         <rdfs:label xml:lang="fr">Pays</rdfs:label>
+        <rdfs:label xml:lang="en">State</rdfs:label>
     </owl:Class>
     
 
@@ -691,7 +742,7 @@
     <!-- http://exemple.org/cinema#Action -->
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Action">
-        <rdf:type rdf:resource="http://exemple.org/cinema#GenreFilm"/>
+        <rdf:type rdf:resource="http://exemple.org/cinema#Genre_film"/>
         <s:name>Action</s:name>
     </owl:NamedIndividual>
     
@@ -709,7 +760,7 @@
     <!-- http://exemple.org/cinema#Anime -->
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Anime">
-        <rdf:type rdf:resource="http://exemple.org/cinema#GenreFilm"/>
+        <rdf:type rdf:resource="http://exemple.org/cinema#Genre_film"/>
         <s:name>Anime</s:name>
     </owl:NamedIndividual>
     
@@ -777,7 +828,7 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Burbank">
         <rdf:type rdf:resource="https://schema.org/City"/>
-        <dansPays rdf:resource="http://exemple.org/cinema#Etats_Unis"/>
+        <dans_pays rdf:resource="http://exemple.org/cinema#Etats_Unis"/>
         <s:name>Burbank</s:name>
     </owl:NamedIndividual>
     
@@ -787,7 +838,7 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Canada">
         <rdf:type rdf:resource="https://schema.org/State"/>
-        <dansContinent rdf:resource="http://exemple.org/cinema#Amerique_du_Nord"/>
+        <dans_continent rdf:resource="http://exemple.org/cinema#Amerique_du_Nord"/>
         <s:name>Canada</s:name>
     </owl:NamedIndividual>
     
@@ -797,7 +848,7 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Chance_gare">
         <rdf:type rdf:resource="https://schema.org/Place"/>
-        <dansPays rdf:resource="http://exemple.org/cinema#Royaume_Uni"/>
+        <dans_pays rdf:resource="http://exemple.org/cinema#Royaume_Uni"/>
     </owl:NamedIndividual>
     
 
@@ -829,7 +880,7 @@
     <!-- http://exemple.org/cinema#Comedie -->
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Comedie">
-        <rdf:type rdf:resource="http://exemple.org/cinema#GenreFilm"/>
+        <rdf:type rdf:resource="http://exemple.org/cinema#Genre_film"/>
         <s:name>Comedie</s:name>
     </owl:NamedIndividual>
     
@@ -839,8 +890,8 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Damien_Chazelle">
         <rdf:type rdf:resource="https://schema.org/Person"/>
-        <realisateurDans rdf:resource="http://exemple.org/cinema#Whiplash_2013"/>
-        <scenaristeDans rdf:resource="http://exemple.org/cinema#Whiplash_2013"/>
+        <realisateur_dans rdf:resource="http://exemple.org/cinema#Whiplash_2013"/>
+        <scenariste_dans rdf:resource="http://exemple.org/cinema#Whiplash_2013"/>
         <s:familyName>Chazelle</s:familyName>
         <s:gender rdf:resource="https://schema.org/Male"/>
         <s:givenName>Damien</s:givenName>
@@ -851,7 +902,7 @@
     <!-- http://exemple.org/cinema#Drame -->
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Drame">
-        <rdf:type rdf:resource="http://exemple.org/cinema#GenreFilm"/>
+        <rdf:type rdf:resource="http://exemple.org/cinema#Genre_film"/>
         <s:name>Drame</s:name>
     </owl:NamedIndividual>
     
@@ -861,7 +912,7 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Ecosse">
         <rdf:type rdf:resource="https://schema.org/State"/>
-        <dansContinent rdf:resource="http://exemple.org/cinema#Europe"/>
+        <dans_continent rdf:resource="http://exemple.org/cinema#Europe"/>
         <s:name>Ecosse</s:name>
     </owl:NamedIndividual>
     
@@ -894,7 +945,7 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Etats_Unis">
         <rdf:type rdf:resource="https://schema.org/State"/>
-        <dansContinent rdf:resource="http://exemple.org/cinema#Amerique_du_Nord"/>
+        <dans_continent rdf:resource="http://exemple.org/cinema#Amerique_du_Nord"/>
         <s:name>Etats Unis</s:name>
     </owl:NamedIndividual>
     
@@ -931,7 +982,7 @@
     <!-- http://exemple.org/cinema#Historique -->
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Historique">
-        <rdf:type rdf:resource="http://exemple.org/cinema#GenreFilm"/>
+        <rdf:type rdf:resource="http://exemple.org/cinema#Genre_film"/>
         <s:name>Historique</s:name>
     </owl:NamedIndividual>
     
@@ -941,7 +992,7 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Hollywood">
         <rdf:type rdf:resource="https://schema.org/Place"/>
-        <dansVille rdf:resource="http://exemple.org/cinema#Los_Angeles"/>
+        <dans_ville rdf:resource="http://exemple.org/cinema#Los_Angeles"/>
         <s:name>Hollywood</s:name>
     </owl:NamedIndividual>
     
@@ -961,7 +1012,7 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Jaco_Van_Dormael">
         <rdf:type rdf:resource="https://schema.org/Person"/>
-        <realisateurDans rdf:resource="http://exemple.org/cinema#Mr_Nobody"/>
+        <realisateur_dans rdf:resource="http://exemple.org/cinema#Mr_Nobody"/>
         <s:familyName>Van Dormael</s:familyName>
         <s:gender rdf:resource="https://schema.org/Male"/>
         <s:givenName>Jaco</s:givenName>
@@ -973,10 +1024,10 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#James_Cameron">
         <rdf:type rdf:resource="https://schema.org/Person"/>
-        <producteurDans rdf:resource="http://exemple.org/cinema#Titanic_1997"/>
-        <realisateurDans rdf:resource="http://exemple.org/cinema#Avatar_2009"/>
-        <realisateurDans rdf:resource="http://exemple.org/cinema#Titanic_1997"/>
-        <scenaristeDans rdf:resource="http://exemple.org/cinema#Titanic_1997"/>
+        <producteur_dans rdf:resource="http://exemple.org/cinema#Titanic_1997"/>
+        <realisateur_dans rdf:resource="http://exemple.org/cinema#Avatar_2009"/>
+        <realisateur_dans rdf:resource="http://exemple.org/cinema#Titanic_1997"/>
+        <scenariste_dans rdf:resource="http://exemple.org/cinema#Titanic_1997"/>
         <s:familyName>Cameron</s:familyName>
         <s:gender rdf:resource="https://schema.org/Male"/>
         <s:givenName>James</s:givenName>
@@ -988,7 +1039,7 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Japon">
         <rdf:type rdf:resource="https://schema.org/State"/>
-        <dansContinent rdf:resource="http://exemple.org/cinema#Asie"/>
+        <dans_continent rdf:resource="http://exemple.org/cinema#Asie"/>
         <s:name>Japon</s:name>
     </owl:NamedIndividual>
     
@@ -998,7 +1049,7 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Jared_Leto">
         <rdf:type rdf:resource="https://schema.org/Person"/>
-        <acteurDans rdf:resource="http://exemple.org/cinema#Mr_Nobody"/>
+        <acteur_dans rdf:resource="http://exemple.org/cinema#Mr_Nobody"/>
         <s:familyName>Leto</s:familyName>
         <s:gender rdf:resource="https://schema.org/Male"/>
         <s:givenName>Jared</s:givenName>
@@ -1010,9 +1061,9 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Johnny_Depp">
         <rdf:type rdf:resource="https://schema.org/Person"/>
-        <acteurDans rdf:resource="http://exemple.org/cinema#Charlie_et_la_chocolaterie"/>
-        <acteurDans rdf:resource="http://exemple.org/cinema#Edward_aux_mains_dargent"/>
-        <acteurDans rdf:resource="http://exemple.org/cinema#Sleepy_Hollow"/>
+        <acteur_dans rdf:resource="http://exemple.org/cinema#Charlie_et_la_chocolaterie"/>
+        <acteur_dans rdf:resource="http://exemple.org/cinema#Edward_aux_mains_dargent"/>
+        <acteur_dans rdf:resource="http://exemple.org/cinema#Sleepy_Hollow"/>
         <s:familyName>Depp</s:familyName>
         <s:gender rdf:resource="https://schema.org/Male"/>
         <s:givenName>Johnny</s:givenName>
@@ -1024,7 +1075,7 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Jonathan_Kimble_Simmons">
         <rdf:type rdf:resource="https://schema.org/Person"/>
-        <acteurDans rdf:resource="http://exemple.org/cinema#Whiplash_2013"/>
+        <acteur_dans rdf:resource="http://exemple.org/cinema#Whiplash_2013"/>
         <s:familyName>Simmons</s:familyName>
         <s:gender rdf:resource="https://schema.org/Male"/>
         <s:givenName>Jonathan</s:givenName>
@@ -1036,7 +1087,7 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Kate_Winslet">
         <rdf:type rdf:resource="https://schema.org/Person"/>
-        <acteurDans rdf:resource="http://exemple.org/cinema#Titanic_1997"/>
+        <acteur_dans rdf:resource="http://exemple.org/cinema#Titanic_1997"/>
         <s:familyName>Winslet</s:familyName>
         <s:gender rdf:resource="https://schema.org/Female"/>
         <s:givenName>Kate</s:givenName>
@@ -1063,7 +1114,7 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Lee_Filipovski">
         <rdf:type rdf:resource="https://schema.org/Person"/>
-        <realisateurDans rdf:resource="http://exemple.org/cinema#Fluffy"/>
+        <realisateur_dans rdf:resource="http://exemple.org/cinema#Fluffy"/>
         <s:familyName>Filipovski</s:familyName>
         <s:gender rdf:resource="https://schema.org/Male"/>
         <s:givenName>Lee</s:givenName>
@@ -1075,7 +1126,7 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Leonardo_DiCaprio">
         <rdf:type rdf:resource="https://schema.org/Person"/>
-        <acteurDans rdf:resource="http://exemple.org/cinema#Titanic_1997"/>
+        <acteur_dans rdf:resource="http://exemple.org/cinema#Titanic_1997"/>
         <s:familyName>DiCaprio</s:familyName>
         <s:gender rdf:resource="https://schema.org/Male"/>
         <s:givenName>Leonardo</s:givenName>
@@ -1087,7 +1138,7 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Los_Angeles">
         <rdf:type rdf:resource="https://schema.org/City"/>
-        <dansPays rdf:resource="http://exemple.org/cinema#Etats_Unis"/>
+        <dans_pays rdf:resource="http://exemple.org/cinema#Etats_Unis"/>
         <s:name>Los Angeles</s:name>
     </owl:NamedIndividual>
     
@@ -1097,7 +1148,7 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Mel_Gibson">
         <rdf:type rdf:resource="https://schema.org/Person"/>
-        <realisateurDans rdf:resource="http://exemple.org/cinema#Braveheart"/>
+        <realisateur_dans rdf:resource="http://exemple.org/cinema#Braveheart"/>
         <s:familyName>Gibson</s:familyName>
         <s:gender rdf:resource="https://schema.org/Male"/>
         <s:givenName>Mel</s:givenName>
@@ -1126,7 +1177,7 @@
     <!-- http://exemple.org/cinema#Musique -->
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Musique">
-        <rdf:type rdf:resource="http://exemple.org/cinema#GenreFilm"/>
+        <rdf:type rdf:resource="http://exemple.org/cinema#Genre_film"/>
         <s:name>Musique</s:name>
     </owl:NamedIndividual>
     
@@ -1136,7 +1187,7 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#New_York">
         <rdf:type rdf:resource="https://schema.org/City"/>
-        <dansPays rdf:resource="http://exemple.org/cinema#Etats_Unis"/>
+        <dans_pays rdf:resource="http://exemple.org/cinema#Etats_Unis"/>
         <s:name>New York</s:name>
     </owl:NamedIndividual>
     
@@ -1162,7 +1213,7 @@
     <!-- http://exemple.org/cinema#Romance -->
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Romance">
-        <rdf:type rdf:resource="http://exemple.org/cinema#GenreFilm"/>
+        <rdf:type rdf:resource="http://exemple.org/cinema#Genre_film"/>
         <s:name>Romance</s:name>
     </owl:NamedIndividual>
     
@@ -1172,7 +1223,7 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Royaume_Uni">
         <rdf:type rdf:resource="https://schema.org/State"/>
-        <dansContinent rdf:resource="http://exemple.org/cinema#Europe"/>
+        <dans_continent rdf:resource="http://exemple.org/cinema#Europe"/>
         <s:name>Royaume uni</s:name>
     </owl:NamedIndividual>
     
@@ -1181,7 +1232,7 @@
     <!-- http://exemple.org/cinema#Science_fiction -->
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Science_fiction">
-        <rdf:type rdf:resource="http://exemple.org/cinema#GenreFilm"/>
+        <rdf:type rdf:resource="http://exemple.org/cinema#Genre_film"/>
         <s:name>Science fiction</s:name>
     </owl:NamedIndividual>
     
@@ -1231,12 +1282,12 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Tim_Burton">
         <rdf:type rdf:resource="https://schema.org/Person"/>
-        <producteurDans rdf:resource="http://exemple.org/cinema#Edward_aux_mains_dargent"/>
-        <realisateurDans rdf:resource="http://exemple.org/cinema#Beetlejuice"/>
-        <realisateurDans rdf:resource="http://exemple.org/cinema#Charlie_et_la_chocolaterie"/>
-        <realisateurDans rdf:resource="http://exemple.org/cinema#Edward_aux_mains_dargent"/>
-        <realisateurDans rdf:resource="http://exemple.org/cinema#Sleepy_Hollow"/>
-        <scenaristeDans rdf:resource="http://exemple.org/cinema#Edward_aux_mains_dargent"/>
+        <producteur_dans rdf:resource="http://exemple.org/cinema#Edward_aux_mains_dargent"/>
+        <realisateur_dans rdf:resource="http://exemple.org/cinema#Beetlejuice"/>
+        <realisateur_dans rdf:resource="http://exemple.org/cinema#Charlie_et_la_chocolaterie"/>
+        <realisateur_dans rdf:resource="http://exemple.org/cinema#Edward_aux_mains_dargent"/>
+        <realisateur_dans rdf:resource="http://exemple.org/cinema#Sleepy_Hollow"/>
+        <scenariste_dans rdf:resource="http://exemple.org/cinema#Edward_aux_mains_dargent"/>
         <s:familyName>Burton</s:familyName>
         <s:gender rdf:resource="https://schema.org/Male"/>
         <s:givenName>Tim</s:givenName>
@@ -1273,7 +1324,7 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Tokyo">
         <rdf:type rdf:resource="https://schema.org/City"/>
-        <dansPays rdf:resource="http://exemple.org/cinema#Japon"/>
+        <dans_pays rdf:resource="http://exemple.org/cinema#Japon"/>
         <s:name>Tokyo</s:name>
     </owl:NamedIndividual>
     
@@ -1283,7 +1334,7 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Toronto">
         <rdf:type rdf:resource="https://schema.org/City"/>
-        <dansPays rdf:resource="http://exemple.org/cinema#Canada"/>
+        <dans_pays rdf:resource="http://exemple.org/cinema#Canada"/>
         <s:name>Toronto</s:name>
     </owl:NamedIndividual>
     
@@ -1338,27 +1389,6 @@
         <s:location rdf:resource="http://exemple.org/cinema#Los_Angeles"/>
         <s:name>20th Century Fox</s:name>
     </owl:NamedIndividual>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Annotations
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    <rdf:Description rdf:about="http://exemple.org/cinema#dateDebutTournage">
-        <rdfs:seeAlso rdf:resource="s:dateCreated"/>
-        <rdfs:label xml:lang="fr">Date du début du tournage</rdfs:label>
-        <rdfs:comment xml:lang="fr">Propriété entre un film et sa date de début de tournage</rdfs:comment>
-    </rdf:Description>
-    <rdf:Description rdf:about="http://exemple.org/cinema#dateFinTournage">
-        <rdfs:label xml:lang="fr">Date de fin du tournage</rdfs:label>
-        <rdfs:seeAlso rdf:resource="s:dateModified"/>
-        <rdfs:comment xml:lang="fr">Propriété d&apos;un film indiquant le lieu de l&apos;histoire et des événements du film</rdfs:comment>
-    </rdf:Description>
     
 
 
