@@ -463,6 +463,7 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://example.org/cinema#Profession"/>
+        <rdfs:comment xml:lang="fr">Personne ayant joué dans au moins un film</rdfs:comment>
         <rdfs:label xml:lang="fr">Acteur</rdfs:label>
         <rdfs:label xml:lang="en">Actor</rdfs:label>
     </owl:Class>
@@ -521,6 +522,7 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://example.org/cinema#Mauvais_film"/>
         <rdfs:comment xml:lang="fr">Film de qualité au moins bonne (&apos;Bon&apos; ou &apos;Excellent&apos;)</rdfs:comment>
         <rdfs:label xml:lang="fr">Bon film</rdfs:label>
         <rdfs:label xml:lang="en">Good movie</rdfs:label>
@@ -591,7 +593,7 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://schema.org/Movie"/>
-        <rdfs:comment xml:lang="fr">Film réalisé sans studio</rdfs:comment>
+        <rdfs:comment xml:lang="fr">Film réalisé sans la participation d&apos;aucun studio</rdfs:comment>
         <rdfs:label xml:lang="fr">Film indépendant</rdfs:label>
         <rdfs:label xml:lang="en">Independant film</rdfs:label>
     </owl:Class>
@@ -690,6 +692,7 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://example.org/cinema#Profession"/>
+        <rdfs:comment xml:lang="fr">Société de production ou personne ayant produit (seul ou conjointement) au moins un film</rdfs:comment>
         <rdfs:label xml:lang="en">Producer</rdfs:label>
         <rdfs:label xml:lang="fr">Producteur</rdfs:label>
     </owl:Class>
@@ -737,6 +740,7 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://example.org/cinema#Profession"/>
+        <rdfs:comment xml:lang="fr">Personne ayant dirigé (ou co-dirigé) au moins un film</rdfs:comment>
         <rdfs:label xml:lang="en">Director</rdfs:label>
         <rdfs:label xml:lang="fr">Réalisateur</rdfs:label>
     </owl:Class>
@@ -758,6 +762,7 @@
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://example.org/cinema#Profession"/>
+        <rdfs:comment xml:lang="fr">Personne ayant écrit (ou co-écrit) le script d&apos;au moins un film</rdfs:comment>
         <rdfs:label xml:lang="en">Screenwriter</rdfs:label>
         <rdfs:label xml:lang="fr">Scénariste</rdfs:label>
     </owl:Class>
@@ -801,7 +806,7 @@
     <owl:Class rdf:about="http://exemple.org/cinema#Court_metrage">
         <rdfs:subClassOf rdf:resource="https://schema.org/Movie"/>
         <owl:disjointWith rdf:resource="http://exemple.org/cinema#Long_metrage"/>
-        <rdfs:comment xml:lang="fr"> Un court métrage est un film d’une durée inférieure à 30 minutes (PT30M), c’est une sous classe de Movie (de schema)</rdfs:comment>
+        <rdfs:comment xml:lang="fr">Un court métrage est un film d’une durée inférieure à 40 minutes (PT40M).</rdfs:comment>
         <rdfs:label xml:lang="fr">Court métrage</rdfs:label>
         <rdfs:label xml:lang="en">Short film</rdfs:label>
     </owl:Class>
@@ -822,7 +827,7 @@
 
     <owl:Class rdf:about="http://exemple.org/cinema#Long_metrage">
         <rdfs:subClassOf rdf:resource="https://schema.org/Movie"/>
-        <rdfs:comment xml:lang="fr">Un long métrage est un film d’une durée supérieure à 60 minutes (PT60M)</rdfs:comment>
+        <rdfs:comment xml:lang="fr">Un long métrage est un film d’une durée supérieure à 40 minutes (PT40M)</rdfs:comment>
         <rdfs:label xml:lang="en">Long film</rdfs:label>
         <rdfs:label xml:lang="fr">Long métrage</rdfs:label>
     </owl:Class>
@@ -833,7 +838,8 @@
 
     <owl:Class rdf:about="http://exemple.org/cinema#Studio">
         <rdfs:subClassOf rdf:resource="https://schema.org/Organization"/>
-        <rdfs:comment xml:lang="fr">Société de production cinématographique, enfant de la classe Organization de schema</rdfs:comment>
+        <owl:disjointWith rdf:resource="https://schema.org/Person"/>
+        <rdfs:comment xml:lang="fr">Société de production cinématographique, sous-classe d&apos;Organization de schema</rdfs:comment>
         <rdfs:label xml:lang="fr">Société de production</rdfs:label>
         <rdfs:label xml:lang="en">Studio</rdfs:label>
     </owl:Class>
@@ -982,9 +988,9 @@
     
 
 
-    <!-- http://exemple.org/cinema#Beetlejuice -->
+    <!-- http://exemple.org/cinema#Beetlejuice_1998 -->
 
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Beetlejuice">
+    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Beetlejuice_1998">
         <rdf:type rdf:resource="http://exemple.org/cinema#Long_metrage"/>
         <genre rdf:resource="http://exemple.org/cinema#Comedie"/>
         <genre rdf:resource="http://exemple.org/cinema#Fantastique"/>
@@ -996,9 +1002,9 @@
     
 
 
-    <!-- http://exemple.org/cinema#Braveheart -->
+    <!-- http://exemple.org/cinema#Braveheart_1995 -->
 
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Braveheart">
+    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Braveheart_1995">
         <rdf:type rdf:resource="http://exemple.org/cinema#Long_metrage"/>
         <genre rdf:resource="http://exemple.org/cinema#Historique"/>
         <s:contentLocation rdf:resource="http://exemple.org/cinema#Ecosse"/>
@@ -1040,9 +1046,9 @@
     
 
 
-    <!-- http://exemple.org/cinema#Charlie_et_la_chocolaterie -->
+    <!-- http://exemple.org/cinema#Charlie_et_la_chocolaterie_2005 -->
 
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Charlie_et_la_chocolaterie">
+    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Charlie_et_la_chocolaterie_2005">
         <rdf:type rdf:resource="http://exemple.org/cinema#Long_metrage"/>
         <genre rdf:resource="http://exemple.org/cinema#Comedie"/>
         <genre rdf:resource="http://exemple.org/cinema#Fantastique"/>
@@ -1105,9 +1111,9 @@
     
 
 
-    <!-- http://exemple.org/cinema#Edward_aux_mains_dargent -->
+    <!-- http://exemple.org/cinema#Edward_aux_mains_dargent_1990 -->
 
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Edward_aux_mains_dargent">
+    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Edward_aux_mains_dargent_1990">
         <rdf:type rdf:resource="http://exemple.org/cinema#Long_metrage"/>
         <genre rdf:resource="http://exemple.org/cinema#Comedie"/>
         <genre rdf:resource="http://exemple.org/cinema#Drame"/>
@@ -1153,9 +1159,9 @@
     
 
 
-    <!-- http://exemple.org/cinema#Fluffy -->
+    <!-- http://exemple.org/cinema#Fluffy_2016 -->
 
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Fluffy">
+    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Fluffy_2016">
         <rdf:type rdf:resource="http://exemple.org/cinema#Court_metrage"/>
         <genre rdf:resource="http://exemple.org/cinema#Comedie"/>
         <genre rdf:resource="http://exemple.org/cinema#Drame"/>
@@ -1199,7 +1205,7 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Jaco_Van_Dormael">
         <rdf:type rdf:resource="https://schema.org/Person"/>
-        <realisateur_de rdf:resource="http://exemple.org/cinema#Mr_Nobody"/>
+        <realisateur_de rdf:resource="http://exemple.org/cinema#Mr_Nobody_2009"/>
         <s:familyName>Van Dormael</s:familyName>
         <s:gender rdf:resource="https://schema.org/Male"/>
         <s:givenName>Jaco</s:givenName>
@@ -1236,7 +1242,7 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Jared_Leto">
         <rdf:type rdf:resource="https://schema.org/Person"/>
-        <acteur_dans rdf:resource="http://exemple.org/cinema#Mr_Nobody"/>
+        <acteur_dans rdf:resource="http://exemple.org/cinema#Mr_Nobody_2009"/>
         <s:familyName>Leto</s:familyName>
         <s:gender rdf:resource="https://schema.org/Male"/>
         <s:givenName>Jared</s:givenName>
@@ -1248,9 +1254,9 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Johnny_Depp">
         <rdf:type rdf:resource="https://schema.org/Person"/>
-        <acteur_dans rdf:resource="http://exemple.org/cinema#Charlie_et_la_chocolaterie"/>
-        <acteur_dans rdf:resource="http://exemple.org/cinema#Edward_aux_mains_dargent"/>
-        <acteur_dans rdf:resource="http://exemple.org/cinema#Sleepy_Hollow"/>
+        <acteur_dans rdf:resource="http://exemple.org/cinema#Charlie_et_la_chocolaterie_2005"/>
+        <acteur_dans rdf:resource="http://exemple.org/cinema#Edward_aux_mains_dargent_1990"/>
+        <acteur_dans rdf:resource="http://exemple.org/cinema#Sleepy_Hollow_1999"/>
         <s:familyName>Depp</s:familyName>
         <s:gender rdf:resource="https://schema.org/Male"/>
         <s:givenName>Johnny</s:givenName>
@@ -1301,7 +1307,7 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Lee_Filipovski">
         <rdf:type rdf:resource="https://schema.org/Person"/>
-        <realisateur_de rdf:resource="http://exemple.org/cinema#Fluffy"/>
+        <realisateur_de rdf:resource="http://exemple.org/cinema#Fluffy_2016"/>
         <s:familyName>Filipovski</s:familyName>
         <s:gender rdf:resource="https://schema.org/Male"/>
         <s:givenName>Lee</s:givenName>
@@ -1335,7 +1341,7 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Mel_Gibson">
         <rdf:type rdf:resource="https://schema.org/Person"/>
-        <realisateur_de rdf:resource="http://exemple.org/cinema#Braveheart"/>
+        <realisateur_de rdf:resource="http://exemple.org/cinema#Braveheart_1995"/>
         <s:familyName>Gibson</s:familyName>
         <s:gender rdf:resource="https://schema.org/Male"/>
         <s:givenName>Mel</s:givenName>
@@ -1343,14 +1349,14 @@
     
 
 
-    <!-- http://exemple.org/cinema#Mr_Nobody -->
+    <!-- http://exemple.org/cinema#Mr_Nobody_2009 -->
 
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Mr_Nobody">
+    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Mr_Nobody_2009">
         <rdf:type rdf:resource="http://exemple.org/cinema#Long_metrage"/>
         <genre rdf:resource="http://exemple.org/cinema#Drame"/>
         <genre rdf:resource="http://exemple.org/cinema#Romance"/>
         <dateDebutTournage rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008</dateDebutTournage>
-        <dateFinTournage rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010</dateFinTournage>
+        <dateFinTournage rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2009</dateFinTournage>
         <s:contentLocation rdf:resource="http://exemple.org/cinema#Chance_gare"/>
         <s:contentLocation rdf:resource="http://exemple.org/cinema#Toronto"/>
         <s:datePublished rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2009</s:datePublished>
@@ -1425,9 +1431,9 @@
     
 
 
-    <!-- http://exemple.org/cinema#Sleepy_Hollow -->
+    <!-- http://exemple.org/cinema#Sleepy_Hollow_1999 -->
 
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Sleepy_Hollow">
+    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Sleepy_Hollow_1999">
         <rdf:type rdf:resource="http://exemple.org/cinema#Long_metrage"/>
         <genre rdf:resource="http://exemple.org/cinema#Fantastique"/>
         <s:contentLocation rdf:resource="http://exemple.org/cinema#New_York"/>
@@ -1469,12 +1475,12 @@
 
     <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Tim_Burton">
         <rdf:type rdf:resource="https://schema.org/Person"/>
-        <producteur_de rdf:resource="http://exemple.org/cinema#Edward_aux_mains_dargent"/>
-        <realisateur_de rdf:resource="http://exemple.org/cinema#Beetlejuice"/>
-        <realisateur_de rdf:resource="http://exemple.org/cinema#Charlie_et_la_chocolaterie"/>
-        <realisateur_de rdf:resource="http://exemple.org/cinema#Edward_aux_mains_dargent"/>
-        <realisateur_de rdf:resource="http://exemple.org/cinema#Sleepy_Hollow"/>
-        <scenariste_de rdf:resource="http://exemple.org/cinema#Edward_aux_mains_dargent"/>
+        <producteur_de rdf:resource="http://exemple.org/cinema#Edward_aux_mains_dargent_1990"/>
+        <realisateur_de rdf:resource="http://exemple.org/cinema#Beetlejuice_1998"/>
+        <realisateur_de rdf:resource="http://exemple.org/cinema#Charlie_et_la_chocolaterie_2005"/>
+        <realisateur_de rdf:resource="http://exemple.org/cinema#Edward_aux_mains_dargent_1990"/>
+        <realisateur_de rdf:resource="http://exemple.org/cinema#Sleepy_Hollow_1999"/>
+        <scenariste_de rdf:resource="http://exemple.org/cinema#Edward_aux_mains_dargent_1990"/>
         <s:familyName>Burton</s:familyName>
         <s:gender rdf:resource="https://schema.org/Male"/>
         <s:givenName>Tim</s:givenName>
@@ -1601,5 +1607,5 @@
 
 
 
-<!-- Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
 
