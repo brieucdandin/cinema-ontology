@@ -1,1610 +1,2780 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://exemple.org/cinema#"
-     xml:base="http://exemple.org/cinema"
-     xmlns:s="https://schema.org/"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://example.org/cinema"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:base="http://exemple.org/cinema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="http://example.org/cinema">
-        <rdfs:comment xml:lang="fr">Une ontologie encyclopédique décrivant le cinéma en français.</rdfs:comment>
-    </owl:Ontology>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Annotation properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://exemple.org/cinema#dateDebutTournage -->
-
-    <owl:AnnotationProperty rdf:about="http://exemple.org/cinema#dateDebutTournage"/>
-    
-
-
-    <!-- http://exemple.org/cinema#dateFinTournage -->
-
-    <owl:AnnotationProperty rdf:about="http://exemple.org/cinema#dateFinTournage"/>
-    
-
-
-    <!-- https://schema.org/contentLocation -->
-
-    <owl:AnnotationProperty rdf:about="https://schema.org/contentLocation"/>
-    
-
-
-    <!-- https://schema.org/contentReferenceTime -->
-
-    <owl:AnnotationProperty rdf:about="https://schema.org/contentReferenceTime"/>
-    
-
-
-    <!-- https://schema.org/dateCreated -->
-
-    <owl:AnnotationProperty rdf:about="https://schema.org/dateCreated"/>
-    
-
-
-    <!-- https://schema.org/datePublished -->
-
-    <owl:AnnotationProperty rdf:about="https://schema.org/datePublished"/>
-    
-
-
-    <!-- https://schema.org/duration -->
-
-    <owl:AnnotationProperty rdf:about="https://schema.org/duration"/>
-    
-
-
-    <!-- https://schema.org/familyName -->
-
-    <owl:AnnotationProperty rdf:about="https://schema.org/familyName"/>
-    
-
-
-    <!-- https://schema.org/gender -->
-
-    <owl:AnnotationProperty rdf:about="https://schema.org/gender"/>
-    
-
-
-    <!-- https://schema.org/givenName -->
-
-    <owl:AnnotationProperty rdf:about="https://schema.org/givenName"/>
-    
-
-
-    <!-- https://schema.org/headline -->
-
-    <owl:AnnotationProperty rdf:about="https://schema.org/headline"/>
-    
-
-
-    <!-- https://schema.org/location -->
-
-    <owl:AnnotationProperty rdf:about="https://schema.org/location"/>
-    
-
-
-    <!-- https://schema.org/locationCreated -->
-
-    <owl:AnnotationProperty rdf:about="https://schema.org/locationCreated"/>
-    
-
-
-    <!-- https://schema.org/name -->
-
-    <owl:AnnotationProperty rdf:about="https://schema.org/name"/>
-    
-
-
-    <!-- https://schema.org/productionCompany -->
-
-    <owl:AnnotationProperty rdf:about="https://schema.org/productionCompany"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Datatypes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://www.w3.org/2001/XMLSchema#date -->
-
-    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
-    
-
-
-    <!-- http://www.w3.org/2001/XMLSchema#duration -->
-
-    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#duration"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Object Properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://example.org/cinema#appreciation -->
-
-    <owl:ObjectProperty rdf:about="http://example.org/cinema#appreciation">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="https://schema.org/Movie"/>
-        <rdfs:range rdf:resource="http://example.org/cinema#Appreciation"/>
-        <rdfs:label xml:lang="fr">appréciation</rdfs:label>
-        <rdfs:label xml:lang="en">rating</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://example.org/cinema#ecrit_par -->
-
-    <owl:ObjectProperty rdf:about="http://example.org/cinema#ecrit_par">
-        <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#implique"/>
-        <owl:inverseOf rdf:resource="http://exemple.org/cinema#scenariste_de"/>
-        <rdfs:domain rdf:resource="https://schema.org/Movie"/>
-        <rdfs:range rdf:resource="http://example.org/cinema#Scenariste"/>
-        <rdfs:label xml:lang="en">written by</rdfs:label>
-        <rdfs:label xml:lang="fr">écrit par</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://example.org/cinema#implique -->
-
-    <owl:ObjectProperty rdf:about="http://example.org/cinema#implique">
-        <owl:inverseOf rdf:resource="http://example.org/cinema#implique_dans"/>
-        <rdfs:domain rdf:resource="https://schema.org/Movie"/>
-        <rdfs:range rdf:resource="http://example.org/cinema#Profession"/>
-        <rdfs:label xml:lang="fr">implique</rdfs:label>
-        <rdfs:label xml:lang="en">involves</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://example.org/cinema#implique_dans -->
-
-    <owl:ObjectProperty rdf:about="http://example.org/cinema#implique_dans">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain rdf:resource="http://example.org/cinema#Profession"/>
-        <rdfs:range rdf:resource="https://schema.org/Movie"/>
-        <rdfs:label xml:lang="fr">impliqué dans</rdfs:label>
-        <rdfs:label xml:lang="en">participates in</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://example.org/cinema#joue_par -->
-
-    <owl:ObjectProperty rdf:about="http://example.org/cinema#joue_par">
-        <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#implique"/>
-        <owl:inverseOf rdf:resource="http://exemple.org/cinema#acteur_dans"/>
-        <rdfs:domain rdf:resource="https://schema.org/Movie"/>
-        <rdfs:range rdf:resource="http://example.org/cinema#Acteur"/>
-        <rdfs:label xml:lang="en">casts</rdfs:label>
-        <rdfs:label xml:lang="fr">joué par</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://example.org/cinema#produit_par -->
-
-    <owl:ObjectProperty rdf:about="http://example.org/cinema#produit_par">
-        <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#implique"/>
-        <owl:inverseOf rdf:resource="http://exemple.org/cinema#producteur_de"/>
-        <rdfs:domain rdf:resource="https://schema.org/Movie"/>
-        <rdfs:range rdf:resource="http://example.org/cinema#Producteur"/>
-        <rdfs:label xml:lang="en">produced by</rdfs:label>
-        <rdfs:label xml:lang="fr">produit par</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://example.org/cinema#realise_par -->
-
-    <owl:ObjectProperty rdf:about="http://example.org/cinema#realise_par">
-        <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#implique"/>
-        <owl:inverseOf rdf:resource="http://exemple.org/cinema#realisateur_de"/>
-        <rdfs:domain rdf:resource="https://schema.org/Movie"/>
-        <rdfs:range rdf:resource="http://example.org/cinema#Realisateur"/>
-        <rdfs:label xml:lang="en">directed by</rdfs:label>
-        <rdfs:label xml:lang="fr">réalisé par</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://exemple.org/cinema#acteur_dans -->
-
-    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#acteur_dans">
-        <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#implique_dans"/>
-        <rdfs:domain rdf:resource="http://example.org/cinema#Acteur"/>
-        <rdfs:range rdf:resource="https://schema.org/Movie"/>
-        <rdfs:comment xml:lang="fr">Lien entre une personne et un film dans lequel il joue en tant qu&apos;acteur</rdfs:comment>
-        <rdfs:label xml:lang="fr">acteur dans</rdfs:label>
-        <rdfs:label xml:lang="en">actor in</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://exemple.org/cinema#dans_continent -->
-
-    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#dans_continent">
-        <rdfs:subPropertyOf rdf:resource="http://schema.org/contained_in_place"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
-        <rdfs:domain rdf:resource="https://schema.org/Place"/>
-        <rdfs:range rdf:resource="https://schema.org/Continent"/>
-        <rdfs:comment xml:lang="fr">Lien entre un endroit et le continent ou il est localisé</rdfs:comment>
-        <rdfs:label xml:lang="fr">dans continent</rdfs:label>
-        <rdfs:label xml:lang="en">in continent</rdfs:label>
-        <rdfs:seeAlso rdf:resource="s:containedInPlace"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://exemple.org/cinema#dans_pays -->
-
-    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#dans_pays">
-        <rdfs:subPropertyOf rdf:resource="http://schema.org/contained_in_place"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
-        <rdfs:domain rdf:resource="https://schema.org/Place"/>
-        <rdfs:range rdf:resource="https://schema.org/State"/>
-        <rdfs:comment xml:lang="fr">Lien entre un endroit et le pays ou il est localisé</rdfs:comment>
-        <rdfs:label xml:lang="fr">dans pays</rdfs:label>
-        <rdfs:label xml:lang="en">in country</rdfs:label>
-        <rdfs:seeAlso rdf:resource="s:containedInPlace"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://exemple.org/cinema#dans_ville -->
-
-    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#dans_ville">
-        <rdfs:subPropertyOf rdf:resource="http://schema.org/contained_in_place"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
-        <rdfs:domain rdf:resource="https://schema.org/Place"/>
-        <rdfs:range rdf:resource="https://schema.org/City"/>
-        <rdfs:comment xml:lang="fr">Lien entre un endroit et la ville ou il est localisé</rdfs:comment>
-        <rdfs:label xml:lang="fr">dans ville</rdfs:label>
-        <rdfs:label xml:lang="en">in city</rdfs:label>
-        <rdfs:seeAlso rdf:resource="s:containedInPlace"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://exemple.org/cinema#date_debut_tournage -->
-
-    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#date_debut_tournage">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="https://schema.org/Movie"/>
-        <rdfs:range rdf:resource="https://schema.org/Date"/>
-        <owl:propertyDisjointWith rdf:resource="http://exemple.org/cinema#date_fin_tournage"/>
-        <rdfs:comment xml:lang="fr">Propriété entre un film et sa date de début de tournage</rdfs:comment>
-        <rdfs:label xml:lang="en">beginning shooting</rdfs:label>
-        <rdfs:label xml:lang="fr">début du tournage</rdfs:label>
-        <rdfs:seeAlso rdf:resource="s:dateCreated"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://exemple.org/cinema#date_film -->
-
-    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#date_film">
-        <rdfs:domain rdf:resource="https://schema.org/Movie"/>
-        <rdfs:range rdf:resource="https://schema.org/Date"/>
-        <rdfs:comment xml:lang="fr">Propriété d&apos;un film indiquant la date d&apos;au moins un des événements du film</rdfs:comment>
-        <rdfs:label xml:lang="fr">date dans film</rdfs:label>
-        <rdfs:label xml:lang="en">date in movie</rdfs:label>
-        <rdfs:seeAlso rdf:resource="s:contentReferenceTime"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://exemple.org/cinema#date_fin_tournage -->
-
-    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#date_fin_tournage">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="https://schema.org/Movie"/>
-        <rdfs:range rdf:resource="https://schema.org/Date"/>
-        <rdfs:comment xml:lang="fr">Propriété d&apos;un film indiquant le lieu de l&apos;histoire et des événements du film</rdfs:comment>
-        <rdfs:label xml:lang="en">end of shooting</rdfs:label>
-        <rdfs:label xml:lang="fr">fin du tournage</rdfs:label>
-        <rdfs:seeAlso rdf:resource="s:dateModified"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://exemple.org/cinema#genre -->
-
-    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#genre">
-        <rdfs:domain rdf:resource="https://schema.org/Movie"/>
-        <rdfs:range rdf:resource="http://exemple.org/cinema#Genre_film"/>
-        <rdfs:comment xml:lang="fr">Propriété entre un film et un de ses genres</rdfs:comment>
-        <rdfs:label xml:lang="en">genre</rdfs:label>
-        <rdfs:label xml:lang="fr">genre</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://exemple.org/cinema#lieu_film -->
-
-    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#lieu_film">
-        <rdfs:domain rdf:resource="https://schema.org/Movie"/>
-        <rdfs:range rdf:resource="https://schema.org/Place"/>
-        <rdfs:comment xml:lang="fr">Propriété d&apos;un film indiquant le lieu d&apos;au moins un des événements du film</rdfs:comment>
-        <rdfs:label xml:lang="fr">lieu dans film</rdfs:label>
-        <rdfs:label xml:lang="en">place in movie</rdfs:label>
-        <rdfs:seeAlso rdf:resource="s:contentLocation"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://exemple.org/cinema#lieu_tournage -->
-
-    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#lieu_tournage">
-        <rdfs:domain rdf:resource="https://schema.org/Movie"/>
-        <rdfs:range rdf:resource="https://schema.org/Place"/>
-        <rdfs:comment xml:lang="fr">Propriété entre un film et un de ses lieux de tournage</rdfs:comment>
-        <rdfs:label xml:lang="fr">lieu du tournage</rdfs:label>
-        <rdfs:label xml:lang="en">place of shooting</rdfs:label>
-        <rdfs:seeAlso rdf:resource="s:locationCreated"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://exemple.org/cinema#producteur_de -->
-
-    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#producteur_de">
-        <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#implique_dans"/>
-        <rdfs:domain rdf:resource="http://example.org/cinema#Producteur"/>
-        <rdfs:range rdf:resource="https://schema.org/Movie"/>
-        <rdfs:comment xml:lang="fr">Lien entre une personne et un film sur lequel il travaille en tant que producteur</rdfs:comment>
-        <rdfs:label xml:lang="en">producer of</rdfs:label>
-        <rdfs:label xml:lang="fr">producteur de</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://exemple.org/cinema#realisateur_de -->
-
-    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#realisateur_de">
-        <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#implique_dans"/>
-        <rdfs:domain rdf:resource="http://example.org/cinema#Realisateur"/>
-        <rdfs:range rdf:resource="https://schema.org/Movie"/>
-        <rdfs:comment xml:lang="fr">Lien entre une personne et un film sur lequel il travaille en tant que réalisateur</rdfs:comment>
-        <rdfs:label xml:lang="en">director of</rdfs:label>
-        <rdfs:label xml:lang="fr">réalisateur de</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://exemple.org/cinema#scenariste_de -->
-
-    <owl:ObjectProperty rdf:about="http://exemple.org/cinema#scenariste_de">
-        <rdfs:subPropertyOf rdf:resource="http://example.org/cinema#implique_dans"/>
-        <rdfs:domain rdf:resource="http://example.org/cinema#Scenariste"/>
-        <rdfs:range rdf:resource="https://schema.org/Movie"/>
-        <rdfs:comment xml:lang="fr">Lien entre une personne et un film sur lequel il travaille en tant que scénariste</rdfs:comment>
-        <rdfs:label xml:lang="en">screenwriter of</rdfs:label>
-        <rdfs:label xml:lang="fr">scénariste de</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://schema.org/contained_in_place -->
-
-    <owl:ObjectProperty rdf:about="http://schema.org/contained_in_place">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
-        <rdfs:label xml:lang="en">contained in place</rdfs:label>
-        <rdfs:label xml:lang="fr">contenu dans</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
-
-    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topObjectProperty">
-        <rdfs:domain rdf:resource="https://schema.org/Person"/>
-        <rdfs:range rdf:resource="https://schema.org/Movie"/>
-    </rdf:Description>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Classes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://example.org/cinema#Acteur -->
-
-    <owl:Class rdf:about="http://example.org/cinema#Acteur">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://schema.org/Person"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://exemple.org/cinema#acteur_dans"/>
-                        <owl:someValuesFrom rdf:resource="https://schema.org/Movie"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://example.org/cinema#Profession"/>
-        <rdfs:comment xml:lang="fr">Personne ayant joué dans au moins un film</rdfs:comment>
-        <rdfs:label xml:lang="fr">Acteur</rdfs:label>
-        <rdfs:label xml:lang="en">Actor</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/cinema#Appreciation -->
-
-    <owl:Class rdf:about="http://example.org/cinema#Appreciation">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://example.org/cinema#Bon"/>
-                    <rdf:Description rdf:about="http://example.org/cinema#Excellent"/>
-                    <rdf:Description rdf:about="http://example.org/cinema#Mauvais"/>
-                    <rdf:Description rdf:about="http://example.org/cinema#Moyen"/>
-                    <rdf:Description rdf:about="http://example.org/cinema#Nul"/>
-                </owl:unionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://example.org/cinema#ValuePartition"/>
-        <rdfs:label xml:lang="en">Quality</rdfs:label>
-        <rdfs:label xml:lang="fr">Qualité</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/cinema#Bon -->
-
-    <owl:Class rdf:about="http://example.org/cinema#Bon">
-        <rdfs:subClassOf rdf:resource="http://example.org/cinema#Appreciation"/>
-        <rdfs:label xml:lang="fr">Bon</rdfs:label>
-        <rdfs:label xml:lang="en">Good</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/cinema#Bon_film -->
-
-    <owl:Class rdf:about="http://example.org/cinema#Bon_film">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://schema.org/Movie"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://example.org/cinema#appreciation"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="http://example.org/cinema#Bon"/>
-                                    <rdf:Description rdf:about="http://example.org/cinema#Excellent"/>
-                                </owl:unionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <owl:disjointWith rdf:resource="http://example.org/cinema#Mauvais_film"/>
-        <rdfs:comment xml:lang="fr">Film de qualité au moins bonne (&apos;Bon&apos; ou &apos;Excellent&apos;)</rdfs:comment>
-        <rdfs:label xml:lang="fr">Bon film</rdfs:label>
-        <rdfs:label xml:lang="en">Good movie</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/cinema#Comedie_musicale -->
-
-    <owl:Class rdf:about="http://example.org/cinema#Comedie_musicale">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://schema.org/Movie"/>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://exemple.org/cinema#genre"/>
-                                <owl:hasValue rdf:resource="http://exemple.org/cinema#Comedie"/>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://exemple.org/cinema#genre"/>
-                                <owl:hasValue rdf:resource="http://exemple.org/cinema#Drame"/>
-                            </owl:Restriction>
-                        </owl:unionOf>
-                    </owl:Class>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://exemple.org/cinema#genre"/>
-                        <owl:hasValue rdf:resource="http://exemple.org/cinema#Musique"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://schema.org/Movie"/>
-        <rdfs:comment xml:lang="fr">Film humoristique ou dramatique porté sur la musique</rdfs:comment>
-        <rdfs:label xml:lang="fr">Comédie musicale</rdfs:label>
-        <rdfs:label xml:lang="en">Musical</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/cinema#Excellent -->
-
-    <owl:Class rdf:about="http://example.org/cinema#Excellent">
-        <rdfs:subClassOf rdf:resource="http://example.org/cinema#Appreciation"/>
-        <rdfs:label xml:lang="en">Excellent</rdfs:label>
-        <rdfs:label xml:lang="fr">Excellent</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/cinema#Film_independant -->
-
-    <owl:Class rdf:about="http://example.org/cinema#Film_independant">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://schema.org/Movie"/>
-                    <owl:Class>
-                        <owl:complementOf>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://example.org/cinema#produit_par"/>
-                                <owl:someValuesFrom rdf:resource="http://exemple.org/cinema#Studio"/>
-                            </owl:Restriction>
-                        </owl:complementOf>
-                    </owl:Class>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://schema.org/Movie"/>
-        <rdfs:comment xml:lang="fr">Film réalisé sans la participation d&apos;aucun studio</rdfs:comment>
-        <rdfs:label xml:lang="fr">Film indépendant</rdfs:label>
-        <rdfs:label xml:lang="en">Independant film</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/cinema#Mauvais -->
-
-    <owl:Class rdf:about="http://example.org/cinema#Mauvais">
-        <rdfs:subClassOf rdf:resource="http://example.org/cinema#Appreciation"/>
-        <rdfs:label xml:lang="en">Bad</rdfs:label>
-        <rdfs:label xml:lang="fr">Mauvais</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/cinema#Mauvais_film -->
-
-    <owl:Class rdf:about="http://example.org/cinema#Mauvais_film">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://schema.org/Movie"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://example.org/cinema#appreciation"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="http://example.org/cinema#Mauvais"/>
-                                    <rdf:Description rdf:about="http://example.org/cinema#Nul"/>
-                                </owl:unionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:comment xml:lang="fr">Film de qualité au mieux mauvaise (&apos;Mauvais&apos; ou &apos;Nul&apos;)</rdfs:comment>
-        <rdfs:label xml:lang="en">Bad movie</rdfs:label>
-        <rdfs:label xml:lang="fr">Mauvais film</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/cinema#Moyen -->
-
-    <owl:Class rdf:about="http://example.org/cinema#Moyen">
-        <rdfs:subClassOf rdf:resource="http://example.org/cinema#Appreciation"/>
-        <rdfs:label xml:lang="en">Average</rdfs:label>
-        <rdfs:label xml:lang="fr">Moyen</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/cinema#Nul -->
-
-    <owl:Class rdf:about="http://example.org/cinema#Nul">
-        <rdfs:subClassOf rdf:resource="http://example.org/cinema#Appreciation"/>
-        <rdfs:label xml:lang="fr">Nul</rdfs:label>
-        <rdfs:label xml:lang="en">Terrible</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/cinema#Peplum -->
-
-    <owl:Class rdf:about="http://example.org/cinema#Peplum">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://schema.org/Movie"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://exemple.org/cinema#genre"/>
-                        <owl:hasValue rdf:resource="http://exemple.org/cinema#Historique"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="https://schema.org/Movie"/>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/cinema#Producteur -->
-
-    <owl:Class rdf:about="http://example.org/cinema#Producteur">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://schema.org/Person"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://exemple.org/cinema#producteur_de"/>
-                        <owl:someValuesFrom rdf:resource="https://schema.org/Movie"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://example.org/cinema#Profession"/>
-        <rdfs:comment xml:lang="fr">Société de production ou personne ayant produit (seul ou conjointement) au moins un film</rdfs:comment>
-        <rdfs:label xml:lang="en">Producer</rdfs:label>
-        <rdfs:label xml:lang="fr">Producteur</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/cinema#Profession -->
-
-    <owl:Class rdf:about="http://example.org/cinema#Profession">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://exemple.org/cinema#Studio"/>
-                            <rdf:Description rdf:about="https://schema.org/Person"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://example.org/cinema#implique_dans"/>
-                        <owl:someValuesFrom rdf:resource="https://schema.org/Movie"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://example.org/cinema#ValuePartition"/>
-        <rdfs:label xml:lang="en">Profession</rdfs:label>
-        <rdfs:label xml:lang="fr">Profession</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/cinema#Realisateur -->
-
-    <owl:Class rdf:about="http://example.org/cinema#Realisateur">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://schema.org/Person"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://exemple.org/cinema#realisateur_de"/>
-                        <owl:someValuesFrom rdf:resource="https://schema.org/Movie"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://example.org/cinema#Profession"/>
-        <rdfs:comment xml:lang="fr">Personne ayant dirigé (ou co-dirigé) au moins un film</rdfs:comment>
-        <rdfs:label xml:lang="en">Director</rdfs:label>
-        <rdfs:label xml:lang="fr">Réalisateur</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/cinema#Scenariste -->
-
-    <owl:Class rdf:about="http://example.org/cinema#Scenariste">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://schema.org/Person"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://exemple.org/cinema#scenariste_de"/>
-                        <owl:someValuesFrom rdf:resource="https://schema.org/Movie"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://example.org/cinema#Profession"/>
-        <rdfs:comment xml:lang="fr">Personne ayant écrit (ou co-écrit) le script d&apos;au moins un film</rdfs:comment>
-        <rdfs:label xml:lang="en">Screenwriter</rdfs:label>
-        <rdfs:label xml:lang="fr">Scénariste</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/cinema#Sketch -->
-
-    <owl:Class rdf:about="http://example.org/cinema#Sketch">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://exemple.org/cinema#Court_metrage"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://exemple.org/cinema#genre"/>
-                        <owl:hasValue rdf:resource="http://exemple.org/cinema#Comedie"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://exemple.org/cinema#Court_metrage"/>
-        <rdfs:comment xml:lang="fr">Court film humoristique</rdfs:comment>
-        <rdfs:label xml:lang="en">Sketch</rdfs:label>
-        <rdfs:label xml:lang="fr">Sketch</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/cinema#ValuePartition -->
-
-    <owl:Class rdf:about="http://example.org/cinema#ValuePartition">
-        <rdfs:comment xml:lang="en">A ValuePartition is a pattern that describes a restricted set of classes from which a property can be associated. The parent class is used in restrictions, and the covering axiom means that only members of the subclasses may be used as values. The possible subclasses cannot be extended without updating the ValuePartition class.</rdfs:comment>
-        <rdfs:label xml:lang="fr">Partition de valeurs</rdfs:label>
-        <rdfs:label xml:lang="en">Value partition</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://exemple.org/cinema#Court_metrage -->
-
-    <owl:Class rdf:about="http://exemple.org/cinema#Court_metrage">
-        <rdfs:subClassOf rdf:resource="https://schema.org/Movie"/>
-        <owl:disjointWith rdf:resource="http://exemple.org/cinema#Long_metrage"/>
-        <rdfs:comment xml:lang="fr">Un court métrage est un film d’une durée inférieure à 40 minutes (PT40M).</rdfs:comment>
-        <rdfs:label xml:lang="fr">Court métrage</rdfs:label>
-        <rdfs:label xml:lang="en">Short film</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://exemple.org/cinema#Genre_film -->
-
-    <owl:Class rdf:about="http://exemple.org/cinema#Genre_film">
-        <rdfs:comment xml:lang="fr">Classe des genre d’un film dans laquelle on trouve: drame, romance...</rdfs:comment>
-        <rdfs:label xml:lang="en">Genre</rdfs:label>
-        <rdfs:label xml:lang="fr">Genre</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://exemple.org/cinema#Long_metrage -->
-
-    <owl:Class rdf:about="http://exemple.org/cinema#Long_metrage">
-        <rdfs:subClassOf rdf:resource="https://schema.org/Movie"/>
-        <rdfs:comment xml:lang="fr">Un long métrage est un film d’une durée supérieure à 40 minutes (PT40M)</rdfs:comment>
-        <rdfs:label xml:lang="en">Long film</rdfs:label>
-        <rdfs:label xml:lang="fr">Long métrage</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://exemple.org/cinema#Studio -->
-
-    <owl:Class rdf:about="http://exemple.org/cinema#Studio">
-        <rdfs:subClassOf rdf:resource="https://schema.org/Organization"/>
-        <owl:disjointWith rdf:resource="https://schema.org/Person"/>
-        <rdfs:comment xml:lang="fr">Société de production cinématographique, sous-classe d&apos;Organization de schema</rdfs:comment>
-        <rdfs:label xml:lang="fr">Société de production</rdfs:label>
-        <rdfs:label xml:lang="en">Studio</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://schema.org/City -->
-
-    <owl:Class rdf:about="https://schema.org/City">
-        <rdfs:subClassOf rdf:resource="https://schema.org/Place"/>
-        <rdfs:label xml:lang="en">City</rdfs:label>
-        <rdfs:label xml:lang="fr">Ville</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://schema.org/Continent -->
-
-    <owl:Class rdf:about="https://schema.org/Continent">
-        <rdfs:subClassOf rdf:resource="https://schema.org/Place"/>
-        <rdfs:label xml:lang="en">Continent</rdfs:label>
-        <rdfs:label xml:lang="fr">Continent</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://schema.org/Date -->
-
-    <owl:Class rdf:about="https://schema.org/Date">
-        <rdfs:label xml:lang="en">Date</rdfs:label>
-        <rdfs:label xml:lang="fr">Date</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://schema.org/Movie -->
-
-    <owl:Class rdf:about="https://schema.org/Movie">
-        <rdfs:label xml:lang="fr">Film</rdfs:label>
-        <rdfs:label xml:lang="en">Movie</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://schema.org/Organization -->
-
-    <owl:Class rdf:about="https://schema.org/Organization">
-        <rdfs:label xml:lang="fr">Organisation</rdfs:label>
-        <rdfs:label xml:lang="en">Organization</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://schema.org/Person -->
-
-    <owl:Class rdf:about="https://schema.org/Person">
-        <rdfs:label xml:lang="en">Person</rdfs:label>
-        <rdfs:label xml:lang="fr">Personne</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://schema.org/Place -->
-
-    <owl:Class rdf:about="https://schema.org/Place">
-        <rdfs:label xml:lang="fr">Lieu</rdfs:label>
-        <rdfs:label xml:lang="en">Place</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://schema.org/State -->
-
-    <owl:Class rdf:about="https://schema.org/State">
-        <rdfs:subClassOf rdf:resource="https://schema.org/Place"/>
-        <rdfs:label xml:lang="fr">Pays</rdfs:label>
-        <rdfs:label xml:lang="en">State</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Individuals
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://exemple.org/cinema#Action -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Action">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Genre_film"/>
-        <s:name>Action</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Amerique_du_Nord -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Amerique_du_Nord">
-        <rdf:type rdf:resource="https://schema.org/Continent"/>
-        <s:name>Amerique du Nord</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Anime -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Anime">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Genre_film"/>
-        <s:name>Anime</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Asie -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Asie">
-        <rdf:type rdf:resource="https://schema.org/Continent"/>
-        <s:name>Asie</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Avatar_2009 -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Avatar_2009">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Long_metrage"/>
-        <genre rdf:resource="http://exemple.org/cinema#Science_fiction"/>
-        <dateDebutTournage rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2009-07-03</dateDebutTournage>
-        <dateFinTournage rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010</dateFinTournage>
-        <s:contentLocation rdf:resource="http://exemple.org/cinema#Pandora"/>
-        <s:contentReferenceTime>2154</s:contentReferenceTime>
-        <s:dateCreated>2007-04</s:dateCreated>
-        <s:datePublished rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2009</s:datePublished>
-        <s:duration>PT162M</s:duration>
-        <s:headline>Avatar</s:headline>
-        <s:locationCreated rdf:resource="http://exemple.org/cinema#Los_Angeles"/>
-        <s:locationCreated rdf:resource="http://exemple.org/cinema#Wellington"/>
-        <s:productionCompany rdf:resource="http://exemple.org/cinema#20th_century_Fox"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Beetlejuice_1998 -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Beetlejuice_1998">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Long_metrage"/>
-        <genre rdf:resource="http://exemple.org/cinema#Comedie"/>
-        <genre rdf:resource="http://exemple.org/cinema#Fantastique"/>
-        <s:datePublished rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1988</s:datePublished>
-        <s:duration>PT92M</s:duration>
-        <s:headline>Beetlejuice</s:headline>
-        <s:productionCompany rdf:resource="http://exemple.org/cinema#The_Geffen_Company"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Braveheart_1995 -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Braveheart_1995">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Long_metrage"/>
-        <genre rdf:resource="http://exemple.org/cinema#Historique"/>
-        <s:contentLocation rdf:resource="http://exemple.org/cinema#Ecosse"/>
-        <s:contentReferenceTime>12</s:contentReferenceTime>
-        <s:datePublished rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1995</s:datePublished>
-        <s:duration>PT178M</s:duration>
-        <s:headline>Braveheart</s:headline>
-        <s:productionCompany rdf:resource="http://exemple.org/cinema#Icon_productions"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Burbank -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Burbank">
-        <rdf:type rdf:resource="https://schema.org/City"/>
-        <dans_pays rdf:resource="http://exemple.org/cinema#Etats_Unis"/>
-        <s:name>Burbank</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Canada -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Canada">
-        <rdf:type rdf:resource="https://schema.org/State"/>
-        <dans_continent rdf:resource="http://exemple.org/cinema#Amerique_du_Nord"/>
-        <s:name>Canada</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Chance_gare -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Chance_gare">
-        <rdf:type rdf:resource="https://schema.org/Place"/>
-        <dans_pays rdf:resource="http://exemple.org/cinema#Royaume_Uni"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Charlie_et_la_chocolaterie_2005 -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Charlie_et_la_chocolaterie_2005">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Long_metrage"/>
-        <genre rdf:resource="http://exemple.org/cinema#Comedie"/>
-        <genre rdf:resource="http://exemple.org/cinema#Fantastique"/>
-        <s:datePublished rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2005</s:datePublished>
-        <s:duration>PT115M</s:duration>
-        <s:headline>Charlie et la Chocolaterie</s:headline>
-        <s:productionCompany rdf:resource="http://exemple.org/cinema#Warner_bros"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#CoMix_Wave_films -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#CoMix_Wave_films">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Studio"/>
-        <s:location rdf:resource="http://exemple.org/cinema#Japon"/>
-        <s:name>CoMix Wave films</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Comedie -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Comedie">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Genre_film"/>
-        <s:name>Comedie</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Damien_Chazelle -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Damien_Chazelle">
-        <rdf:type rdf:resource="https://schema.org/Person"/>
-        <realisateur_de rdf:resource="http://exemple.org/cinema#Whiplash_2013"/>
-        <scenariste_de rdf:resource="http://exemple.org/cinema#Whiplash_2013"/>
-        <s:familyName>Chazelle</s:familyName>
-        <s:gender rdf:resource="https://schema.org/Male"/>
-        <s:givenName>Damien</s:givenName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Drame -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Drame">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Genre_film"/>
-        <s:name>Drame</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Ecosse -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Ecosse">
-        <rdf:type rdf:resource="https://schema.org/State"/>
-        <dans_continent rdf:resource="http://exemple.org/cinema#Europe"/>
-        <s:name>Ecosse</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Edward_aux_mains_dargent_1990 -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Edward_aux_mains_dargent_1990">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Long_metrage"/>
-        <genre rdf:resource="http://exemple.org/cinema#Comedie"/>
-        <genre rdf:resource="http://exemple.org/cinema#Drame"/>
-        <genre rdf:resource="http://exemple.org/cinema#Fantastique"/>
-        <s:datePublished rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1990</s:datePublished>
-        <s:duration>PT105M</s:duration>
-        <s:headline>Edward aux mains d&apos;argent</s:headline>
-        <s:productionCompany rdf:resource="http://exemple.org/cinema#20th_century_Fox"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Espace -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Espace">
-        <rdf:type rdf:resource="https://schema.org/Place"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Etats_Unis -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Etats_Unis">
-        <rdf:type rdf:resource="https://schema.org/State"/>
-        <dans_continent rdf:resource="http://exemple.org/cinema#Amerique_du_Nord"/>
-        <s:name>Etats Unis</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Europe -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Europe">
-        <rdf:type rdf:resource="https://schema.org/Continent"/>
-        <s:name>Europe</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Fantastique -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Fantastique"/>
-    
-
-
-    <!-- http://exemple.org/cinema#Fluffy_2016 -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Fluffy_2016">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Court_metrage"/>
-        <genre rdf:resource="http://exemple.org/cinema#Comedie"/>
-        <genre rdf:resource="http://exemple.org/cinema#Drame"/>
-        <s:datePublished rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2016</s:datePublished>
-        <s:duration>PT24M</s:duration>
-        <s:headline>Fluffy</s:headline>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Historique -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Historique">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Genre_film"/>
-        <s:name>Historique</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Hollywood -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Hollywood">
-        <rdf:type rdf:resource="https://schema.org/Place"/>
-        <dans_ville rdf:resource="http://exemple.org/cinema#Los_Angeles"/>
-        <s:name>Hollywood</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Icon_productions -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Icon_productions">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Studio"/>
-        <s:location rdf:resource="http://exemple.org/cinema#Ecosse"/>
-        <s:name>Icon Productions</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Jaco_Van_Dormael -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Jaco_Van_Dormael">
-        <rdf:type rdf:resource="https://schema.org/Person"/>
-        <realisateur_de rdf:resource="http://exemple.org/cinema#Mr_Nobody_2009"/>
-        <s:familyName>Van Dormael</s:familyName>
-        <s:gender rdf:resource="https://schema.org/Male"/>
-        <s:givenName>Jaco</s:givenName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#James_Cameron -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#James_Cameron">
-        <rdf:type rdf:resource="https://schema.org/Person"/>
-        <producteur_de rdf:resource="http://exemple.org/cinema#Titanic_1997"/>
-        <realisateur_de rdf:resource="http://exemple.org/cinema#Avatar_2009"/>
-        <realisateur_de rdf:resource="http://exemple.org/cinema#Titanic_1997"/>
-        <scenariste_de rdf:resource="http://exemple.org/cinema#Titanic_1997"/>
-        <s:familyName>Cameron</s:familyName>
-        <s:gender rdf:resource="https://schema.org/Male"/>
-        <s:givenName>James</s:givenName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Japon -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Japon">
-        <rdf:type rdf:resource="https://schema.org/State"/>
-        <dans_continent rdf:resource="http://exemple.org/cinema#Asie"/>
-        <s:name>Japon</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Jared_Leto -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Jared_Leto">
-        <rdf:type rdf:resource="https://schema.org/Person"/>
-        <acteur_dans rdf:resource="http://exemple.org/cinema#Mr_Nobody_2009"/>
-        <s:familyName>Leto</s:familyName>
-        <s:gender rdf:resource="https://schema.org/Male"/>
-        <s:givenName>Jared</s:givenName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Johnny_Depp -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Johnny_Depp">
-        <rdf:type rdf:resource="https://schema.org/Person"/>
-        <acteur_dans rdf:resource="http://exemple.org/cinema#Charlie_et_la_chocolaterie_2005"/>
-        <acteur_dans rdf:resource="http://exemple.org/cinema#Edward_aux_mains_dargent_1990"/>
-        <acteur_dans rdf:resource="http://exemple.org/cinema#Sleepy_Hollow_1999"/>
-        <s:familyName>Depp</s:familyName>
-        <s:gender rdf:resource="https://schema.org/Male"/>
-        <s:givenName>Johnny</s:givenName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Jonathan_Kimble_Simmons -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Jonathan_Kimble_Simmons">
-        <rdf:type rdf:resource="https://schema.org/Person"/>
-        <acteur_dans rdf:resource="http://exemple.org/cinema#Whiplash_2013"/>
-        <s:familyName>Simmons</s:familyName>
-        <s:gender rdf:resource="https://schema.org/Male"/>
-        <s:givenName>Jonathan</s:givenName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Kate_Winslet -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Kate_Winslet">
-        <rdf:type rdf:resource="https://schema.org/Person"/>
-        <acteur_dans rdf:resource="http://exemple.org/cinema#Titanic_1997"/>
-        <s:familyName>Winslet</s:familyName>
-        <s:gender rdf:resource="https://schema.org/Female"/>
-        <s:givenName>Kate</s:givenName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Kimi_no_Na_wa_2016 -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Kimi_no_Na_wa_2016">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Long_metrage"/>
-        <genre rdf:resource="http://exemple.org/cinema#Anime"/>
-        <genre rdf:resource="http://exemple.org/cinema#Romance"/>
-        <s:contentLocation rdf:resource="http://exemple.org/cinema#Tokyo"/>
-        <s:datePublished rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2016-07-03</s:datePublished>
-        <s:duration rdf:datatype="http://www.w3.org/2001/XMLSchema#duration">PT106M</s:duration>
-        <s:headline>Kimi no Na wa.</s:headline>
-        <s:productionCompany rdf:resource="http://exemple.org/cinema#CoMix_Wave_films"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Lee_Filipovski -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Lee_Filipovski">
-        <rdf:type rdf:resource="https://schema.org/Person"/>
-        <realisateur_de rdf:resource="http://exemple.org/cinema#Fluffy_2016"/>
-        <s:familyName>Filipovski</s:familyName>
-        <s:gender rdf:resource="https://schema.org/Male"/>
-        <s:givenName>Lee</s:givenName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Leonardo_DiCaprio -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Leonardo_DiCaprio">
-        <rdf:type rdf:resource="https://schema.org/Person"/>
-        <acteur_dans rdf:resource="http://exemple.org/cinema#Titanic_1997"/>
-        <s:familyName>DiCaprio</s:familyName>
-        <s:gender rdf:resource="https://schema.org/Male"/>
-        <s:givenName>Leonardo</s:givenName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Los_Angeles -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Los_Angeles">
-        <rdf:type rdf:resource="https://schema.org/City"/>
-        <dans_pays rdf:resource="http://exemple.org/cinema#Etats_Unis"/>
-        <s:name>Los Angeles</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Mel_Gibson -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Mel_Gibson">
-        <rdf:type rdf:resource="https://schema.org/Person"/>
-        <realisateur_de rdf:resource="http://exemple.org/cinema#Braveheart_1995"/>
-        <s:familyName>Gibson</s:familyName>
-        <s:gender rdf:resource="https://schema.org/Male"/>
-        <s:givenName>Mel</s:givenName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Mr_Nobody_2009 -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Mr_Nobody_2009">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Long_metrage"/>
-        <genre rdf:resource="http://exemple.org/cinema#Drame"/>
-        <genre rdf:resource="http://exemple.org/cinema#Romance"/>
-        <dateDebutTournage rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2008</dateDebutTournage>
-        <dateFinTournage rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2009</dateFinTournage>
-        <s:contentLocation rdf:resource="http://exemple.org/cinema#Chance_gare"/>
-        <s:contentLocation rdf:resource="http://exemple.org/cinema#Toronto"/>
-        <s:datePublished rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2009</s:datePublished>
-        <s:duration>PT141M</s:duration>
-        <s:headline>Mr. Nobody</s:headline>
-        <s:productionCompany rdf:resource="http://exemple.org/cinema#Pan-Europeenne"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Musique -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Musique">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Genre_film"/>
-        <s:name>Musique</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#New_York -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#New_York">
-        <rdf:type rdf:resource="https://schema.org/City"/>
-        <dans_pays rdf:resource="http://exemple.org/cinema#Etats_Unis"/>
-        <s:name>New York</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Pan-Europeenne -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Pan-Europeenne">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Studio"/>
-        <s:name>Pan-Européenne</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Pandora -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Pandora">
-        <rdf:type rdf:resource="https://schema.org/Place"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Romance -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Romance">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Genre_film"/>
-        <s:name>Romance</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Royaume_Uni -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Royaume_Uni">
-        <rdf:type rdf:resource="https://schema.org/State"/>
-        <dans_continent rdf:resource="http://exemple.org/cinema#Europe"/>
-        <s:name>Royaume uni</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Science_fiction -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Science_fiction">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Genre_film"/>
-        <s:name>Science fiction</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Sleepy_Hollow_1999 -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Sleepy_Hollow_1999">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Long_metrage"/>
-        <genre rdf:resource="http://exemple.org/cinema#Fantastique"/>
-        <s:contentLocation rdf:resource="http://exemple.org/cinema#New_York"/>
-        <s:contentReferenceTime rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1799</s:contentReferenceTime>
-        <s:datePublished rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1999</s:datePublished>
-        <s:duration>PT105M</s:duration>
-        <s:headline>Sleepy Hollow : La légende du cavalier sans tête</s:headline>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#The_Geffen_Company -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#The_Geffen_Company">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Studio"/>
-        <s:name>The Geffen Company</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#The_hitchhiker_s_guide_to_the_galaxy_2005 -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#The_hitchhiker_s_guide_to_the_galaxy_2005">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Long_metrage"/>
-        <genre rdf:resource="http://exemple.org/cinema#Comedie"/>
-        <genre rdf:resource="http://exemple.org/cinema#Science_fiction"/>
-        <s:contentLocation rdf:resource="http://exemple.org/cinema#Espace"/>
-        <s:contentLocation rdf:resource="http://exemple.org/cinema#Royaume_Uni"/>
-        <s:datePublished rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2005</s:datePublished>
-        <s:duration>PT1H49M</s:duration>
-        <s:headline>The Hitchhiker&apos;s Guide to the Galaxy</s:headline>
-        <s:locationCreated rdf:resource="http://exemple.org/cinema#Royaume_Uni"/>
-        <s:productionCompany rdf:resource="http://exemple.org/cinema#20th_century_Fox"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Tim_Burton -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Tim_Burton">
-        <rdf:type rdf:resource="https://schema.org/Person"/>
-        <producteur_de rdf:resource="http://exemple.org/cinema#Edward_aux_mains_dargent_1990"/>
-        <realisateur_de rdf:resource="http://exemple.org/cinema#Beetlejuice_1998"/>
-        <realisateur_de rdf:resource="http://exemple.org/cinema#Charlie_et_la_chocolaterie_2005"/>
-        <realisateur_de rdf:resource="http://exemple.org/cinema#Edward_aux_mains_dargent_1990"/>
-        <realisateur_de rdf:resource="http://exemple.org/cinema#Sleepy_Hollow_1999"/>
-        <scenariste_de rdf:resource="http://exemple.org/cinema#Edward_aux_mains_dargent_1990"/>
-        <s:familyName>Burton</s:familyName>
-        <s:gender rdf:resource="https://schema.org/Male"/>
-        <s:givenName>Tim</s:givenName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Titanic -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Titanic">
-        <rdf:type rdf:resource="https://schema.org/Place"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Titanic_1997 -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Titanic_1997">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Long_metrage"/>
-        <genre rdf:resource="http://exemple.org/cinema#Drame"/>
-        <genre rdf:resource="http://exemple.org/cinema#Romance"/>
-        <s:contentLocation rdf:resource="http://exemple.org/cinema#Titanic"/>
-        <s:contentReferenceTime>1912</s:contentReferenceTime>
-        <s:datePublished rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1997</s:datePublished>
-        <s:duration>PT194M</s:duration>
-        <s:headline>Titanic</s:headline>
-        <s:locationCreated rdf:resource="http://exemple.org/cinema#Hollywood"/>
-        <s:productionCompany rdf:resource="http://exemple.org/cinema#20th_century_Fox"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Tokyo -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Tokyo">
-        <rdf:type rdf:resource="https://schema.org/City"/>
-        <dans_pays rdf:resource="http://exemple.org/cinema#Japon"/>
-        <s:name>Tokyo</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Toronto -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Toronto">
-        <rdf:type rdf:resource="https://schema.org/City"/>
-        <dans_pays rdf:resource="http://exemple.org/cinema#Canada"/>
-        <s:name>Toronto</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Walt_disney_studio -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Walt_disney_studio">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Studio"/>
-        <s:location rdf:resource="http://exemple.org/cinema#Burbank"/>
-        <s:name>Walt Disney Studio</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Warner_bros -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Warner_bros">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Studio"/>
-        <s:location rdf:resource="http://exemple.org/cinema#Burbank"/>
-        <s:name>Warner Bros</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Wellington -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Wellington">
-        <rdf:type rdf:resource="https://schema.org/City"/>
-        <s:name>Wellington</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#Whiplash_2013 -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#Whiplash_2013">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Court_metrage"/>
-        <genre rdf:resource="http://exemple.org/cinema#Drame"/>
-        <genre rdf:resource="http://exemple.org/cinema#Musique"/>
-        <s:datePublished rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013</s:datePublished>
-        <s:duration>PT18M</s:duration>
-        <s:headline>Whiplash</s:headline>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://exemple.org/cinema#20th_century_Fox -->
-
-    <owl:NamedIndividual rdf:about="http://exemple.org/cinema#20th_century_Fox">
-        <rdf:type rdf:resource="http://exemple.org/cinema#Studio"/>
-        <s:location rdf:resource="http://exemple.org/cinema#Los_Angeles"/>
-        <s:name>20th Century Fox</s:name>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // General axioms
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://example.org/cinema#Bon"/>
-            <rdf:Description rdf:about="http://example.org/cinema#Excellent"/>
-            <rdf:Description rdf:about="http://example.org/cinema#Mauvais"/>
-            <rdf:Description rdf:about="http://example.org/cinema#Moyen"/>
-            <rdf:Description rdf:about="http://example.org/cinema#Nul"/>
-        </owl:members>
-    </rdf:Description>
-</rdf:RDF>
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://example.org/cinema">
+    <Prefix name="" IRI="http://exemple.org/cinema#"/>
+    <Prefix name="s" IRI="https://schema.org/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="base" IRI="http://exemple.org/cinema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal xml:lang="fr">Une ontologie encyclopédique décrivant le cinéma en français.</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="#Acteur"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Appreciation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bon"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bon_film"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Comedie_musicale"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Excellent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Film_independant"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Mauvais"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Mauvais_film"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Moyen"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Nul"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Peplum"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Producteur"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Profession"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Realisateur"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Scenariste"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sketch"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ValuePartition"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="base:Court_metrage"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="base:Genre_film"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="base:Long_metrage"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="base:Studio"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="s:City"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="s:Continent"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="s:Date"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="s:Movie"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="s:Organization"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="s:Person"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="s:Place"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="s:State"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#appreciation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#ecrit_par"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#implique"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#implique_dans"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#joue_par"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#produit_par"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#realise_par"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="base:acteur_dans"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="base:dans_continent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="base:dans_pays"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="base:dans_ville"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="base:date_debut_tournage"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="base:date_film"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="base:date_fin_tournage"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="base:genre"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="base:lieu_film"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="base:lieu_tournage"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="base:producteur_de"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="base:realisateur_de"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="base:scenariste_de"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://schema.org/contained_in_place"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Action"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Amerique_du_Nord"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Anime"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Asie"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Avatar_2009"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Beetlejuice_1998"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Braveheart_1995"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Burbank"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Canada"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Chance_gare"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Charlie_et_la_chocolaterie_2005"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:CoMix_Wave_films"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Comedie"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Damien_Chazelle"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Drame"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Ecosse"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Edward_aux_mains_dargent_1990"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Espace"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Etats_Unis"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Europe"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Fantastique"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Fluffy_2016"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Historique"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Hollywood"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Icon_productions"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Jaco_Van_Dormael"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:James_Cameron"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Japon"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Jared_Leto"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Johnny_Depp"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Jonathan_Kimble_Simmons"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Kate_Winslet"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Kimi_no_Na_wa_2016"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Lee_Filipovski"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Leonardo_DiCaprio"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Los_Angeles"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Mel_Gibson"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Mr_Nobody_2009"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Musique"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:New_York"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Pan-Europeenne"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Pandora"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Romance"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Royaume_Uni"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Science_fiction"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Sleepy_Hollow_1999"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:The_Geffen_Company"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:The_hitchhiker_s_guide_to_the_galaxy_2005"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Tim_Burton"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Titanic"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Titanic_1997"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Tokyo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Toronto"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Walt_disney_studio"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Warner_bros"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Wellington"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="base:Whiplash_2013"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://exemple.org/cinema#20th_century_Fox"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="base:dateDebutTournage"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="base:dateFinTournage"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="s:contentLocation"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="s:contentReferenceTime"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="s:dateCreated"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="s:datePublished"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="s:duration"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="s:familyName"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="s:gender"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="s:givenName"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="s:headline"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="s:location"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="s:locationCreated"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="s:productionCompany"/>
+    </Declaration>
+    <Declaration>
+        <Datatype abbreviatedIRI="xsd:date"/>
+    </Declaration>
+    <Declaration>
+        <Datatype abbreviatedIRI="xsd:duration"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#Acteur"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="s:Person"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="base:acteur_dans"/>
+                <Class abbreviatedIRI="s:Movie"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Appreciation"/>
+        <ObjectUnionOf>
+            <Class IRI="#Bon"/>
+            <Class IRI="#Excellent"/>
+            <Class IRI="#Mauvais"/>
+            <Class IRI="#Moyen"/>
+            <Class IRI="#Nul"/>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Bon_film"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="s:Movie"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#appreciation"/>
+                <ObjectUnionOf>
+                    <Class IRI="#Bon"/>
+                    <Class IRI="#Excellent"/>
+                </ObjectUnionOf>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Comedie_musicale"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="s:Movie"/>
+            <ObjectUnionOf>
+                <ObjectHasValue>
+                    <ObjectProperty abbreviatedIRI="base:genre"/>
+                    <NamedIndividual abbreviatedIRI="base:Comedie"/>
+                </ObjectHasValue>
+                <ObjectHasValue>
+                    <ObjectProperty abbreviatedIRI="base:genre"/>
+                    <NamedIndividual abbreviatedIRI="base:Drame"/>
+                </ObjectHasValue>
+            </ObjectUnionOf>
+            <ObjectHasValue>
+                <ObjectProperty abbreviatedIRI="base:genre"/>
+                <NamedIndividual abbreviatedIRI="base:Musique"/>
+            </ObjectHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Film_independant"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="s:Movie"/>
+            <ObjectComplementOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="#produit_par"/>
+                    <Class abbreviatedIRI="base:Studio"/>
+                </ObjectSomeValuesFrom>
+            </ObjectComplementOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Mauvais_film"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="s:Movie"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#appreciation"/>
+                <ObjectUnionOf>
+                    <Class IRI="#Mauvais"/>
+                    <Class IRI="#Nul"/>
+                </ObjectUnionOf>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Peplum"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="s:Movie"/>
+            <ObjectHasValue>
+                <ObjectProperty abbreviatedIRI="base:genre"/>
+                <NamedIndividual abbreviatedIRI="base:Historique"/>
+            </ObjectHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Producteur"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="s:Person"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="base:producteur_de"/>
+                <Class abbreviatedIRI="s:Movie"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Profession"/>
+        <ObjectIntersectionOf>
+            <ObjectUnionOf>
+                <Class abbreviatedIRI="base:Studio"/>
+                <Class abbreviatedIRI="s:Person"/>
+            </ObjectUnionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#implique_dans"/>
+                <Class abbreviatedIRI="s:Movie"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Realisateur"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="s:Person"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="base:realisateur_de"/>
+                <Class abbreviatedIRI="s:Movie"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Scenariste"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="s:Person"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="base:scenariste_de"/>
+                <Class abbreviatedIRI="s:Movie"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Sketch"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="base:Court_metrage"/>
+            <ObjectHasValue>
+                <ObjectProperty abbreviatedIRI="base:genre"/>
+                <NamedIndividual abbreviatedIRI="base:Comedie"/>
+            </ObjectHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#Acteur"/>
+        <Class IRI="#Profession"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Appreciation"/>
+        <Class IRI="#ValuePartition"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bon"/>
+        <Class IRI="#Appreciation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Comedie_musicale"/>
+        <Class abbreviatedIRI="s:Movie"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Excellent"/>
+        <Class IRI="#Appreciation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Film_independant"/>
+        <Class abbreviatedIRI="s:Movie"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Mauvais"/>
+        <Class IRI="#Appreciation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Moyen"/>
+        <Class IRI="#Appreciation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Nul"/>
+        <Class IRI="#Appreciation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Peplum"/>
+        <Class abbreviatedIRI="s:Movie"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Producteur"/>
+        <Class IRI="#Profession"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Profession"/>
+        <Class IRI="#ValuePartition"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Realisateur"/>
+        <Class IRI="#Profession"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Scenariste"/>
+        <Class IRI="#Profession"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sketch"/>
+        <Class abbreviatedIRI="base:Court_metrage"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="base:Court_metrage"/>
+        <Class abbreviatedIRI="s:Movie"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="base:Long_metrage"/>
+        <Class abbreviatedIRI="s:Movie"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="base:Studio"/>
+        <Class abbreviatedIRI="s:Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="s:City"/>
+        <Class abbreviatedIRI="s:Place"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="s:Continent"/>
+        <Class abbreviatedIRI="s:Place"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="s:State"/>
+        <Class abbreviatedIRI="s:Place"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Bon"/>
+        <Class IRI="#Excellent"/>
+        <Class IRI="#Mauvais"/>
+        <Class IRI="#Moyen"/>
+        <Class IRI="#Nul"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Bon_film"/>
+        <Class IRI="#Mauvais_film"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI="base:Court_metrage"/>
+        <Class abbreviatedIRI="base:Long_metrage"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI="base:Studio"/>
+        <Class abbreviatedIRI="s:Person"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Genre_film"/>
+        <NamedIndividual abbreviatedIRI="base:Action"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:Continent"/>
+        <NamedIndividual abbreviatedIRI="base:Amerique_du_Nord"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Genre_film"/>
+        <NamedIndividual abbreviatedIRI="base:Anime"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:Continent"/>
+        <NamedIndividual abbreviatedIRI="base:Asie"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Long_metrage"/>
+        <NamedIndividual abbreviatedIRI="base:Avatar_2009"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Long_metrage"/>
+        <NamedIndividual abbreviatedIRI="base:Beetlejuice_1998"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Long_metrage"/>
+        <NamedIndividual abbreviatedIRI="base:Braveheart_1995"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:City"/>
+        <NamedIndividual abbreviatedIRI="base:Burbank"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:State"/>
+        <NamedIndividual abbreviatedIRI="base:Canada"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:Place"/>
+        <NamedIndividual abbreviatedIRI="base:Chance_gare"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Long_metrage"/>
+        <NamedIndividual abbreviatedIRI="base:Charlie_et_la_chocolaterie_2005"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Studio"/>
+        <NamedIndividual abbreviatedIRI="base:CoMix_Wave_films"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Genre_film"/>
+        <NamedIndividual abbreviatedIRI="base:Comedie"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:Person"/>
+        <NamedIndividual abbreviatedIRI="base:Damien_Chazelle"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Genre_film"/>
+        <NamedIndividual abbreviatedIRI="base:Drame"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:State"/>
+        <NamedIndividual abbreviatedIRI="base:Ecosse"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Long_metrage"/>
+        <NamedIndividual abbreviatedIRI="base:Edward_aux_mains_dargent_1990"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:Place"/>
+        <NamedIndividual abbreviatedIRI="base:Espace"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:State"/>
+        <NamedIndividual abbreviatedIRI="base:Etats_Unis"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:Continent"/>
+        <NamedIndividual abbreviatedIRI="base:Europe"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Court_metrage"/>
+        <NamedIndividual abbreviatedIRI="base:Fluffy_2016"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Genre_film"/>
+        <NamedIndividual abbreviatedIRI="base:Historique"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:Place"/>
+        <NamedIndividual abbreviatedIRI="base:Hollywood"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Studio"/>
+        <NamedIndividual abbreviatedIRI="base:Icon_productions"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:Person"/>
+        <NamedIndividual abbreviatedIRI="base:Jaco_Van_Dormael"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:Person"/>
+        <NamedIndividual abbreviatedIRI="base:James_Cameron"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:State"/>
+        <NamedIndividual abbreviatedIRI="base:Japon"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:Person"/>
+        <NamedIndividual abbreviatedIRI="base:Jared_Leto"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:Person"/>
+        <NamedIndividual abbreviatedIRI="base:Johnny_Depp"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:Person"/>
+        <NamedIndividual abbreviatedIRI="base:Jonathan_Kimble_Simmons"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:Person"/>
+        <NamedIndividual abbreviatedIRI="base:Kate_Winslet"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Long_metrage"/>
+        <NamedIndividual abbreviatedIRI="base:Kimi_no_Na_wa_2016"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:Person"/>
+        <NamedIndividual abbreviatedIRI="base:Lee_Filipovski"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:Person"/>
+        <NamedIndividual abbreviatedIRI="base:Leonardo_DiCaprio"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:City"/>
+        <NamedIndividual abbreviatedIRI="base:Los_Angeles"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:Person"/>
+        <NamedIndividual abbreviatedIRI="base:Mel_Gibson"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Long_metrage"/>
+        <NamedIndividual abbreviatedIRI="base:Mr_Nobody_2009"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Genre_film"/>
+        <NamedIndividual abbreviatedIRI="base:Musique"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:City"/>
+        <NamedIndividual abbreviatedIRI="base:New_York"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Studio"/>
+        <NamedIndividual abbreviatedIRI="base:Pan-Europeenne"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:Place"/>
+        <NamedIndividual abbreviatedIRI="base:Pandora"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Genre_film"/>
+        <NamedIndividual abbreviatedIRI="base:Romance"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:State"/>
+        <NamedIndividual abbreviatedIRI="base:Royaume_Uni"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Genre_film"/>
+        <NamedIndividual abbreviatedIRI="base:Science_fiction"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Long_metrage"/>
+        <NamedIndividual abbreviatedIRI="base:Sleepy_Hollow_1999"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Studio"/>
+        <NamedIndividual abbreviatedIRI="base:The_Geffen_Company"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Long_metrage"/>
+        <NamedIndividual abbreviatedIRI="base:The_hitchhiker_s_guide_to_the_galaxy_2005"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:Person"/>
+        <NamedIndividual abbreviatedIRI="base:Tim_Burton"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:Place"/>
+        <NamedIndividual abbreviatedIRI="base:Titanic"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Long_metrage"/>
+        <NamedIndividual abbreviatedIRI="base:Titanic_1997"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:City"/>
+        <NamedIndividual abbreviatedIRI="base:Tokyo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:City"/>
+        <NamedIndividual abbreviatedIRI="base:Toronto"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Studio"/>
+        <NamedIndividual abbreviatedIRI="base:Walt_disney_studio"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Studio"/>
+        <NamedIndividual abbreviatedIRI="base:Warner_bros"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="s:City"/>
+        <NamedIndividual abbreviatedIRI="base:Wellington"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Court_metrage"/>
+        <NamedIndividual abbreviatedIRI="base:Whiplash_2013"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="base:Studio"/>
+        <NamedIndividual IRI="http://exemple.org/cinema#20th_century_Fox"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:genre"/>
+        <NamedIndividual abbreviatedIRI="base:Avatar_2009"/>
+        <NamedIndividual abbreviatedIRI="base:Science_fiction"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:genre"/>
+        <NamedIndividual abbreviatedIRI="base:Beetlejuice_1998"/>
+        <NamedIndividual abbreviatedIRI="base:Comedie"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:genre"/>
+        <NamedIndividual abbreviatedIRI="base:Beetlejuice_1998"/>
+        <NamedIndividual abbreviatedIRI="base:Fantastique"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:genre"/>
+        <NamedIndividual abbreviatedIRI="base:Braveheart_1995"/>
+        <NamedIndividual abbreviatedIRI="base:Historique"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:dans_pays"/>
+        <NamedIndividual abbreviatedIRI="base:Burbank"/>
+        <NamedIndividual abbreviatedIRI="base:Etats_Unis"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:dans_continent"/>
+        <NamedIndividual abbreviatedIRI="base:Canada"/>
+        <NamedIndividual abbreviatedIRI="base:Amerique_du_Nord"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:dans_pays"/>
+        <NamedIndividual abbreviatedIRI="base:Chance_gare"/>
+        <NamedIndividual abbreviatedIRI="base:Royaume_Uni"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:genre"/>
+        <NamedIndividual abbreviatedIRI="base:Charlie_et_la_chocolaterie_2005"/>
+        <NamedIndividual abbreviatedIRI="base:Comedie"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:genre"/>
+        <NamedIndividual abbreviatedIRI="base:Charlie_et_la_chocolaterie_2005"/>
+        <NamedIndividual abbreviatedIRI="base:Fantastique"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:realisateur_de"/>
+        <NamedIndividual abbreviatedIRI="base:Damien_Chazelle"/>
+        <NamedIndividual abbreviatedIRI="base:Whiplash_2013"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:scenariste_de"/>
+        <NamedIndividual abbreviatedIRI="base:Damien_Chazelle"/>
+        <NamedIndividual abbreviatedIRI="base:Whiplash_2013"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:dans_continent"/>
+        <NamedIndividual abbreviatedIRI="base:Ecosse"/>
+        <NamedIndividual abbreviatedIRI="base:Europe"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:genre"/>
+        <NamedIndividual abbreviatedIRI="base:Edward_aux_mains_dargent_1990"/>
+        <NamedIndividual abbreviatedIRI="base:Comedie"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:genre"/>
+        <NamedIndividual abbreviatedIRI="base:Edward_aux_mains_dargent_1990"/>
+        <NamedIndividual abbreviatedIRI="base:Drame"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:genre"/>
+        <NamedIndividual abbreviatedIRI="base:Edward_aux_mains_dargent_1990"/>
+        <NamedIndividual abbreviatedIRI="base:Fantastique"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:dans_continent"/>
+        <NamedIndividual abbreviatedIRI="base:Etats_Unis"/>
+        <NamedIndividual abbreviatedIRI="base:Amerique_du_Nord"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:genre"/>
+        <NamedIndividual abbreviatedIRI="base:Fluffy_2016"/>
+        <NamedIndividual abbreviatedIRI="base:Comedie"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:genre"/>
+        <NamedIndividual abbreviatedIRI="base:Fluffy_2016"/>
+        <NamedIndividual abbreviatedIRI="base:Drame"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:dans_ville"/>
+        <NamedIndividual abbreviatedIRI="base:Hollywood"/>
+        <NamedIndividual abbreviatedIRI="base:Los_Angeles"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:realisateur_de"/>
+        <NamedIndividual abbreviatedIRI="base:Jaco_Van_Dormael"/>
+        <NamedIndividual abbreviatedIRI="base:Mr_Nobody_2009"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:producteur_de"/>
+        <NamedIndividual abbreviatedIRI="base:James_Cameron"/>
+        <NamedIndividual abbreviatedIRI="base:Titanic_1997"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:realisateur_de"/>
+        <NamedIndividual abbreviatedIRI="base:James_Cameron"/>
+        <NamedIndividual abbreviatedIRI="base:Avatar_2009"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:realisateur_de"/>
+        <NamedIndividual abbreviatedIRI="base:James_Cameron"/>
+        <NamedIndividual abbreviatedIRI="base:Titanic_1997"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:scenariste_de"/>
+        <NamedIndividual abbreviatedIRI="base:James_Cameron"/>
+        <NamedIndividual abbreviatedIRI="base:Titanic_1997"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:dans_continent"/>
+        <NamedIndividual abbreviatedIRI="base:Japon"/>
+        <NamedIndividual abbreviatedIRI="base:Asie"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:acteur_dans"/>
+        <NamedIndividual abbreviatedIRI="base:Jared_Leto"/>
+        <NamedIndividual abbreviatedIRI="base:Mr_Nobody_2009"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:acteur_dans"/>
+        <NamedIndividual abbreviatedIRI="base:Johnny_Depp"/>
+        <NamedIndividual abbreviatedIRI="base:Charlie_et_la_chocolaterie_2005"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:acteur_dans"/>
+        <NamedIndividual abbreviatedIRI="base:Johnny_Depp"/>
+        <NamedIndividual abbreviatedIRI="base:Edward_aux_mains_dargent_1990"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:acteur_dans"/>
+        <NamedIndividual abbreviatedIRI="base:Johnny_Depp"/>
+        <NamedIndividual abbreviatedIRI="base:Sleepy_Hollow_1999"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:acteur_dans"/>
+        <NamedIndividual abbreviatedIRI="base:Jonathan_Kimble_Simmons"/>
+        <NamedIndividual abbreviatedIRI="base:Whiplash_2013"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:acteur_dans"/>
+        <NamedIndividual abbreviatedIRI="base:Kate_Winslet"/>
+        <NamedIndividual abbreviatedIRI="base:Titanic_1997"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:genre"/>
+        <NamedIndividual abbreviatedIRI="base:Kimi_no_Na_wa_2016"/>
+        <NamedIndividual abbreviatedIRI="base:Anime"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:genre"/>
+        <NamedIndividual abbreviatedIRI="base:Kimi_no_Na_wa_2016"/>
+        <NamedIndividual abbreviatedIRI="base:Romance"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:realisateur_de"/>
+        <NamedIndividual abbreviatedIRI="base:Lee_Filipovski"/>
+        <NamedIndividual abbreviatedIRI="base:Fluffy_2016"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:acteur_dans"/>
+        <NamedIndividual abbreviatedIRI="base:Leonardo_DiCaprio"/>
+        <NamedIndividual abbreviatedIRI="base:Titanic_1997"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:dans_pays"/>
+        <NamedIndividual abbreviatedIRI="base:Los_Angeles"/>
+        <NamedIndividual abbreviatedIRI="base:Etats_Unis"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:realisateur_de"/>
+        <NamedIndividual abbreviatedIRI="base:Mel_Gibson"/>
+        <NamedIndividual abbreviatedIRI="base:Braveheart_1995"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:genre"/>
+        <NamedIndividual abbreviatedIRI="base:Mr_Nobody_2009"/>
+        <NamedIndividual abbreviatedIRI="base:Drame"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:genre"/>
+        <NamedIndividual abbreviatedIRI="base:Mr_Nobody_2009"/>
+        <NamedIndividual abbreviatedIRI="base:Romance"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:dans_pays"/>
+        <NamedIndividual abbreviatedIRI="base:New_York"/>
+        <NamedIndividual abbreviatedIRI="base:Etats_Unis"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:dans_continent"/>
+        <NamedIndividual abbreviatedIRI="base:Royaume_Uni"/>
+        <NamedIndividual abbreviatedIRI="base:Europe"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:genre"/>
+        <NamedIndividual abbreviatedIRI="base:Sleepy_Hollow_1999"/>
+        <NamedIndividual abbreviatedIRI="base:Fantastique"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:genre"/>
+        <NamedIndividual abbreviatedIRI="base:The_hitchhiker_s_guide_to_the_galaxy_2005"/>
+        <NamedIndividual abbreviatedIRI="base:Comedie"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:genre"/>
+        <NamedIndividual abbreviatedIRI="base:The_hitchhiker_s_guide_to_the_galaxy_2005"/>
+        <NamedIndividual abbreviatedIRI="base:Science_fiction"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:producteur_de"/>
+        <NamedIndividual abbreviatedIRI="base:Tim_Burton"/>
+        <NamedIndividual abbreviatedIRI="base:Edward_aux_mains_dargent_1990"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:realisateur_de"/>
+        <NamedIndividual abbreviatedIRI="base:Tim_Burton"/>
+        <NamedIndividual abbreviatedIRI="base:Beetlejuice_1998"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:realisateur_de"/>
+        <NamedIndividual abbreviatedIRI="base:Tim_Burton"/>
+        <NamedIndividual abbreviatedIRI="base:Charlie_et_la_chocolaterie_2005"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:realisateur_de"/>
+        <NamedIndividual abbreviatedIRI="base:Tim_Burton"/>
+        <NamedIndividual abbreviatedIRI="base:Edward_aux_mains_dargent_1990"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:realisateur_de"/>
+        <NamedIndividual abbreviatedIRI="base:Tim_Burton"/>
+        <NamedIndividual abbreviatedIRI="base:Sleepy_Hollow_1999"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:scenariste_de"/>
+        <NamedIndividual abbreviatedIRI="base:Tim_Burton"/>
+        <NamedIndividual abbreviatedIRI="base:Edward_aux_mains_dargent_1990"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:genre"/>
+        <NamedIndividual abbreviatedIRI="base:Titanic_1997"/>
+        <NamedIndividual abbreviatedIRI="base:Drame"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:genre"/>
+        <NamedIndividual abbreviatedIRI="base:Titanic_1997"/>
+        <NamedIndividual abbreviatedIRI="base:Romance"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:dans_pays"/>
+        <NamedIndividual abbreviatedIRI="base:Tokyo"/>
+        <NamedIndividual abbreviatedIRI="base:Japon"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:dans_pays"/>
+        <NamedIndividual abbreviatedIRI="base:Toronto"/>
+        <NamedIndividual abbreviatedIRI="base:Canada"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:genre"/>
+        <NamedIndividual abbreviatedIRI="base:Whiplash_2013"/>
+        <NamedIndividual abbreviatedIRI="base:Drame"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="base:genre"/>
+        <NamedIndividual abbreviatedIRI="base:Whiplash_2013"/>
+        <NamedIndividual abbreviatedIRI="base:Musique"/>
+    </ObjectPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#ecrit_par"/>
+        <ObjectProperty IRI="#implique"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#implique_dans"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#joue_par"/>
+        <ObjectProperty IRI="#implique"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#produit_par"/>
+        <ObjectProperty IRI="#implique"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#realise_par"/>
+        <ObjectProperty IRI="#implique"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="base:acteur_dans"/>
+        <ObjectProperty IRI="#implique_dans"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="base:dans_continent"/>
+        <ObjectProperty IRI="http://schema.org/contained_in_place"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="base:dans_pays"/>
+        <ObjectProperty IRI="http://schema.org/contained_in_place"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="base:dans_ville"/>
+        <ObjectProperty IRI="http://schema.org/contained_in_place"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="base:producteur_de"/>
+        <ObjectProperty IRI="#implique_dans"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="base:realisateur_de"/>
+        <ObjectProperty IRI="#implique_dans"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="base:scenariste_de"/>
+        <ObjectProperty IRI="#implique_dans"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#ecrit_par"/>
+        <ObjectProperty abbreviatedIRI="base:scenariste_de"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#implique"/>
+        <ObjectProperty IRI="#implique_dans"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#joue_par"/>
+        <ObjectProperty abbreviatedIRI="base:acteur_dans"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#produit_par"/>
+        <ObjectProperty abbreviatedIRI="base:producteur_de"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#realise_par"/>
+        <ObjectProperty abbreviatedIRI="base:realisateur_de"/>
+    </InverseObjectProperties>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#appreciation"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="base:date_debut_tournage"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="base:date_fin_tournage"/>
+    </FunctionalObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty abbreviatedIRI="base:dans_continent"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty abbreviatedIRI="base:dans_pays"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty abbreviatedIRI="base:dans_ville"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="http://schema.org/contained_in_place"/>
+    </AsymmetricObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="http://schema.org/contained_in_place"/>
+    </TransitiveObjectProperty>
+    <ReflexiveObjectProperty>
+        <ObjectProperty abbreviatedIRI="base:dans_continent"/>
+    </ReflexiveObjectProperty>
+    <ReflexiveObjectProperty>
+        <ObjectProperty abbreviatedIRI="base:dans_pays"/>
+    </ReflexiveObjectProperty>
+    <ReflexiveObjectProperty>
+        <ObjectProperty abbreviatedIRI="base:dans_ville"/>
+    </ReflexiveObjectProperty>
+    <ReflexiveObjectProperty>
+        <ObjectProperty IRI="http://schema.org/contained_in_place"/>
+    </ReflexiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#appreciation"/>
+        <Class abbreviatedIRI="s:Movie"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#ecrit_par"/>
+        <Class abbreviatedIRI="s:Movie"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#implique"/>
+        <Class abbreviatedIRI="s:Movie"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#implique_dans"/>
+        <Class IRI="#Profession"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#joue_par"/>
+        <Class abbreviatedIRI="s:Movie"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#produit_par"/>
+        <Class abbreviatedIRI="s:Movie"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#realise_par"/>
+        <Class abbreviatedIRI="s:Movie"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="base:acteur_dans"/>
+        <Class IRI="#Acteur"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="base:dans_continent"/>
+        <Class abbreviatedIRI="s:Place"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="base:dans_pays"/>
+        <Class abbreviatedIRI="s:Place"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="base:dans_ville"/>
+        <Class abbreviatedIRI="s:Place"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="base:date_debut_tournage"/>
+        <Class abbreviatedIRI="s:Movie"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="base:date_film"/>
+        <Class abbreviatedIRI="s:Movie"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="base:date_fin_tournage"/>
+        <Class abbreviatedIRI="s:Movie"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="base:genre"/>
+        <Class abbreviatedIRI="s:Movie"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="base:lieu_film"/>
+        <Class abbreviatedIRI="s:Movie"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="base:lieu_tournage"/>
+        <Class abbreviatedIRI="s:Movie"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="base:producteur_de"/>
+        <Class IRI="#Producteur"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="base:realisateur_de"/>
+        <Class IRI="#Realisateur"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="base:scenariste_de"/>
+        <Class IRI="#Scenariste"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+        <Class abbreviatedIRI="s:Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#appreciation"/>
+        <Class IRI="#Appreciation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#ecrit_par"/>
+        <Class IRI="#Scenariste"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#implique"/>
+        <Class IRI="#Profession"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#implique_dans"/>
+        <Class abbreviatedIRI="s:Movie"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#joue_par"/>
+        <Class IRI="#Acteur"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#produit_par"/>
+        <Class IRI="#Producteur"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#realise_par"/>
+        <Class IRI="#Realisateur"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="base:acteur_dans"/>
+        <Class abbreviatedIRI="s:Movie"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="base:dans_continent"/>
+        <Class abbreviatedIRI="s:Continent"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="base:dans_pays"/>
+        <Class abbreviatedIRI="s:State"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="base:dans_ville"/>
+        <Class abbreviatedIRI="s:City"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="base:date_debut_tournage"/>
+        <Class abbreviatedIRI="s:Date"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="base:date_film"/>
+        <Class abbreviatedIRI="s:Date"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="base:date_fin_tournage"/>
+        <Class abbreviatedIRI="s:Date"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="base:genre"/>
+        <Class abbreviatedIRI="base:Genre_film"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="base:lieu_film"/>
+        <Class abbreviatedIRI="s:Place"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="base:lieu_tournage"/>
+        <Class abbreviatedIRI="s:Place"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="base:producteur_de"/>
+        <Class abbreviatedIRI="s:Movie"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="base:realisateur_de"/>
+        <Class abbreviatedIRI="s:Movie"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="base:scenariste_de"/>
+        <Class abbreviatedIRI="s:Movie"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+        <Class abbreviatedIRI="s:Movie"/>
+    </ObjectPropertyRange>
+    <DisjointObjectProperties>
+        <ObjectProperty abbreviatedIRI="base:date_debut_tournage"/>
+        <ObjectProperty abbreviatedIRI="base:date_fin_tournage"/>
+    </DisjointObjectProperties>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Acteur</IRI>
+        <Literal xml:lang="fr">Personne ayant joué dans au moins un film</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Acteur</IRI>
+        <Literal xml:lang="fr">Acteur</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Acteur</IRI>
+        <Literal xml:lang="en">Actor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Appreciation</IRI>
+        <Literal xml:lang="en">Quality</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Appreciation</IRI>
+        <Literal xml:lang="fr">Qualité</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Bon</IRI>
+        <Literal xml:lang="fr">Bon</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Bon</IRI>
+        <Literal xml:lang="en">Good</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Bon_film</IRI>
+        <Literal xml:lang="fr">Film de qualité au moins bonne (&apos;Bon&apos; ou &apos;Excellent&apos;)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Bon_film</IRI>
+        <Literal xml:lang="fr">Bon film</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Bon_film</IRI>
+        <Literal xml:lang="en">Good movie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Comedie_musicale</IRI>
+        <Literal xml:lang="fr">Film humoristique ou dramatique porté sur la musique</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Comedie_musicale</IRI>
+        <Literal xml:lang="fr">Comédie musicale</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Comedie_musicale</IRI>
+        <Literal xml:lang="en">Musical</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Excellent</IRI>
+        <Literal xml:lang="en">Excellent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Excellent</IRI>
+        <Literal xml:lang="fr">Excellent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Film_independant</IRI>
+        <Literal xml:lang="fr">Film réalisé sans la participation d&apos;aucun studio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Film_independant</IRI>
+        <Literal xml:lang="fr">Film indépendant</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Film_independant</IRI>
+        <Literal xml:lang="en">Independant film</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Mauvais</IRI>
+        <Literal xml:lang="en">Bad</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Mauvais</IRI>
+        <Literal xml:lang="fr">Mauvais</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Mauvais_film</IRI>
+        <Literal xml:lang="fr">Film de qualité au mieux mauvaise (&apos;Mauvais&apos; ou &apos;Nul&apos;)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Mauvais_film</IRI>
+        <Literal xml:lang="en">Bad movie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Mauvais_film</IRI>
+        <Literal xml:lang="fr">Mauvais film</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Moyen</IRI>
+        <Literal xml:lang="en">Average</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Moyen</IRI>
+        <Literal xml:lang="fr">Moyen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Nul</IRI>
+        <Literal xml:lang="fr">Nul</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Nul</IRI>
+        <Literal xml:lang="en">Terrible</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Producteur</IRI>
+        <Literal xml:lang="fr">Société de production ou personne ayant produit (seul ou conjointement) au moins un film</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Producteur</IRI>
+        <Literal xml:lang="en">Producer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Producteur</IRI>
+        <Literal xml:lang="fr">Producteur</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Profession</IRI>
+        <Literal xml:lang="en">Profession</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Profession</IRI>
+        <Literal xml:lang="fr">Profession</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Realisateur</IRI>
+        <Literal xml:lang="fr">Personne ayant dirigé (ou co-dirigé) au moins un film</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Realisateur</IRI>
+        <Literal xml:lang="en">Director</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Realisateur</IRI>
+        <Literal xml:lang="fr">Réalisateur</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Scenariste</IRI>
+        <Literal xml:lang="fr">Personne ayant écrit (ou co-écrit) le script d&apos;au moins un film</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Scenariste</IRI>
+        <Literal xml:lang="en">Screenwriter</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Scenariste</IRI>
+        <Literal xml:lang="fr">Scénariste</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Sketch</IRI>
+        <Literal xml:lang="fr">Court film humoristique</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Sketch</IRI>
+        <Literal xml:lang="en">Sketch</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Sketch</IRI>
+        <Literal xml:lang="fr">Sketch</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ValuePartition</IRI>
+        <Literal xml:lang="en">A ValuePartition is a pattern that describes a restricted set of classes from which a property can be associated. The parent class is used in restrictions, and the covering axiom means that only members of the subclasses may be used as values. The possible subclasses cannot be extended without updating the ValuePartition class.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ValuePartition</IRI>
+        <Literal xml:lang="fr">Partition de valeurs</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ValuePartition</IRI>
+        <Literal xml:lang="en">Value partition</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#appreciation</IRI>
+        <Literal xml:lang="fr">appréciation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#appreciation</IRI>
+        <Literal xml:lang="en">rating</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ecrit_par</IRI>
+        <Literal xml:lang="en">written by</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ecrit_par</IRI>
+        <Literal xml:lang="fr">écrit par</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#implique</IRI>
+        <Literal xml:lang="fr">implique</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#implique</IRI>
+        <Literal xml:lang="en">involves</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#implique_dans</IRI>
+        <Literal xml:lang="fr">impliqué dans</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#implique_dans</IRI>
+        <Literal xml:lang="en">participates in</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#joue_par</IRI>
+        <Literal xml:lang="en">casts</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#joue_par</IRI>
+        <Literal xml:lang="fr">joué par</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#produit_par</IRI>
+        <Literal xml:lang="en">produced by</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#produit_par</IRI>
+        <Literal xml:lang="fr">produit par</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#realise_par</IRI>
+        <Literal xml:lang="en">directed by</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#realise_par</IRI>
+        <Literal xml:lang="fr">réalisé par</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Action</AbbreviatedIRI>
+        <Literal>Action</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Amerique_du_Nord</AbbreviatedIRI>
+        <Literal>Amerique du Nord</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Anime</AbbreviatedIRI>
+        <Literal>Anime</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Asie</AbbreviatedIRI>
+        <Literal>Asie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="base:dateDebutTournage"/>
+        <AbbreviatedIRI>base:Avatar_2009</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#date">2009-07-03</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="base:dateFinTournage"/>
+        <AbbreviatedIRI>base:Avatar_2009</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#date">2010</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:contentLocation"/>
+        <AbbreviatedIRI>base:Avatar_2009</AbbreviatedIRI>
+        <AbbreviatedIRI>base:Pandora</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:contentReferenceTime"/>
+        <AbbreviatedIRI>base:Avatar_2009</AbbreviatedIRI>
+        <Literal>2154</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:dateCreated"/>
+        <AbbreviatedIRI>base:Avatar_2009</AbbreviatedIRI>
+        <Literal>2007-04</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:datePublished"/>
+        <AbbreviatedIRI>base:Avatar_2009</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#date">2009</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:duration"/>
+        <AbbreviatedIRI>base:Avatar_2009</AbbreviatedIRI>
+        <Literal>PT162M</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:headline"/>
+        <AbbreviatedIRI>base:Avatar_2009</AbbreviatedIRI>
+        <Literal>Avatar</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:locationCreated"/>
+        <AbbreviatedIRI>base:Avatar_2009</AbbreviatedIRI>
+        <AbbreviatedIRI>base:Los_Angeles</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:locationCreated"/>
+        <AbbreviatedIRI>base:Avatar_2009</AbbreviatedIRI>
+        <AbbreviatedIRI>base:Wellington</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:productionCompany"/>
+        <AbbreviatedIRI>base:Avatar_2009</AbbreviatedIRI>
+        <IRI>http://exemple.org/cinema#20th_century_Fox</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:datePublished"/>
+        <AbbreviatedIRI>base:Beetlejuice_1998</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#date">1988</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:duration"/>
+        <AbbreviatedIRI>base:Beetlejuice_1998</AbbreviatedIRI>
+        <Literal>PT92M</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:headline"/>
+        <AbbreviatedIRI>base:Beetlejuice_1998</AbbreviatedIRI>
+        <Literal>Beetlejuice</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:productionCompany"/>
+        <AbbreviatedIRI>base:Beetlejuice_1998</AbbreviatedIRI>
+        <AbbreviatedIRI>base:The_Geffen_Company</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:contentLocation"/>
+        <AbbreviatedIRI>base:Braveheart_1995</AbbreviatedIRI>
+        <AbbreviatedIRI>base:Ecosse</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:contentReferenceTime"/>
+        <AbbreviatedIRI>base:Braveheart_1995</AbbreviatedIRI>
+        <Literal>12</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:datePublished"/>
+        <AbbreviatedIRI>base:Braveheart_1995</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#date">1995</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:duration"/>
+        <AbbreviatedIRI>base:Braveheart_1995</AbbreviatedIRI>
+        <Literal>PT178M</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:headline"/>
+        <AbbreviatedIRI>base:Braveheart_1995</AbbreviatedIRI>
+        <Literal>Braveheart</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:productionCompany"/>
+        <AbbreviatedIRI>base:Braveheart_1995</AbbreviatedIRI>
+        <AbbreviatedIRI>base:Icon_productions</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Burbank</AbbreviatedIRI>
+        <Literal>Burbank</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Canada</AbbreviatedIRI>
+        <Literal>Canada</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:datePublished"/>
+        <AbbreviatedIRI>base:Charlie_et_la_chocolaterie_2005</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#date">2005</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:duration"/>
+        <AbbreviatedIRI>base:Charlie_et_la_chocolaterie_2005</AbbreviatedIRI>
+        <Literal>PT115M</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:headline"/>
+        <AbbreviatedIRI>base:Charlie_et_la_chocolaterie_2005</AbbreviatedIRI>
+        <Literal>Charlie et la Chocolaterie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:productionCompany"/>
+        <AbbreviatedIRI>base:Charlie_et_la_chocolaterie_2005</AbbreviatedIRI>
+        <AbbreviatedIRI>base:Warner_bros</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:location"/>
+        <AbbreviatedIRI>base:CoMix_Wave_films</AbbreviatedIRI>
+        <AbbreviatedIRI>base:Japon</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:CoMix_Wave_films</AbbreviatedIRI>
+        <Literal>CoMix Wave films</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Comedie</AbbreviatedIRI>
+        <Literal>Comedie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>base:Court_metrage</AbbreviatedIRI>
+        <Literal xml:lang="fr">Un court métrage est un film d’une durée inférieure à 40 minutes (PT40M).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:Court_metrage</AbbreviatedIRI>
+        <Literal xml:lang="fr">Court métrage</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:Court_metrage</AbbreviatedIRI>
+        <Literal xml:lang="en">Short film</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:familyName"/>
+        <AbbreviatedIRI>base:Damien_Chazelle</AbbreviatedIRI>
+        <Literal>Chazelle</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:gender"/>
+        <AbbreviatedIRI>base:Damien_Chazelle</AbbreviatedIRI>
+        <AbbreviatedIRI>s:Male</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:givenName"/>
+        <AbbreviatedIRI>base:Damien_Chazelle</AbbreviatedIRI>
+        <Literal>Damien</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Drame</AbbreviatedIRI>
+        <Literal>Drame</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Ecosse</AbbreviatedIRI>
+        <Literal>Ecosse</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:datePublished"/>
+        <AbbreviatedIRI>base:Edward_aux_mains_dargent_1990</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#date">1990</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:duration"/>
+        <AbbreviatedIRI>base:Edward_aux_mains_dargent_1990</AbbreviatedIRI>
+        <Literal>PT105M</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:headline"/>
+        <AbbreviatedIRI>base:Edward_aux_mains_dargent_1990</AbbreviatedIRI>
+        <Literal>Edward aux mains d&apos;argent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:productionCompany"/>
+        <AbbreviatedIRI>base:Edward_aux_mains_dargent_1990</AbbreviatedIRI>
+        <IRI>http://exemple.org/cinema#20th_century_Fox</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Etats_Unis</AbbreviatedIRI>
+        <Literal>Etats Unis</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Europe</AbbreviatedIRI>
+        <Literal>Europe</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:datePublished"/>
+        <AbbreviatedIRI>base:Fluffy_2016</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#date">2016</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:duration"/>
+        <AbbreviatedIRI>base:Fluffy_2016</AbbreviatedIRI>
+        <Literal>PT24M</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:headline"/>
+        <AbbreviatedIRI>base:Fluffy_2016</AbbreviatedIRI>
+        <Literal>Fluffy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>base:Genre_film</AbbreviatedIRI>
+        <Literal xml:lang="fr">Classe des genre d’un film dans laquelle on trouve: drame, romance...</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:Genre_film</AbbreviatedIRI>
+        <Literal xml:lang="en">Genre</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:Genre_film</AbbreviatedIRI>
+        <Literal xml:lang="fr">Genre</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Historique</AbbreviatedIRI>
+        <Literal>Historique</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Hollywood</AbbreviatedIRI>
+        <Literal>Hollywood</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:location"/>
+        <AbbreviatedIRI>base:Icon_productions</AbbreviatedIRI>
+        <AbbreviatedIRI>base:Ecosse</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Icon_productions</AbbreviatedIRI>
+        <Literal>Icon Productions</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:familyName"/>
+        <AbbreviatedIRI>base:Jaco_Van_Dormael</AbbreviatedIRI>
+        <Literal>Van Dormael</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:gender"/>
+        <AbbreviatedIRI>base:Jaco_Van_Dormael</AbbreviatedIRI>
+        <AbbreviatedIRI>s:Male</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:givenName"/>
+        <AbbreviatedIRI>base:Jaco_Van_Dormael</AbbreviatedIRI>
+        <Literal>Jaco</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:familyName"/>
+        <AbbreviatedIRI>base:James_Cameron</AbbreviatedIRI>
+        <Literal>Cameron</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:gender"/>
+        <AbbreviatedIRI>base:James_Cameron</AbbreviatedIRI>
+        <AbbreviatedIRI>s:Male</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:givenName"/>
+        <AbbreviatedIRI>base:James_Cameron</AbbreviatedIRI>
+        <Literal>James</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Japon</AbbreviatedIRI>
+        <Literal>Japon</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:familyName"/>
+        <AbbreviatedIRI>base:Jared_Leto</AbbreviatedIRI>
+        <Literal>Leto</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:gender"/>
+        <AbbreviatedIRI>base:Jared_Leto</AbbreviatedIRI>
+        <AbbreviatedIRI>s:Male</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:givenName"/>
+        <AbbreviatedIRI>base:Jared_Leto</AbbreviatedIRI>
+        <Literal>Jared</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:familyName"/>
+        <AbbreviatedIRI>base:Johnny_Depp</AbbreviatedIRI>
+        <Literal>Depp</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:gender"/>
+        <AbbreviatedIRI>base:Johnny_Depp</AbbreviatedIRI>
+        <AbbreviatedIRI>s:Male</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:givenName"/>
+        <AbbreviatedIRI>base:Johnny_Depp</AbbreviatedIRI>
+        <Literal>Johnny</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:familyName"/>
+        <AbbreviatedIRI>base:Jonathan_Kimble_Simmons</AbbreviatedIRI>
+        <Literal>Simmons</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:gender"/>
+        <AbbreviatedIRI>base:Jonathan_Kimble_Simmons</AbbreviatedIRI>
+        <AbbreviatedIRI>s:Male</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:givenName"/>
+        <AbbreviatedIRI>base:Jonathan_Kimble_Simmons</AbbreviatedIRI>
+        <Literal>Jonathan</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:familyName"/>
+        <AbbreviatedIRI>base:Kate_Winslet</AbbreviatedIRI>
+        <Literal>Winslet</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:gender"/>
+        <AbbreviatedIRI>base:Kate_Winslet</AbbreviatedIRI>
+        <AbbreviatedIRI>s:Female</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:givenName"/>
+        <AbbreviatedIRI>base:Kate_Winslet</AbbreviatedIRI>
+        <Literal>Kate</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:contentLocation"/>
+        <AbbreviatedIRI>base:Kimi_no_Na_wa_2016</AbbreviatedIRI>
+        <AbbreviatedIRI>base:Tokyo</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:datePublished"/>
+        <AbbreviatedIRI>base:Kimi_no_Na_wa_2016</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#date">2016-07-03</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:duration"/>
+        <AbbreviatedIRI>base:Kimi_no_Na_wa_2016</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#duration">PT106M</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:headline"/>
+        <AbbreviatedIRI>base:Kimi_no_Na_wa_2016</AbbreviatedIRI>
+        <Literal>Kimi no Na wa.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:productionCompany"/>
+        <AbbreviatedIRI>base:Kimi_no_Na_wa_2016</AbbreviatedIRI>
+        <AbbreviatedIRI>base:CoMix_Wave_films</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:familyName"/>
+        <AbbreviatedIRI>base:Lee_Filipovski</AbbreviatedIRI>
+        <Literal>Filipovski</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:gender"/>
+        <AbbreviatedIRI>base:Lee_Filipovski</AbbreviatedIRI>
+        <AbbreviatedIRI>s:Male</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:givenName"/>
+        <AbbreviatedIRI>base:Lee_Filipovski</AbbreviatedIRI>
+        <Literal>Lee</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:familyName"/>
+        <AbbreviatedIRI>base:Leonardo_DiCaprio</AbbreviatedIRI>
+        <Literal>DiCaprio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:gender"/>
+        <AbbreviatedIRI>base:Leonardo_DiCaprio</AbbreviatedIRI>
+        <AbbreviatedIRI>s:Male</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:givenName"/>
+        <AbbreviatedIRI>base:Leonardo_DiCaprio</AbbreviatedIRI>
+        <Literal>Leonardo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>base:Long_metrage</AbbreviatedIRI>
+        <Literal xml:lang="fr">Un long métrage est un film d’une durée supérieure à 40 minutes (PT40M)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:Long_metrage</AbbreviatedIRI>
+        <Literal xml:lang="en">Long film</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:Long_metrage</AbbreviatedIRI>
+        <Literal xml:lang="fr">Long métrage</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Los_Angeles</AbbreviatedIRI>
+        <Literal>Los Angeles</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:familyName"/>
+        <AbbreviatedIRI>base:Mel_Gibson</AbbreviatedIRI>
+        <Literal>Gibson</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:gender"/>
+        <AbbreviatedIRI>base:Mel_Gibson</AbbreviatedIRI>
+        <AbbreviatedIRI>s:Male</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:givenName"/>
+        <AbbreviatedIRI>base:Mel_Gibson</AbbreviatedIRI>
+        <Literal>Mel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="base:dateDebutTournage"/>
+        <AbbreviatedIRI>base:Mr_Nobody_2009</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#date">2008</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="base:dateFinTournage"/>
+        <AbbreviatedIRI>base:Mr_Nobody_2009</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#date">2009</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:contentLocation"/>
+        <AbbreviatedIRI>base:Mr_Nobody_2009</AbbreviatedIRI>
+        <AbbreviatedIRI>base:Chance_gare</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:contentLocation"/>
+        <AbbreviatedIRI>base:Mr_Nobody_2009</AbbreviatedIRI>
+        <AbbreviatedIRI>base:Toronto</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:datePublished"/>
+        <AbbreviatedIRI>base:Mr_Nobody_2009</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#date">2009</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:duration"/>
+        <AbbreviatedIRI>base:Mr_Nobody_2009</AbbreviatedIRI>
+        <Literal>PT141M</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:headline"/>
+        <AbbreviatedIRI>base:Mr_Nobody_2009</AbbreviatedIRI>
+        <Literal>Mr. Nobody</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:productionCompany"/>
+        <AbbreviatedIRI>base:Mr_Nobody_2009</AbbreviatedIRI>
+        <AbbreviatedIRI>base:Pan-Europeenne</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Musique</AbbreviatedIRI>
+        <Literal>Musique</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:New_York</AbbreviatedIRI>
+        <Literal>New York</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Pan-Europeenne</AbbreviatedIRI>
+        <Literal>Pan-Européenne</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Romance</AbbreviatedIRI>
+        <Literal>Romance</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Royaume_Uni</AbbreviatedIRI>
+        <Literal>Royaume uni</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Science_fiction</AbbreviatedIRI>
+        <Literal>Science fiction</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:contentLocation"/>
+        <AbbreviatedIRI>base:Sleepy_Hollow_1999</AbbreviatedIRI>
+        <AbbreviatedIRI>base:New_York</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:contentReferenceTime"/>
+        <AbbreviatedIRI>base:Sleepy_Hollow_1999</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#date">1799</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:datePublished"/>
+        <AbbreviatedIRI>base:Sleepy_Hollow_1999</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#date">1999</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:duration"/>
+        <AbbreviatedIRI>base:Sleepy_Hollow_1999</AbbreviatedIRI>
+        <Literal>PT105M</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:headline"/>
+        <AbbreviatedIRI>base:Sleepy_Hollow_1999</AbbreviatedIRI>
+        <Literal>Sleepy Hollow : La légende du cavalier sans tête</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>base:Studio</AbbreviatedIRI>
+        <Literal xml:lang="fr">Société de production cinématographique, sous-classe d&apos;Organization de schema</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:Studio</AbbreviatedIRI>
+        <Literal xml:lang="fr">Société de production</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:Studio</AbbreviatedIRI>
+        <Literal xml:lang="en">Studio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:The_Geffen_Company</AbbreviatedIRI>
+        <Literal>The Geffen Company</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:contentLocation"/>
+        <AbbreviatedIRI>base:The_hitchhiker_s_guide_to_the_galaxy_2005</AbbreviatedIRI>
+        <AbbreviatedIRI>base:Espace</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:contentLocation"/>
+        <AbbreviatedIRI>base:The_hitchhiker_s_guide_to_the_galaxy_2005</AbbreviatedIRI>
+        <AbbreviatedIRI>base:Royaume_Uni</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:datePublished"/>
+        <AbbreviatedIRI>base:The_hitchhiker_s_guide_to_the_galaxy_2005</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#date">2005</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:duration"/>
+        <AbbreviatedIRI>base:The_hitchhiker_s_guide_to_the_galaxy_2005</AbbreviatedIRI>
+        <Literal>PT1H49M</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:headline"/>
+        <AbbreviatedIRI>base:The_hitchhiker_s_guide_to_the_galaxy_2005</AbbreviatedIRI>
+        <Literal>The Hitchhiker&apos;s Guide to the Galaxy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:locationCreated"/>
+        <AbbreviatedIRI>base:The_hitchhiker_s_guide_to_the_galaxy_2005</AbbreviatedIRI>
+        <AbbreviatedIRI>base:Royaume_Uni</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:productionCompany"/>
+        <AbbreviatedIRI>base:The_hitchhiker_s_guide_to_the_galaxy_2005</AbbreviatedIRI>
+        <IRI>http://exemple.org/cinema#20th_century_Fox</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:familyName"/>
+        <AbbreviatedIRI>base:Tim_Burton</AbbreviatedIRI>
+        <Literal>Burton</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:gender"/>
+        <AbbreviatedIRI>base:Tim_Burton</AbbreviatedIRI>
+        <AbbreviatedIRI>s:Male</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:givenName"/>
+        <AbbreviatedIRI>base:Tim_Burton</AbbreviatedIRI>
+        <Literal>Tim</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:contentLocation"/>
+        <AbbreviatedIRI>base:Titanic_1997</AbbreviatedIRI>
+        <AbbreviatedIRI>base:Titanic</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:contentReferenceTime"/>
+        <AbbreviatedIRI>base:Titanic_1997</AbbreviatedIRI>
+        <Literal>1912</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:datePublished"/>
+        <AbbreviatedIRI>base:Titanic_1997</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#date">1997</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:duration"/>
+        <AbbreviatedIRI>base:Titanic_1997</AbbreviatedIRI>
+        <Literal>PT194M</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:headline"/>
+        <AbbreviatedIRI>base:Titanic_1997</AbbreviatedIRI>
+        <Literal>Titanic</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:locationCreated"/>
+        <AbbreviatedIRI>base:Titanic_1997</AbbreviatedIRI>
+        <AbbreviatedIRI>base:Hollywood</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:productionCompany"/>
+        <AbbreviatedIRI>base:Titanic_1997</AbbreviatedIRI>
+        <IRI>http://exemple.org/cinema#20th_century_Fox</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Tokyo</AbbreviatedIRI>
+        <Literal>Tokyo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Toronto</AbbreviatedIRI>
+        <Literal>Toronto</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:location"/>
+        <AbbreviatedIRI>base:Walt_disney_studio</AbbreviatedIRI>
+        <AbbreviatedIRI>base:Burbank</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Walt_disney_studio</AbbreviatedIRI>
+        <Literal>Walt Disney Studio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:location"/>
+        <AbbreviatedIRI>base:Warner_bros</AbbreviatedIRI>
+        <AbbreviatedIRI>base:Burbank</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Warner_bros</AbbreviatedIRI>
+        <Literal>Warner Bros</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <AbbreviatedIRI>base:Wellington</AbbreviatedIRI>
+        <Literal>Wellington</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:datePublished"/>
+        <AbbreviatedIRI>base:Whiplash_2013</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#date">2013</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:duration"/>
+        <AbbreviatedIRI>base:Whiplash_2013</AbbreviatedIRI>
+        <Literal>PT18M</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:headline"/>
+        <AbbreviatedIRI>base:Whiplash_2013</AbbreviatedIRI>
+        <Literal>Whiplash</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>base:acteur_dans</AbbreviatedIRI>
+        <Literal xml:lang="fr">Lien entre une personne et un film dans lequel il joue en tant qu&apos;acteur</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:acteur_dans</AbbreviatedIRI>
+        <Literal xml:lang="fr">acteur dans</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:acteur_dans</AbbreviatedIRI>
+        <Literal xml:lang="en">actor in</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>base:dans_continent</AbbreviatedIRI>
+        <Literal xml:lang="fr">Lien entre un endroit et le continent ou il est localisé</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:dans_continent</AbbreviatedIRI>
+        <Literal xml:lang="fr">dans continent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:dans_continent</AbbreviatedIRI>
+        <Literal xml:lang="en">in continent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>base:dans_continent</AbbreviatedIRI>
+        <IRI>s:containedInPlace</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>base:dans_pays</AbbreviatedIRI>
+        <Literal xml:lang="fr">Lien entre un endroit et le pays ou il est localisé</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:dans_pays</AbbreviatedIRI>
+        <Literal xml:lang="fr">dans pays</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:dans_pays</AbbreviatedIRI>
+        <Literal xml:lang="en">in country</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>base:dans_pays</AbbreviatedIRI>
+        <IRI>s:containedInPlace</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>base:dans_ville</AbbreviatedIRI>
+        <Literal xml:lang="fr">Lien entre un endroit et la ville ou il est localisé</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:dans_ville</AbbreviatedIRI>
+        <Literal xml:lang="fr">dans ville</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:dans_ville</AbbreviatedIRI>
+        <Literal xml:lang="en">in city</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>base:dans_ville</AbbreviatedIRI>
+        <IRI>s:containedInPlace</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>base:date_debut_tournage</AbbreviatedIRI>
+        <Literal xml:lang="fr">Propriété entre un film et sa date de début de tournage</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:date_debut_tournage</AbbreviatedIRI>
+        <Literal xml:lang="en">beginning shooting</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:date_debut_tournage</AbbreviatedIRI>
+        <Literal xml:lang="fr">début du tournage</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>base:date_debut_tournage</AbbreviatedIRI>
+        <IRI>s:dateCreated</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>base:date_film</AbbreviatedIRI>
+        <Literal xml:lang="fr">Propriété d&apos;un film indiquant la date d&apos;au moins un des événements du film</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:date_film</AbbreviatedIRI>
+        <Literal xml:lang="fr">date dans film</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:date_film</AbbreviatedIRI>
+        <Literal xml:lang="en">date in movie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>base:date_film</AbbreviatedIRI>
+        <IRI>s:contentReferenceTime</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>base:date_fin_tournage</AbbreviatedIRI>
+        <Literal xml:lang="fr">Propriété d&apos;un film indiquant le lieu de l&apos;histoire et des événements du film</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:date_fin_tournage</AbbreviatedIRI>
+        <Literal xml:lang="en">end of shooting</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:date_fin_tournage</AbbreviatedIRI>
+        <Literal xml:lang="fr">fin du tournage</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>base:date_fin_tournage</AbbreviatedIRI>
+        <IRI>s:dateModified</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>base:genre</AbbreviatedIRI>
+        <Literal xml:lang="fr">Propriété entre un film et un de ses genres</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:genre</AbbreviatedIRI>
+        <Literal xml:lang="en">genre</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:genre</AbbreviatedIRI>
+        <Literal xml:lang="fr">genre</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>base:lieu_film</AbbreviatedIRI>
+        <Literal xml:lang="fr">Propriété d&apos;un film indiquant le lieu d&apos;au moins un des événements du film</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:lieu_film</AbbreviatedIRI>
+        <Literal xml:lang="fr">lieu dans film</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:lieu_film</AbbreviatedIRI>
+        <Literal xml:lang="en">place in movie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>base:lieu_film</AbbreviatedIRI>
+        <IRI>s:contentLocation</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>base:lieu_tournage</AbbreviatedIRI>
+        <Literal xml:lang="fr">Propriété entre un film et un de ses lieux de tournage</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:lieu_tournage</AbbreviatedIRI>
+        <Literal xml:lang="fr">lieu du tournage</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:lieu_tournage</AbbreviatedIRI>
+        <Literal xml:lang="en">place of shooting</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <AbbreviatedIRI>base:lieu_tournage</AbbreviatedIRI>
+        <IRI>s:locationCreated</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>base:producteur_de</AbbreviatedIRI>
+        <Literal xml:lang="fr">Lien entre une personne et un film sur lequel il travaille en tant que producteur</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:producteur_de</AbbreviatedIRI>
+        <Literal xml:lang="en">producer of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:producteur_de</AbbreviatedIRI>
+        <Literal xml:lang="fr">producteur de</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>base:realisateur_de</AbbreviatedIRI>
+        <Literal xml:lang="fr">Lien entre une personne et un film sur lequel il travaille en tant que réalisateur</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:realisateur_de</AbbreviatedIRI>
+        <Literal xml:lang="en">director of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:realisateur_de</AbbreviatedIRI>
+        <Literal xml:lang="fr">réalisateur de</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>base:scenariste_de</AbbreviatedIRI>
+        <Literal xml:lang="fr">Lien entre une personne et un film sur lequel il travaille en tant que scénariste</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:scenariste_de</AbbreviatedIRI>
+        <Literal xml:lang="en">screenwriter of</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>base:scenariste_de</AbbreviatedIRI>
+        <Literal xml:lang="fr">scénariste de</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:location"/>
+        <IRI>http://exemple.org/cinema#20th_century_Fox</IRI>
+        <AbbreviatedIRI>base:Los_Angeles</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="s:name"/>
+        <IRI>http://exemple.org/cinema#20th_century_Fox</IRI>
+        <Literal>20th Century Fox</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://schema.org/contained_in_place</IRI>
+        <Literal xml:lang="en">contained in place</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://schema.org/contained_in_place</IRI>
+        <Literal xml:lang="fr">contenu dans</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>s:City</AbbreviatedIRI>
+        <Literal xml:lang="en">City</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>s:City</AbbreviatedIRI>
+        <Literal xml:lang="fr">Ville</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>s:Continent</AbbreviatedIRI>
+        <Literal xml:lang="en">Continent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>s:Continent</AbbreviatedIRI>
+        <Literal xml:lang="fr">Continent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>s:Date</AbbreviatedIRI>
+        <Literal xml:lang="en">Date</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>s:Date</AbbreviatedIRI>
+        <Literal xml:lang="fr">Date</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>s:Movie</AbbreviatedIRI>
+        <Literal xml:lang="fr">Film</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>s:Movie</AbbreviatedIRI>
+        <Literal xml:lang="en">Movie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>s:Organization</AbbreviatedIRI>
+        <Literal xml:lang="fr">Organisation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>s:Organization</AbbreviatedIRI>
+        <Literal xml:lang="en">Organization</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>s:Person</AbbreviatedIRI>
+        <Literal xml:lang="en">Person</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>s:Person</AbbreviatedIRI>
+        <Literal xml:lang="fr">Personne</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>s:Place</AbbreviatedIRI>
+        <Literal xml:lang="fr">Lieu</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>s:Place</AbbreviatedIRI>
+        <Literal xml:lang="en">Place</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>s:State</AbbreviatedIRI>
+        <Literal xml:lang="fr">Pays</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>s:State</AbbreviatedIRI>
+        <Literal xml:lang="en">State</Literal>
+    </AnnotationAssertion>
+</Ontology>
 
 
 
